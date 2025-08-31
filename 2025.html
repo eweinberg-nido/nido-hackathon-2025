@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nido Hackathon 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111827; /* Dark gray background */
+            color: #E5E7EB; /* Light gray text */
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .section {
+            padding: 6rem 0;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #6EE7B7, #3B82F6, #9333EA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Style for the hamburger menu icon */
+        .hamburger-icon {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 2rem;
+            height: 2rem;
+            position: relative;
+            z-index: 100;
+        }
+        .hamburger-icon span {
+            width: 100%;
+            height: 3px;
+            background-color: #E5E7EB;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+        }
+        .hamburger-icon.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger-icon.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger-icon.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile menu styles */
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 99;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        #mobile-menu.open {
+            display: flex;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <header class="py-6 fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md">
+        <div class="container flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold gradient-text">Nido Hackathon 2025</a>
+            <nav class="hidden md:flex space-x-6 text-lg font-medium">
+                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                <a href="#speakers" class="hover:text-cyan-400 transition-colors">Speakers</a>
+                <a href="#schedule" class="hover:text-cyan-400 transition-colors">Schedule</a>
+                <a href="#sponsors" class="hover:text-cyan-400 transition-colors">Sponsors</a>
+                <a href="#prizes" class="hover:text-cyan-400 transition-colors">Prizes & Judging</a>
+                <a href="#faq" class="hover:text-cyan-400 transition-colors">FAQ</a>
+            </nav>
+            <div class="md:hidden hamburger-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu">
+        <a href="#about" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">About</a>
+        <a href="#speakers" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Speakers</a>
+        <a href="#schedule" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Schedule</a>
+        <a href="#sponsors" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Sponsors</a>
+        <a href="#prizes" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Prizes & Judging</a>
+        <a href="#faq" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">FAQ</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section pt-32 pb-24 text-center bg-gray-900">
+        <div class="container">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-4 gradient-text">
+                INNOVATE. SOLVE. CREATE.
+            </h1>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Nido Hackathon 2025</h2>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+                A student-led hackathon where innovation meets problem-solving. Join us for two days of creativity, collaboration, and cutting-edge technology.
+            </p>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+                March 28-29, 2025 | Nido de Águilas, Santiago, Chile<br>
+                Friday: 15:30 - 17:30 PM | Saturday: 12:00 - 18:00 PM<br>
+                Stevenson Hall + MPB (ES)
+            </p>
+            <a href="#" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                Sign Up Now!
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-gray-800">
+        <div class="container">
+            <h2 class="text-4xl font-bold mb-4 gradient-text">ABOUT</h2>
+            <h3 class="text-2xl font-bold mb-2">What is a Hackathon?</h3>
+            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                A hackathon is an event where people collaborate to develop creative solutions to real-world problems in a limited time. Teams work on projects related to STEM, AI, Coding, Entrepreneurship, and Design, using cutting-edge technology, innovation, and teamwork to bring ideas to life.
+            </p>
+            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                At Nido Hackathon 2025, participants will brainstorm, prototype, and present their projects while getting mentorship and access to industry tools.
+            </p>
+            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                <strong>Theme: For Students By Students: Leveraging AI Innovation for Education</strong>
+            </p>
+            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                This hackathon is open to all high school students at Nido, regardless of experience. Whether you're a beginner or an experienced coder/designer, this is your chance to learn, create, and connect.
+            </p>
+            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                No coding experience? No problem! We’ll have AI and coding tool training to help you get started.
+            </p>
+            <h3 class="text-2xl font-bold mb-2">Why Join?</h3>
+            <ul class="list-disc list-inside text-gray-300 text-lg leading-relaxed">
+                <li>Innovate & Solve – Work on exciting challenges in STEM, AI, business, and problem-solving.</li>
+                <li>Learn & Collaborate – Gain hands-on experience, meet mentors, and work in teams.</li>
+                <li>Use AI & Tech Tools – Experiment with AI, coding platforms, and prototyping software.</li>
+                <li>Win Exciting Prizes – Compete for prizes that recognize creativity and innovation.</li>
+                <li>Free Food & Snacks – Stay energized with sponsored meals and refreshments!</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section id="speakers" class="section bg-gray-900">
+        <div class="container">
+            <h2 class="text-4xl font-bold mb-8 gradient-text">Our Speakers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card p-6">
+                    <h3 class="text-2xl font-bold mb-2">Daniel Undurraga</h3>
+                    <p class="text-gray-400 mb-4">Friday, March 28 - Keynote Speaker</p>
+                    <p class="text-gray-300 mb-4">
+                        Daniel Undurraga is the co-founder of Cornershop, one of Latin America's most successful tech startups, which was later acquired by Uber. With extensive experience in entrepreneurship, business, and innovation, Daniel will share insights on building a successful startup, navigating the tech industry, and solving real-world problems through innovation.
+                    </p>
+                    <a href="#" class="text-cyan-400 hover:underline">LinkedIn</a>
+                </div>
+                <div class="glass-card p-6">
+                    <h3 class="text-2xl font-bold mb-2">Boston Dynamics</h3>
+                    <p class="text-gray-400 mb-4">Friday, March 28 - Live Demo</p>
+                    <p class="text-gray-300 mb-4">
+                        Boston Dynamics, known for its cutting-edge robotics, will showcase one of its famous robots in a live demonstration. This is an exciting opportunity to see advanced AI, automation, and robotics in action and explore the future of technology.
+                    </p>
+                    <a href="#" class="text-cyan-400 hover:underline">Youtube</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="section bg-gray-800">
+        <div class="container">
+            <h2 class="text-4xl font-bold mb-8 gradient-text">Schedule</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card p-6">
+                    <h3 class="text-2xl font-bold mb-2">Friday, March 28 15:30 - 17:30</h3>
+                    <p class="text-gray-400 mb-4">Stevenson Hall</p>
+                    <ul class="space-y-4 text-gray-300">
+                        <li><strong>15:30:</strong> Welcome + Introduction</li>
+                        <li><strong>15:45:</strong> Keynote Speaker: Daniel Undurraga</li>
+                        <li><strong>16:05:</strong> Discussion Time</li>
+                        <li><strong>16:20:</strong> Session 1: Boston Dynamics Robot Demo</li>
+                        <li><strong>16:50:</strong> Session 2: AI Trainig</li>
+                        <li><strong>17:20 - 17:30:</strong> Ending Time</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-6">
+                    <h3 class="text-2xl font-bold mb-2">Saturday, March 29 12:00 - 18:00</h3>
+                    <p class="text-gray-400 mb-4">MPB (Elementary School)</p>
+                    <ul class="space-y-4 text-gray-300">
+                        <li><strong>12:00:</strong> Initiate Event</li>
+                        <li><strong>12:15:</strong> Design & Prototyping (First Iteration)</li>
+                        <li><strong>13:15:</strong> Break Time</li>
+                        <li><strong>13:25:</strong> Work on Project</li>
+                        <li><strong>14:15:</strong> Midway + Progress Pitch</li>
+                        <li><strong>15:00:</strong> Pizza Time!</li>
+                        <li><strong>15:30:</strong> Work + Final Itereations</li>
+                        <li><strong>16:00:</strong> Final Pitches/Presentations</li>
+                        <li><strong>17:00:</strong> Judging, Prizes, Feedback</li>
+                        <li><strong>17:50 - 18:00:</strong> Ending Time</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="section bg-gray-900">
+        <div class="container">
+            <h2 class="text-4xl font-bold mb-8 gradient-text text-center">Sponsors</h2>
+            <p class="text-gray-300 text-lg leading-relaxed text-center mb-8">
+                Sponsors: Mettra Pizza, Score Energy Drink, ICB Food Service, Vinoteca Restaurant
+            </p>
+            <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                Nido Hackathon 2025 is a student-led innovation challenge bringing together high school students to tackle real-world problems through technology, design, and entrepreneurship. As the first post-pandemic hackathon at our school, we aim to empower the next generation of innovators while fostering creativity and collaboration.
+            </p>
+            <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                By sponsoring our event, you’ll gain direct exposure to future leaders and changemakers, as well as brand visibility among students, educators, and industry professionals. Your support will help provide food, prizes, and essential resources, ensuring an impactful and successful event.
+            </p>
+            <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                We’re looking for financial contributions, food donations, or in-kind sponsorships—any support makes a difference!
+            </p>
+            <p class="text-gray-300 text-lg leading-relaxed text-center">
+                Interested? Let’s collaborate! Reach out to us to discuss sponsorship opportunities.
+            </p>
+            <div class="text-center mt-8">
+                <a href="#" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    Become a Sponsor!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes & Judging Section -->
+    <section id="prizes" class="section bg-gray-800">
+        <div class="container">
+            <h2 class="text-4xl font-bold mb-8 gradient-text">Prizes & Judging</h2>
+            <h3 class="text-2xl font-bold mb-2">What can participants win?</h3>
+            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                There are 2 $50.000 Gift Cards to Win!
+            </p>
+            <h3 class="text-2xl font-bold mb-2">How will projects be judged?</h3>
+            <ul class="list-disc list-inside text-gray-300 text-lg leading-relaxed">
+                <li>Creativity & Innovation</li>
+                <li>Feasibility & Impact</li>
+                <li>Technical Implementation</li>
+                <li>Presentation & Communication</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section bg-gray-900">
+        <div class="container">
+            <h2 class="text-4xl font-bold mb-8 gradient-text">FAQ (Common Questions)</h2>
+            <div id="faq-accordion" class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-semibold">Who can participate?</h3>
+                        <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
+                    </div>
+                    <div class="mt-4 hidden text-gray-300">
+                        Any Nido student, no experience required!
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-semibold">Do I need coding experience?</h3>
+                        <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
+                    </div>
+                    <div class="mt-4 hidden text-gray-300">
+                        Nope! We’ll have AI and coding tool training.
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-semibold">What should I bring?</h3>
+                        <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
+                    </div>
+                    <div class="mt-4 hidden text-gray-300">
+                        Laptop, charger, and enthusiasm!
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-semibold">Will there be food?</h3>
+                        <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
+                    </div>
+                    <div class="mt-4 hidden text-gray-300">
+                        Yes! We’re working with sponsors to provide meals/snacks.
+                    </div>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div class="glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-semibold">How do I sign up?</h3>
+                        <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
+                    </div>
+                    <div class="mt-4 hidden text-gray-300">
+                        Click the "Sign Up Now!" button.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-12">
+        <div class="container text-center text-gray-400">
+            <p>&copy; 2025 Nido Hackathon. All rights reserved.</p>
+            <p class="mt-2">
+                Supported by: Universidad Católica Innovation Center, Mettre Pizza, ICB Food Service, Score Energy Drinks, Vinoteca Restaurant
+            </p>
+            <p class="mt-2">
+                <a href="#" class="hover:text-cyan-400 transition-colors">Contact Us</a> |
+                <a href="#" class="hover:text-cyan-400 transition-colors">Follow Us</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFaq(element) {
+            const answer = element.querySelector('div.mt-4');
+            const icon = element.querySelector('span.text-2xl');
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(45deg)';
+            } else {
+                answer.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.querySelector('.hamburger-icon');
+            mobileMenu.classList.toggle('open');
+            hamburgerIcon.classList.toggle('open');
+        }
+
+        // Add event listeners for smooth scrolling and menu toggle
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking a link
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburgerIcon = document.querySelector('.hamburger-icon');
+                if (mobileMenu.classList.contains('open')) {
+                    mobileMenu.classList.remove('open');
+                    hamburgerIcon.classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
