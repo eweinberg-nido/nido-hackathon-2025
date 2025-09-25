@@ -6,11 +6,11 @@
     <title>Nido Hackathon 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
         body {
-            font-family: 'Inter', sans-serif;
-            background: #111827; /* Dark gray background */
-            color: #E5E7EB; /* Light gray text */
+            font-family: 'Open Sans', sans-serif;
+            background: #F3F4F6; /* Light gray background */
+            color: #1F2937; /* Dark gray text */
             scroll-behavior: smooth;
         }
         .container {
@@ -22,75 +22,33 @@
             padding: 6rem 0;
         }
         .gradient-text {
-            background: linear-gradient(to right, #6EE7B7, #3B82F6, #9333EA);
+            background: linear-gradient(to right, #002365, #8A1621);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             border-radius: 1rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         /* Style for the hamburger menu icon */
-        .hamburger-icon {
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 2rem;
-            height: 2rem;
-            position: relative;
-            z-index: 100;
-        }
         .hamburger-icon span {
-            width: 100%;
-            height: 3px;
+            background-color: #1F2937;
+        }
+        .hamburger-icon.open span {
             background-color: #E5E7EB;
-            border-radius: 10px;
-            transition: all 0.3s linear;
-        }
-        .hamburger-icon.open span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger-icon.open span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger-icon.open span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* Mobile menu styles */
-        #mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(17, 24, 39, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 99;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease-in-out;
-            transform: translateY(-100%);
-        }
-        #mobile-menu.open {
-            display: flex;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Navigation -->
-    <header class="py-6 fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md">
+    <header class="py-6 fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
         <div class="container flex justify-between items-center">
             <a href="#" class="text-3xl font-bold gradient-text">Nido Hackathon 2025</a>
-            <nav class="hidden md:flex space-x-6 text-lg font-medium">
+            <nav class="hidden md:flex space-x-6 text-lg font-medium text-gray-700">
                 <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
                 <a href="#speakers" class="hover:text-cyan-400 transition-colors">Speakers</a>
                 <a href="#schedule" class="hover:text-cyan-400 transition-colors">Schedule</a>
@@ -117,30 +75,30 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="section pt-32 pb-24 text-center bg-gray-900">
+    <section class="section pt-32 pb-24 text-center bg-gray-100">
         <div class="container">
             <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-4 gradient-text">
                 Build the Future, One Line at a Time.
             </h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
                 Join us for 48 hours of coding, collaboration, and innovation. Bring your ideas to life and compete for amazing prizes.
             </p>
             <div id="countdown" class="flex justify-center space-x-4 mb-8">
                 <div class="glass-card p-4 rounded-xl text-center min-w-[80px]">
                     <span id="days" class="block text-4xl font-bold">00</span>
-                    <span class="block text-sm text-gray-400">Days</span>
+                    <span class="block text-sm text-gray-500">Days</span>
                 </div>
                 <div class="glass-card p-4 rounded-xl text-center min-w-[80px]">
                     <span id="hours" class="block text-4xl font-bold">00</span>
-                    <span class="block text-sm text-gray-400">Hours</span>
+                    <span class="block text-sm text-gray-500">Hours</span>
                 </div>
                 <div class="glass-card p-4 rounded-xl text-center min-w-[80px]">
                     <span id="minutes" class="block text-4xl font-bold">00</span>
-                    <span class="block text-sm text-gray-400">Minutes</span>
+                    <span class="block text-sm text-gray-500">Minutes</span>
                 </div>
                 <div class="glass-card p-4 rounded-xl text-center min-w-[80px]">
                     <span id="seconds" class="block text-4xl font-bold">00</span>
-                    <span class="block text-sm text-gray-400">Seconds</span>
+                    <span class="block text-sm text-gray-500">Seconds</span>
                 </div>
             </div>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSecZ4FHEYECJc8sAp7eVPBD3IkxL-wqFDddsLgUr2s9jC9UTQ/viewform" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
@@ -150,27 +108,27 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section bg-gray-800">
+    <section id="about" class="section bg-white">
         <div class="container">
             <h2 class="text-4xl font-bold mb-4 gradient-text">ABOUT</h2>
             <h3 class="text-2xl font-bold mb-2">What is a Hackathon?</h3>
-            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+            <p class="text-gray-700 text-lg leading-relaxed mb-4">
                 A hackathon is an event where people collaborate to develop creative solutions to real-world problems in a limited time. Teams work on projects related to STEM, AI, Coding, Entrepreneurship, and Design, using cutting-edge technology, innovation, and teamwork to bring ideas to life.
             </p>
-            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+            <p class="text-gray-700 text-lg leading-relaxed mb-4">
                 At Nido Hackathon 2025, participants will brainstorm, prototype, and present their projects while getting mentorship and access to industry tools.
             </p>
-            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+            <p class="text-gray-700 text-lg leading-relaxed mb-4">
                 <strong>Theme: For Students By Students: Leveraging AI Innovation for Health</strong>
             </p>
-            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+            <p class="text-gray-700 text-lg leading-relaxed mb-4">
                 This hackathon is open to all high school students at Nido, regardless of experience. Whether you're a beginner or an experienced coder/designer, this is your chance to learn, create, and connect.
             </p>
-            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+            <p class="text-gray-700 text-lg leading-relaxed mb-4">
                 No coding experience? No problem! We’ll have AI and coding tool training to help you get started.
             </p>
             <h3 class="text-2xl font-bold mb-2">Why Join?</h3>
-            <ul class="list-disc list-inside text-gray-300 text-lg leading-relaxed">
+            <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed">
                 <li>Innovate & Solve – Work on exciting challenges in STEM, AI, business, and problem-solving.</li>
                 <li>Learn & Collaborate – Gain hands-on experience, meet mentors, and work in teams.</li>
                 <li>Use AI & Tech Tools – Experiment with AI, coding platforms, and prototyping software.</li>
@@ -181,22 +139,22 @@
     </section>
 
     <!-- Speakers Section -->
-    <section id="speakers" class="section bg-gray-900">
+    <section id="speakers" class="section bg-gray-100">
         <div class="container">
             <h2 class="text-4xl font-bold mb-8 gradient-text">Our Speakers</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="glass-card p-6">
                     <h3 class="text-2xl font-bold mb-2">Friday, September 26</h3>
-                    <p class="text-gray-400 mb-4">Keynote Speaker:</p>
-                    <p class="text-gray-300 mb-4">
+                    <p class="text-gray-600 mb-4">Keynote Speaker:</p>
+                    <p class="text-gray-700 mb-4">
                         Ian Lee <br/>founder and CEO of <a href = "https://examedi.cl">Examedi </a> <br/>Nido de Aguilas Class of 2019
                     </p>
                   
                 </div>
                 <div class="glass-card p-6">
                     <h3 class="text-2xl font-bold mb-2">Saturday, September 27</h3>
-                    <p class="text-gray-400 mb-4"> Live Demo</p>
-                    <p class="text-gray-300 mb-4">
+                    <p class="text-gray-600 mb-4"> Live Demo</p>
+                    <p class="text-gray-700 mb-4">
                         Experienced coders will be available to hep you and your team bring your ideas to life.
                     </p>
                 </div>
@@ -205,14 +163,14 @@
     </section>
 
     <!-- Schedule Section -->
-    <section id="schedule" class="section bg-gray-800">
+    <section id="schedule" class="section bg-white">
         <div class="container">
             <h2 class="text-4xl font-bold mb-8 gradient-text">Schedule</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="glass-card p-6">
                     <h3 class="text-2xl font-bold mb-2">Friday, September 26 15:30 - 17:30</h3>
-                    <p class="text-gray-400 mb-4">Stevenson Hall</p>
-                    <ul class="space-y-4 text-gray-300">
+                    <p class="text-gray-600 mb-4">Stevenson Hall</p>
+                    <ul class="space-y-4 text-gray-700">
                         <li><strong>15:30:</strong> Welcome + Introduction</li>
                         <li><strong>15:40:</strong> Keynote Speaker: Ian Lee, Examedi</li>
                         <li><strong>16:05:</strong> Discussion Time</li>
@@ -223,8 +181,8 @@
                 </div>
                 <div class="glass-card p-6">
                     <h3 class="text-2xl font-bold mb-2">Saturday, September 27 12:00 - 18:00</h3>
-                    <p class="text-gray-400 mb-4">MPB (Elementary School)</p>
-                    <ul class="space-y-4 text-gray-300">
+                    <p class="text-gray-600 mb-4">MPB (Elementary School)</p>
+                    <ul class="space-y-4 text-gray-700">
                         <li><strong>10:00:</strong> Event Welcome and Reconnection</li>
                         <li><strong>10:15:</strong> Design & Prototyping (First Iteration)</li>
                         <li><strong>12:15:</strong> Lunch</li>
@@ -242,7 +200,7 @@
     </section>
 
     <!-- Sponsors Section -->
-    <section id="sponsors" class="section bg-gray-900">
+    <section id="sponsors" class="section bg-gray-100">
         <div class="container">
             <h2 class="text-4xl font-bold mb-8 gradient-text text-center">Sponsors</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
@@ -271,13 +229,13 @@
                     <h3 class="text-xl font-bold">Score</h3>
                 </div>
             </div>
-            <p class="text-gray-300 text-lg leading-relaxed mb-8">
+            <p class="text-gray-700 text-lg leading-relaxed mb-8">
                 The Nido Hackathon is a student-led innovation challenge bringing together high school students to tackle real-world problems through technology, design, and entrepreneurship. As the first post-pandemic hackathon at our school, we aim to empower the next generation of innovators while fostering creativity and collaboration.
             </p>
-            <p class="text-gray-300 text-lg leading-relaxed mb-8">
+            <p class="text-gray-700 text-lg leading-relaxed mb-8">
                 By sponsoring our event, you’ll gain direct exposure to future leaders and changemakers, as well as brand visibility among students, educators, and industry professionals. Your support will help provide food, prizes, and essential resources, ensuring an impactful and successful event.
             </p>
-            <p class="text-gray-300 text-lg leading-relaxed mb-8">
+            <p class="text-gray-700 text-lg leading-relaxed mb-8">
                 We’re looking for financial contributions, food donations, or in-kind sponsorships—any support makes a difference!
             </p>
            
@@ -286,15 +244,15 @@
     </section>
 
     <!-- Prizes & Judging Section -->
-    <section id="prizes" class="section bg-gray-800">
+    <section id="prizes" class="section bg-white">
         <div class="container">
             <h2 class="text-4xl font-bold mb-8 gradient-text">Prizes & Judging</h2>
             <h3 class="text-2xl font-bold mb-2">What can participants win?</h3>
-            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+            <p class="text-gray-700 text-lg leading-relaxed mb-4">
                 Participants will be competing for gift cards, food, mentorship opportunities, and other prizes.
             </p>
             <h3 class="text-2xl font-bold mb-2">How will projects be judged?</h3>
-            <ul class="list-disc list-inside text-gray-300 text-lg leading-relaxed">
+            <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed">
                 <li>Creativity & Innovation</li>
                 <li>Feasibility & Impact</li>
                 <li>Technical Implementation</li>
@@ -304,7 +262,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="section bg-gray-900">
+    <section id="faq" class="section bg-gray-100">
         <div class="container">
             <h2 class="text-4xl font-bold mb-8 gradient-text">FAQ (Common Questions)</h2>
             <div id="faq-accordion" class="space-y-4">
@@ -314,7 +272,7 @@
                         <h3 class="text-xl font-semibold">Who can participate?</h3>
                         <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
                     </div>
-                    <div class="mt-4 hidden text-gray-300">
+                    <div class="mt-4 hidden text-gray-600">
                         Any Nido student, no experience required!
                     </div>
                 </div>
@@ -324,7 +282,7 @@
                         <h3 class="text-xl font-semibold">Do I need coding experience?</h3>
                         <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
                     </div>
-                    <div class="mt-4 hidden text-gray-300">
+                    <div class="mt-4 hidden text-gray-600">
                         Nope! We’ll have AI and coding tool training.
                     </div>
                 </div>
@@ -334,7 +292,7 @@
                         <h3 class="text-xl font-semibold">What should I bring?</h3>
                         <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
                     </div>
-                    <div class="mt-4 hidden text-gray-300">
+                    <div class="mt-4 hidden text-gray-600">
                         Laptop, charger, and enthusiasm!
                     </div>
                 </div>
@@ -344,7 +302,7 @@
                         <h3 class="text-xl font-semibold">Will there be food?</h3>
                         <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
                     </div>
-                    <div class="mt-4 hidden text-gray-300">
+                    <div class="mt-4 hidden text-gray-600">
                         Yes! We’re working with sponsors to provide meals/snacks.
                     </div>
                 </div>
@@ -354,7 +312,7 @@
                         <h3 class="text-xl font-semibold">How do I sign up?</h3>
                         <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
                     </div>
-                    <div class="mt-4 hidden text-gray-300">
+                    <div class="mt-4 hidden text-gray-600">
                         Click the "Sign Up Now!" button.
                     </div>
                 </div>
@@ -363,16 +321,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-950 py-12">
-        <div class="container text-center text-gray-400">
+    <footer class="bg-gray-200 py-12">
+        <div class="container text-center text-gray-600">
             <p>&copy; 2025 Nido Hackathon. All rights reserved.</p>
             <p class="mt-2">
                 Supported by: PWC,International School Nido de Aguilas, ICB Food Service, Mattre Pizza, Palacio Danubio Azul, Score
             </p>
-            <p class="mt-2">
-                <a href="#" class="hover:text-cyan-400 transition-colors">Contact Us</a> |
-                <a href="#" class="hover:text-cyan-400 transition-colors">Follow Us</a>
-            </p>
+            
         </div>
     </footer>
 
@@ -439,3 +394,4 @@
     </script>
 </body>
 </html>
+l>
