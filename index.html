@@ -49,6 +49,7 @@
         <div class="container flex justify-between items-center">
             <a href="#" class="text-3xl font-bold gradient-text">Nido Hackathon 2025</a>
             <nav class="hidden md:flex space-x-6 text-lg font-medium text-gray-700">
+                <a href="#previous" class="hover:text-cyan-400 transition-colors">Previous</a>
                 <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
                 <a href="#speakers" class="hover:text-cyan-400 transition-colors">Speakers</a>
                 <a href="#schedule" class="hover:text-cyan-400 transition-colors">Schedule</a>
@@ -67,6 +68,7 @@
 
     <!-- Mobile Menu -->
     <nav id="mobile-menu">
+        <a href="#previous" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Previous</a>
         <a href="#about" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">About</a>
         <a href="#speakers" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Speakers</a>
         <a href="#schedule" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Schedule</a>
@@ -102,12 +104,65 @@
                     <span class="block text-sm text-gray-500">Seconds</span>
                 </div>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSecZ4FHEYECJc8sAp7eVPBD3IkxL-wqFDddsLgUr2s9jC9UTQ/viewform" class="hidden bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Register Now
-            </a>
-            <a href="https://docs.google.com/document/d/1YMVZwrDW3kECz9TEysNCOlo3dtjUv5JyvHdqzViP-vk/edit?usp=sharing" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-               Click Here for the Toolkit!
-            </a>
+            <h3 class="text-3xl md:text-4xl font-bold gradient-text mb-4">
+                Countdown to March 3rd
+            </h3>
+        </div>
+    </section>
+
+    <!-- Previous Hackathon Section -->
+    <section id="previous" class="section bg-white">
+        <div class="container">
+            <h2 class="text-4xl font-bold mb-8 gradient-text">Previous Hackathon</h2>
+            
+            <!-- Stats Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="glass-card p-6 text-center">
+                    <h3 class="text-3xl font-bold text-cyan-600 mb-2" id="attendees-count">40</h3>
+                    <p class="text-gray-600 text-lg">Attendees</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <h3 class="text-3xl font-bold text-cyan-600 mb-2" id="projects-count">11</h3>
+                    <p class="text-gray-600 text-lg">Projects Submitted</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <h3 class="text-3xl font-bold text-cyan-600 mb-2" id="prizes-given">4 Internships</h3>
+                    <p class="text-gray-600 text-lg">Prizes Given</p>
+                </div>
+            </div>
+
+            <!-- Carousel Section -->
+            <div class="glass-card p-6">
+                <h3 class="text-2xl font-bold mb-6 text-center gradient-text">Gallery</h3>
+                <div id="carousel" class="relative overflow-hidden rounded-lg">
+                    <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="carousel-container">
+                        <!-- Carousel items will be added here -->
+                        <div class="carousel-item w-full flex-shrink-0 text-center py-12">
+                            <div class="text-gray-500 text-lg">
+                                <p class="mb-4">📸 Add your hackathon photos here</p>
+                                <p class="text-sm">Replace this placeholder with actual images</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation arrows -->
+                    <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-300" onclick="previousSlide()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-300" onclick="nextSlide()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Dots indicator -->
+                    <div class="flex justify-center mt-4 space-x-2" id="carousel-dots">
+                        <button class="w-3 h-3 rounded-full bg-cyan-500" onclick="currentSlide(1)"></button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -167,7 +222,7 @@
     </section>
 
     <!-- Schedule Section -->
-    <section id="schedule" class="section bg-white">
+    <section id="schedule" class="section bg-white hidden">
         <div class="container">
             <h2 class="text-4xl font-bold mb-8 gradient-text">Schedule</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -338,7 +393,7 @@
     <script>
         // Set the date for the countdown timer
         // Format: 'Month Day, Year Hour:Minute:Second'
-        const hackathonDate = new Date("September 26, 2025 15:30:00").getTime();
+        const hackathonDate = new Date("April 10, 2026 15:30:00").getTime();
 
         const x = setInterval(function() {
             const now = new Date().getTime();
@@ -377,6 +432,43 @@
             const hamburgerIcon = document.querySelector('.hamburger-icon');
             mobileMenu.classList.toggle('open');
             hamburgerIcon.classList.toggle('open');
+        }
+
+        // Carousel functionality
+        let currentSlideIndex = 0;
+        const totalSlides = 1; // Update this when you add more slides
+
+        function showSlide(index) {
+            const container = document.getElementById('carousel-container');
+            const translateX = -index * 100;
+            container.style.transform = `translateX(${translateX}%)`;
+            
+            // Update dots
+            const dots = document.querySelectorAll('#carousel-dots button');
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('bg-cyan-500');
+                    dot.classList.remove('bg-gray-300');
+                } else {
+                    dot.classList.remove('bg-cyan-500');
+                    dot.classList.add('bg-gray-300');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+            showSlide(currentSlideIndex);
+        }
+
+        function previousSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
         }
 
         // Add event listeners for smooth scrolling and menu toggle
