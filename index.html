@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nido Hackathon 2025</title>
+    <title>Nido Hackathon</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
@@ -23,6 +23,7 @@
         }
         .gradient-text {
             background: linear-gradient(to right, #002365, #8A1621);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -34,56 +35,91 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         /* Style for the hamburger menu icon */
+        .hamburger-icon {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
         .hamburger-icon span {
+            width: 25px;
+            height: 3px;
             background-color: #1F2937;
+            transition: all 0.3s;
         }
         .hamburger-icon.open span {
             background-color: #E5E7EB;
+        }
+        /* Mobile menu styles */
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 40;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        #mobile-menu.open {
+            display: flex;
+        }
+        #mobile-menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0.5rem 0;
+        }
+        /* Header - logo always visible */
+        header {
+            transform: translateY(0);
+        }
+        /* Hero section full height */
+        .hero-full {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, #9CA3AF 0%, #E5E7EB 50%, #FFFFFF 100%);
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                background: linear-gradient(to bottom, #6B7280 0%, #9CA3AF 100%);
+            }
+            to {
+                opacity: 1;
+                background: linear-gradient(to bottom, #9CA3AF 0%, #E5E7EB 50%, #FFFFFF 100%);
+            }
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Navigation -->
-    <header class="py-6 fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
-        <div class="container flex justify-between items-center">
-            <a href="#" class="text-3xl font-bold gradient-text">Nido Hackathon 2025</a>
-            <nav class="hidden md:flex space-x-6 text-lg font-medium text-gray-700">
-                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
-                <a href="#speakers" class="hover:text-cyan-400 transition-colors">Speakers</a>
-                <a href="#schedule" class="hover:text-cyan-400 transition-colors">Schedule</a>
-                <a href="#sponsors" class="hover:text-cyan-400 transition-colors">Sponsors</a>
-                <a href="#prizes" class="hover:text-cyan-400 transition-colors">Prizes & Judging</a>
-                <a href="#faq" class="hover:text-cyan-400 transition-colors">FAQ</a>
-           
-            </nav>
-            <div class="md:hidden hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <header class="py-6 fixed top-0 w-full z-50 bg-transparent">
+        <div class="container flex justify-end items-center">
+            <img src="images/Sponsors/nido.jpg" alt="Nido de Aguilas Logo" class="h-12 w-auto">
         </div>
     </header>
 
     <!-- Mobile Menu -->
     <nav id="mobile-menu">
+        <a href="previous-hackathon.html" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Previous</a>
         <a href="#about" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">About</a>
-        <a href="#speakers" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Speakers</a>
-        <a href="#schedule" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Schedule</a>
-        <a href="#sponsors" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Sponsors</a>
-        <a href="#prizes" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Prizes & Judging</a>
         <a href="#faq" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">FAQ</a>
             </nav>
 
     <!-- Hero Section -->
-    <section class="section pt-32 pb-24 text-center bg-gray-100">
-        <div class="container">
+    <section class="hero-full text-center">
+        <div class="container w-full">
             <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-4 gradient-text">
-                Build the Future, One Line at a Time.
+                Nido Hackathon [26]
             </h1>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                Join us for 48 hours of coding, collaboration, and innovation. Bring your ideas to life and compete for amazing prizes.
-            </p>
             <div id="countdown" class="flex justify-center space-x-4 mb-8">
                 <div class="glass-card p-4 rounded-xl text-center min-w-[80px]">
                     <span id="days" class="block text-4xl font-bold">00</span>
@@ -102,12 +138,26 @@
                     <span class="block text-sm text-gray-500">Seconds</span>
                 </div>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSecZ4FHEYECJc8sAp7eVPBD3IkxL-wqFDddsLgUr2s9jC9UTQ/viewform" class="hidden bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Register Now
-            </a>
-            <a href="https://docs.google.com/document/d/1YMVZwrDW3kECz9TEysNCOlo3dtjUv5JyvHdqzViP-vk/edit?usp=sharing" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-               Click Here for the Toolkit!
-            </a>
+            <!-- Email Signup Form -->
+            <div class="max-w-md mx-auto">
+                <form id="signupForm" class="flex gap-2">
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Enter your email" 
+                        required
+                        class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-700"
+                    >
+                    <button 
+                        type="submit" 
+                        class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+                    >
+                        Sign Up
+                    </button>
+                </form>
+                <div id="formMessage" class="hidden mt-4 p-3 rounded-lg text-center"></div>
+            </div>
         </div>
     </section>
 
@@ -142,8 +192,43 @@
         </div>
     </section>
 
+    <!-- Previous Hackathon Preview Section -->
+    <section class="section bg-gray-100">
+        <div class="container">
+            <h2 class="text-4xl font-bold mb-8 gradient-text text-center">Previous Hackathon</h2>
+            
+            <!-- Stats Preview -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="glass-card p-6 text-center">
+                    <h3 class="text-3xl font-bold text-cyan-600 mb-2">40</h3>
+                    <p class="text-gray-600 text-lg">Attendees</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <h3 class="text-3xl font-bold text-cyan-600 mb-2">11</h3>
+                    <p class="text-gray-600 text-lg">Projects Submitted</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <h3 class="text-3xl font-bold text-cyan-600 mb-2">4 Internships</h3>
+                    <p class="text-gray-600 text-lg">Prizes Given</p>
+                </div>
+            </div>
+
+            <!-- Preview Content -->
+            <div class="glass-card p-8 text-center">
+                <h3 class="text-2xl font-bold mb-4 gradient-text">Nido Hackathon 2024</h3>
+                <p class="text-gray-700 text-lg mb-6 max-w-3xl mx-auto">
+                    Our first post-pandemic hackathon was a huge success! Students came together to create innovative AI-powered health solutions, 
+                    collaborate with industry mentors, and build lasting connections. See the full story, photos, and highlights from this amazing event.
+                </p>
+                <a href="previous-hackathon.html" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+                    View Full Showcase →
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Speakers Section -->
-    <section id="speakers" class="section bg-gray-100">
+    <section id="speakers" class="section bg-gray-100 hidden">
         <div class="container">
             <h2 class="text-4xl font-bold mb-8 gradient-text">Our Speakers</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -167,7 +252,7 @@
     </section>
 
     <!-- Schedule Section -->
-    <section id="schedule" class="section bg-white">
+    <section id="schedule" class="section bg-white hidden">
         <div class="container">
             <h2 class="text-4xl font-bold mb-8 gradient-text">Schedule</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -203,52 +288,8 @@
         </div>
     </section>
 
-    <!-- Sponsors Section -->
-    <section id="sponsors" class="section bg-gray-100">
-        <div class="container">
-            <h2 class="text-4xl font-bold mb-8 gradient-text text-center">Sponsors</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
-                <div class="glass-card p-6 flex flex-col items-center justify-center">
-                    <img src="/images/pwc.png" alt="PWC Logo" class="h-16 mb-4">
-                    <h3 class="text-xl font-bold">PWC</h3>
-                </div>
-                <div class="glass-card p-6 flex flex-col items-center justify-center">
-                    <img src="/images/nido.jpg" alt="Nido de Aguilas Logo" class="h-16 mb-4">
-                    <h3 class="text-xl font-bold">International School Nido de Aguilas</h3>
-                </div>
-                <div class="glass-card p-6 flex flex-col items-center justify-center">
-                    <img src="/images/logo-icbfs.png" alt="ICB Food Service Logo" class="h-16 mb-4">
-                    <h3 class="text-xl font-bold">ICB Food Service</h3>
-                </div>
-                <div class="glass-card p-6 flex flex-col items-center justify-center">
-                    <img src="/images/danubio.png" alt="Palacio Danubio Azul Logo" class="h-16 mb-4">
-                    <h3 class="text-xl font-bold">Palacio Danubio Azul</h3>
-                </div>
-                <div class="glass-card p-6 flex flex-col items-center justify-center">
-                    <img src="/images/mattre.webp" alt="Mattre Pizza Logo" class="h-16 mb-4">
-                    <h3 class="text-xl font-bold">Mattre Pizza</h3>
-                </div>
-                <div class="glass-card p-6 flex flex-col items-center justify-center">
-                    <img src="/images/score.webp.svg" alt="Score Logo" class="h-16 mb-4">
-                    <h3 class="text-xl font-bold">Score</h3>
-                </div>
-            </div>
-            <p class="text-gray-700 text-lg leading-relaxed mb-8">
-                The Nido Hackathon is a student-led innovation challenge bringing together high school students to tackle real-world problems through technology, design, and entrepreneurship. As the first post-pandemic hackathon at our school, we aim to empower the next generation of innovators while fostering creativity and collaboration.
-            </p>
-            <p class="text-gray-700 text-lg leading-relaxed mb-8">
-                By sponsoring our event, you’ll gain direct exposure to future leaders and changemakers, as well as brand visibility among students, educators, and industry professionals. Your support will help provide food, prizes, and essential resources, ensuring an impactful and successful event.
-            </p>
-            <p class="text-gray-700 text-lg leading-relaxed mb-8">
-                We’re looking for financial contributions, food donations, or in-kind sponsorships—any support makes a difference!
-            </p>
-           
-            
-        </div>
-    </section>
-
     <!-- Prizes & Judging Section -->
-    <section id="prizes" class="section bg-white">
+    <section id="prizes" class="section bg-white hidden">
         <div class="container">
             <h2 class="text-4xl font-bold mb-8 gradient-text">Prizes & Judging</h2>
             <h3 class="text-2xl font-bold mb-2">What can participants win?</h3>
@@ -262,6 +303,39 @@
                 <li>Technical Implementation</li>
                 <li>Presentation & Communication</li>
             </ul>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="section bg-gray-100">
+        <div class="container">
+            <h2 class="text-4xl font-bold mb-8 gradient-text text-center">Sponsors</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
+                <div class="glass-card p-6 flex flex-col items-center justify-center">
+                    <img src="images/Sponsors/pwc.png" alt="PWC Logo" class="h-16 mb-4">
+                    <h3 class="text-xl font-bold">PWC</h3>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center justify-center">
+                    <img src="images/Sponsors/nido.jpg" alt="Nido de Aguilas Logo" class="h-16 mb-4">
+                    <h3 class="text-xl font-bold">International School Nido de Aguilas</h3>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center justify-center">
+                    <img src="images/Sponsors/logo-icbfs.png" alt="ICB Food Service Logo" class="h-16 mb-4">
+                    <h3 class="text-xl font-bold">ICB Food Service</h3>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center justify-center">
+                    <img src="images/Sponsors/danubio.png" alt="Palacio Danubio Azul Logo" class="h-16 mb-4">
+                    <h3 class="text-xl font-bold">Palacio Danubio Azul</h3>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center justify-center">
+                    <img src="images/Sponsors/mattre.webp" alt="Mattre Pizza Logo" class="h-16 mb-4">
+                    <h3 class="text-xl font-bold">Mattre Pizza</h3>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center justify-center">
+                    <img src="images/Sponsors/score.webp.svg" alt="Score Logo" class="h-16 mb-4">
+                    <h3 class="text-xl font-bold">Score</h3>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -336,9 +410,60 @@
     </footer>
 
     <script>
+        // Google Apps Script endpoint for form submission
+        const endpoint = "https://script.google.com/macros/s/AKfycbzZq5Oz2YnoNm6o2ODXeoJwyqsGxu5K5WlW9mX3KcTMRgeKqyuRZzLZeUamBM2MnuYp/exec";
+
+        // Form submission handler
+        document.getElementById("signupForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById("formMessage");
+            const emailInput = document.getElementById("email");
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = "Signing Up...";
+            formMessage.classList.add("hidden");
+
+            const data = {
+                email: emailInput.value,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                const res = await fetch(endpoint, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                // Since we're using no-cors mode, we can't read the response
+                // Show success message
+                formMessage.classList.remove("hidden");
+                formMessage.className = "mt-4 p-3 rounded-lg text-center bg-green-100 text-green-700 border border-green-300";
+                formMessage.textContent = "Thank you! You've been successfully signed up.";
+                emailInput.value = "";
+                
+            } catch (error) {
+                // Show error message
+                formMessage.classList.remove("hidden");
+                formMessage.className = "mt-4 p-3 rounded-lg text-center bg-red-100 text-red-700 border border-red-300";
+                formMessage.textContent = "There was an error. Please try again later.";
+                console.error("Error:", error);
+            } finally {
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = "Sign Up";
+            }
+        });
+
         // Set the date for the countdown timer
         // Format: 'Month Day, Year Hour:Minute:Second'
-        const hackathonDate = new Date("September 26, 2025 15:30:00").getTime();
+        const hackathonDate = new Date("April 10, 2026 15:30:00").getTime();
 
         const x = setInterval(function() {
             const now = new Date().getTime();
@@ -378,6 +503,7 @@
             mobileMenu.classList.toggle('open');
             hamburgerIcon.classList.toggle('open');
         }
+
 
         // Add event listeners for smooth scrolling and menu toggle
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
