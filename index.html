@@ -465,6 +465,24 @@
             <h2 class="text-3xl font-bold mb-3 gradient-text text-center">Student Participant Sign-Up</h2>
             <p class="text-gray-700 text-lg text-center mb-6">Use your school email so we can confirm your spot and send event details.</p>
             <form id="signupForm" class="flex flex-col gap-3">
+                <label for="student-name" class="text-sm font-semibold text-gray-700">Full name</label>
+                <input 
+                    type="text" 
+                    id="student-name" 
+                    name="name" 
+                    placeholder="Your name" 
+                    required
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-700"
+                >
+                <label for="student-school" class="text-sm font-semibold text-gray-700">School</label>
+                <input 
+                    type="text" 
+                    id="student-school" 
+                    name="school" 
+                    placeholder="Your school" 
+                    required
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-700"
+                >
                 <label for="email" class="text-sm font-semibold text-gray-700">School email</label>
                 <input 
                     type="email" 
@@ -549,7 +567,7 @@
 
     <script>
         // Google Apps Script endpoint for form submission
-        const endpoint = "https://script.google.com/macros/s/AKfycbzZq5Oz2YnoNm6o2ODXeoJwyqsGxu5K5WlW9mX3KcTMRgeKqyuRZzLZeUamBM2MnuYp/exec";
+        const endpoint = "https://script.google.com/macros/s/AKfycbxw2QtzEYEG1YkYrMXLP1DgBHkF5W3oyO2QweWuLZSWpanc1UVvAe6SRgrzi9uQUKY/exec";
 
         function handleFormSubmission({ formId, messageId, loadingText, successText, buildPayload }) {
             const form = document.getElementById(formId);
@@ -601,6 +619,8 @@
             successText: "Thank you! You've been successfully signed up.",
             buildPayload: (formData) => ({
                 intent: "participant_signup",
+                name: formData.get("name"),
+                school: formData.get("school"),
                 email: formData.get("email"),
                 timestamp: new Date().toISOString()
             })
