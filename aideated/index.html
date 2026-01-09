@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AIdeateED — AIdeated Summit</title>
+    <meta
+      name="description"
+      content="AIdeatED is two days of hands-on creation with educators. Less presentation, more creation."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #111a27;
+        --bg-2: #162033;
+        --card: #1b263b;
+        --card-2: #1e2b42;
+        --text: #e7eefb;
+        --muted: #9fb0c9;
+        --primary: #3aa0ff;
+        --secondary: #6fb7ff;
+        --border: #2d3f5c;
+        --grid-line: rgba(255, 255, 255, 0.06);
+        --grid-line-strong: rgba(255, 255, 255, 0.1);
+        --shadow: 0 18px 40px rgba(6, 12, 24, 0.35);
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top, #1a2740 0%, var(--bg) 45%, #0c1422 100%);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "JetBrains Mono", "Inter", sans-serif;
+        letter-spacing: 0.02em;
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .top-bar {
+        height: 6px;
+        background: linear-gradient(90deg, #3aa0ff 0%, #5cc1ff 50%, #7fd8ff 100%);
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(12px);
+        background: rgba(14, 20, 34, 0.86);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 78px;
+      }
+
+      .logo {
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 26px;
+        letter-spacing: 0.08em;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 16px;
+        color: var(--muted);
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        height: 48px;
+        padding: 0 20px;
+        border-radius: 10px;
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 16px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 0 10px 20px rgba(58, 160, 255, 0.25);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .grid-bg {
+        position: relative;
+        overflow: hidden;
+        background-color: var(--bg);
+      }
+
+      .grid-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+        background-size: 32px 32px;
+        pointer-events: none;
+      }
+
+      .grid-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(var(--grid-line-strong) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-line-strong) 1px, transparent 1px);
+        background-size: 160px 160px;
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      .hero {
+        padding: 84px 0 80px;
+      }
+
+      .hero-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 48px;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .pill {
+        display: inline-flex;
+        gap: 12px;
+        align-items: center;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(20, 28, 44, 0.8);
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .pill .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--primary);
+        box-shadow: 0 0 10px rgba(58, 160, 255, 0.6);
+      }
+
+      .hero-title {
+        font-size: clamp(40px, 4vw, 62px);
+        line-height: 1.05;
+        margin-top: 24px;
+      }
+
+      .hero-title span {
+        color: var(--primary);
+      }
+
+      .hero-copy {
+        margin-top: 24px;
+        font-size: 18px;
+        max-width: 560px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 32px;
+      }
+
+      .hero-image {
+        position: relative;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        background: var(--card);
+      }
+
+      .section {
+        padding: 90px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        font-size: clamp(32px, 3.5vw, 48px);
+      }
+
+      .section-title p {
+        margin-top: 12px;
+        font-size: 18px;
+      }
+
+      .card-grid {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .card {
+        position: relative;
+        background: rgba(20, 28, 44, 0.7);
+        border: 1px solid var(--border);
+        padding: 28px;
+        border-radius: var(--radius);
+        box-shadow: 0 18px 30px rgba(8, 16, 30, 0.35);
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--radius);
+        background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+        background-size: 28px 28px;
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      .card h3 {
+        font-size: 22px;
+        margin-bottom: 12px;
+      }
+
+      .icon-chip {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        display: grid;
+        place-items: center;
+        margin-bottom: 18px;
+        background: rgba(28, 38, 58, 0.8);
+      }
+
+      .concept-copy {
+        max-width: 820px;
+        margin: 0 auto 50px;
+        font-size: 18px;
+      }
+
+      .concept-list {
+        margin: 16px 0 0;
+        padding-left: 18px;
+      }
+
+      .concept-list li {
+        margin-bottom: 10px;
+        color: var(--muted);
+      }
+
+      .schedule-grid {
+        display: grid;
+        gap: 32px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .schedule-card {
+        background: rgba(18, 26, 40, 0.88);
+        border: 1px solid var(--border);
+        padding: 32px;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .schedule-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+        background-size: 26px 26px;
+        opacity: 0.45;
+        pointer-events: none;
+      }
+
+      .schedule-header {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 26px;
+      }
+
+      .schedule-date {
+        width: 62px;
+        height: 62px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        display: grid;
+        place-items: center;
+        background: rgba(28, 40, 60, 0.9);
+        font-family: "JetBrains Mono", sans-serif;
+        text-transform: uppercase;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .schedule-date span {
+        display: block;
+        font-size: 20px;
+        color: var(--primary);
+      }
+
+      .timeline {
+        display: grid;
+        gap: 22px;
+        position: relative;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 16px;
+        position: relative;
+      }
+
+      .timeline-time {
+        text-align: right;
+        font-family: "JetBrains Mono", sans-serif;
+        color: var(--secondary);
+      }
+
+      .timeline-content {
+        padding-left: 18px;
+        border-left: 2px solid var(--border);
+        position: relative;
+      }
+
+      .timeline-content::before {
+        content: "";
+        position: absolute;
+        left: -9px;
+        top: 2px;
+        width: 14px;
+        height: 14px;
+        border-radius: 999px;
+        background: var(--bg-2);
+        border: 3px solid var(--primary);
+      }
+
+      .timeline-content h4 {
+        font-size: 18px;
+        margin-bottom: 6px;
+      }
+
+      .cta {
+        padding: 80px 0 100px;
+      }
+
+      .cta-card {
+        max-width: 880px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 50px 40px;
+        border-radius: 24px;
+        background: linear-gradient(135deg, #328ef1 0%, #4aa9ff 100%);
+        box-shadow: 0 24px 60px rgba(10, 20, 40, 0.4);
+      }
+
+      .cta-card h2 {
+        font-size: clamp(32px, 3.5vw, 46px);
+        margin-bottom: 18px;
+      }
+
+      .cta-card p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+        margin-top: 26px;
+      }
+
+      .cta-actions .btn {
+        height: 52px;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        background: #0c141f;
+        padding: 40px 0;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .footer-title {
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+        .hero {
+          padding-top: 60px;
+        }
+        .timeline-item {
+          grid-template-columns: 1fr;
+        }
+        .timeline-time {
+          text-align: left;
+        }
+        .timeline-content {
+          padding-left: 0;
+          border-left: none;
+        }
+        .timeline-content::before {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar"></div>
+    <header class="site-header">
+      <div class="container nav">
+        <div class="logo">AIdeatED</div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#strands">Strands</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#logistics">Logistics</a>
+        </nav>
+        <a class="btn btn-primary" href="#logistics">Register Now</a>
+      </div>
+    </header>
+
+    <section class="grid-bg hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="pill">
+            <span class="dot"></span>
+            <span>May 8-9, 2026 • Nido de Aguilas</span>
+          </div>
+          <h1 class="hero-title">
+            Designing and building<br />
+            <span>our next steps</span>
+          </h1>
+          <p class="hero-copy">
+            AI is moving faster than courses can keep up. Rather than having speakers tell you what they've built,
+            we're bringing educators together to build it themselves. AIdeatED is two days of hands-on creation with
+            other educators wrestling with the same questions you are. Just time, tools, and collaborators eager to
+            make something real with you.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#strands">Start Building</a>
+            <a class="btn btn-secondary" href="#about">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/AIdeate-blueprint.png" alt="AIdeate collaborative blueprint illustration" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="grid-bg section">
+      <div class="container">
+        <div class="section-title">
+          <div class="pill" style="margin: 0 auto 16px; width: max-content;">
+            <span class="dot"></span>
+            <span>The Concept</span>
+          </div>
+          <h2>Less Presentation, More Creation</h2>
+          <p>
+            Most AI conferences give you ideas. AIdeatED gives you time to act on them. You'll choose a dilemma, join or
+            create a team, and spend two days building something you can take back to your school. Keynotes set the
+            context, but the work happens in the room with other educators like you, with expert support nearby when you
+            need it.
+          </p>
+        </div>
+        <div class="concept-copy">
+          <p>What you'll leave with:</p>
+          <ul class="concept-list">
+            <li>A working prototype, resource, or framework you helped create</li>
+            <li>Connections with educators who share your questions</li>
+            <li>Practical experience and time using AI tools to build</li>
+          </ul>
+          <p style="margin-top: 18px;">
+            This might be a parent communication guide or a data collection tool for you to use in your classroom. What
+            you build depends on what your team decides to tackle during the event.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="icon-chip">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 11a4 4 0 1 0-8 0" />
+                <path d="M12 15c-2.5 0-4.5 1.5-4.5 3.5" />
+                <path d="M12 15c2.5 0 4.5 1.5 4.5 3.5" />
+                <circle cx="12" cy="7" r="3" />
+              </svg>
+            </div>
+            <h3>Community</h3>
+            <p>Connect with people, not just screens.</p>
+          </div>
+          <div class="card">
+            <div class="icon-chip">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a8 8 0 0 1 8 8" />
+                <path d="M12 2a8 8 0 0 0-8 8" />
+                <path d="M4 10h16" />
+                <path d="M8 22a4 4 0 0 1 8 0" />
+              </svg>
+            </div>
+            <h3>Ideation</h3>
+            <p>Dream big with AI as your partner.</p>
+          </div>
+          <div class="card">
+            <div class="icon-chip">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 3h7" />
+                <path d="M17.5 3v7" />
+                <path d="M4 7h7" />
+                <path d="M7.5 7v7" />
+                <path d="M9 14h7" />
+                <path d="M12.5 14v7" />
+              </svg>
+            </div>
+            <h3>Creation</h3>
+            <p>Leave with something you built.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="strands" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Choose your path</h2>
+          <p>Choose a dilemma to explore, ideate, and build upon during the event.</p>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="icon-chip">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6" />
+                <path d="M10 22h4" />
+                <path d="M7 9a5 5 0 0 1 10 0c0 2-1 3-2 4" />
+                <path d="M9 13h6" />
+              </svg>
+            </div>
+            <h3>Student Autonomy and Executive Functioning</h3>
+            <p>How do we shift students from using AI as a shortcut to using it as a learning partner and teammate?</p>
+          </div>
+          <div class="card">
+            <div class="icon-chip">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v18" />
+                <path d="M5 12h14" />
+                <path d="M8 7l8 10" />
+              </svg>
+            </div>
+            <h3>Teaching Creative Expression in an AI World</h3>
+            <p>How do we develop artistic voice when AI lets anyone generate professional output?</p>
+          </div>
+          <div class="card">
+            <div class="icon-chip">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5" />
+                <path d="M7 7a4 4 0 1 0 0 8" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              </svg>
+            </div>
+            <h3>Beyond the teacher: rethinking traditional roles</h3>
+            <p>How does the role of the teacher shift when AI can instruct, assess, and give feedback?</p>
+          </div>
+          <div class="card">
+            <div class="icon-chip">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20a6 6 0 0 0 6-6" />
+                <path d="M12 20a6 6 0 0 1-6-6" />
+                <path d="M8 10a4 4 0 0 1 8 0" />
+              </svg>
+            </div>
+            <h3>Specialists and generalists</h3>
+            <p>How does AI change the case for depth vs. breadth in professional knowledge?</p>
+          </div>
+          <div class="card">
+            <div class="icon-chip">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="3" />
+                <path d="M8 12h8" />
+                <path d="M8 8h4" />
+              </svg>
+            </div>
+            <h3>Information, truth and media</h3>
+            <p>How do we redefine and strengthen information literacy in a world of AI slop?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" class="grid-bg section">
+      <div class="container">
+        <div class="section-title">
+          <h2>The Schedule</h2>
+          <p>Two days of fun, food, and future-building.</p>
+        </div>
+
+        <div class="schedule-grid">
+          <div class="schedule-card">
+            <div class="schedule-header">
+              <div class="schedule-date">
+                May
+                <span>08</span>
+              </div>
+              <div>
+                <h3>Friday</h3>
+                <p>Ideation &amp; Prototyping</p>
+              </div>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-time">08:00</div>
+                <div class="timeline-content">
+                  <h4>Welcome &amp; Keynote</h4>
+                  <p>Sabba Quidwai</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-time">09:15</div>
+                <div class="timeline-content">
+                  <h4>Orientation</h4>
+                  <p>Understanding the space</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-time">10:45</div>
+                <div class="timeline-content">
+                  <h4>Speed-geeking</h4>
+                  <p>Fast-paced idea exchange</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-time">11:45</div>
+                <div class="timeline-content">
+                  <h4>Define &amp; Ideate</h4>
+                  <p>Deep dive creation</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-time">01:15</div>
+                <div class="timeline-content">
+                  <h4>Lunch</h4>
+                  <p>Fuel up!</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-time">02:00</div>
+                <div class="timeline-content">
+                  <h4>Build &amp; Test</h4>
+                  <p>Development time</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-time">03:30</div>
+                <div class="timeline-content">
+                  <h4>Cross Pollination</h4>
+                  <p>Share &amp; learn</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="schedule-card">
+            <div class="schedule-header">
+              <div class="schedule-date">
+                May
+                <span style="color: #6fb7ff;">09</span>
+              </div>
+              <div>
+                <h3>Saturday</h3>
+                <p>Refining &amp; Celebrating</p>
+              </div>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-time">09:15</div>
+                <div class="timeline-content">
+                  <h4>Refine &amp; Polish</h4>
+                  <p>Final touches</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-time">10:30</div>
+                <div class="timeline-content">
+                  <h4>Showcase Prep</h4>
+                  <p>Get ready</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-time">12:00</div>
+                <div class="timeline-content">
+                  <h4>Lunch</h4>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-time">02:00</div>
+                <div class="timeline-content">
+                  <h4>Celebration</h4>
+                  <p>Showcase &amp; closing</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="logistics" class="cta">
+      <div class="container">
+        <div class="cta-card">
+          <div style="margin-bottom: 12px; font-size: 28px;">📍</div>
+          <h2>Join us at Nido de Aguilas</h2>
+          <p>
+            We have spaces booked and ready. Food, fun, and travel plans will be shared soon. All we need is you!
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="#logistics">Register Now</a>
+            <a class="btn btn-secondary" href="#logistics">Travel Info</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container footer-content">
+        <div>
+          <div class="footer-title">AIdeate 2026</div>
+          <div style="color: var(--secondary); font-size: 12px; letter-spacing: 0.2em;">
+            NIDO DE AGUILAS
+          </div>
+        </div>
+        <p>Designing the future of learning, together.<br /><span style="opacity: 0.6;">© 2026 Nido de Aguilas</span></p>
+      </div>
+    </footer>
+  </body>
+</html>
