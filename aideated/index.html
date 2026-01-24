@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AIdeateED — AIdeated Summit</title>
+    <title>A.IdeatED — AIdeated Summit</title>
     <meta
       name="description"
       content="AIdeatED is two days of hands-on creation with educators. Less presentation, more creation."
@@ -99,6 +99,7 @@
         font-size: 26px;
         letter-spacing: 0.08em;
       }
+
 
       .nav-links {
         display: flex;
@@ -219,6 +220,14 @@
         margin-top: 24px;
         font-size: 18px;
         max-width: 560px;
+      }
+
+      .hero-meta {
+        margin-top: 16px;
+        font-size: 16px;
+        color: var(--muted);
+        font-family: "JetBrains Mono", sans-serif;
+        letter-spacing: 0.02em;
       }
 
       .hero-actions {
@@ -427,6 +436,13 @@
         box-shadow: 0 24px 60px rgba(10, 20, 40, 0.4);
       }
 
+      .cta-logo {
+        height: 96px;
+        width: auto;
+        margin: 0 auto 20px;
+        opacity: 0.98;
+      }
+
       .cta-card h2 {
         font-size: clamp(32px, 3.5vw, 46px);
         margin-bottom: 18px;
@@ -468,6 +484,14 @@
         margin-bottom: 6px;
       }
 
+      .footer-logo {
+        height: 34px;
+        width: auto;
+        display: block;
+        margin-bottom: 10px;
+        opacity: 0.9;
+      }
+
       @media (max-width: 900px) {
         .nav-links {
           display: none;
@@ -495,7 +519,7 @@
     <div class="top-bar"></div>
     <header class="site-header">
       <div class="container nav">
-        <div class="logo">AIdeatED</div>
+        <div class="logo">A.IdeatED</div>
         <nav class="nav-links">
           <a href="#about">About</a>
           <a href="#strands">Strands</a>
@@ -514,14 +538,22 @@
             <span>May 8-9, 2026 • Nido de Aguilas</span>
           </div>
           <h1 class="hero-title">
-            Designing and building<br />
-            <span>our next steps</span>
+            A.IdeatED<br />
+            <span>Building the Future of AI in Schools</span>
           </h1>
           <p class="hero-copy">
-            AI is moving faster than courses can keep up. Rather than having speakers tell you what they've built,
-            we're bringing educators together to build it themselves. AIdeatED is two days of hands-on creation with
-            other educators wrestling with the same questions you are. Just time, tools, and collaborators eager to
+            AI is transforming the way we learn. Join fellow educators in two days of designing some of the many ways
+            that AI can transform schools. This is not your traditional conference - you will not attend workshops
+            where others share their experiences with AI. Instead, you will select a strand and immerse yourself with
+            other educators wrestling with the same questions as yours. Just time, tools, and collaborators eager to
             make something real with you.
+          </p>
+          <p class="hero-meta">
+            Friday, May 8 — 8:00 - 4:00 • Saturday, May 9 — 8:00 - 3:00
+          </p>
+          <p class="hero-copy" style="margin-top: 16px;">
+            Educators of all levels, positions and subject areas welcome. Cost per participant: 200.000 CLP / 225 USD.
+            Lunch and snacks will be provided.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#strands">Start Building</a>
@@ -557,8 +589,9 @@
             <li>Practical experience and time using AI tools to build</li>
           </ul>
           <p style="margin-top: 18px;">
-            This might be a parent communication guide or a data collection tool for you to use in your classroom. What
-            you build depends on what your team decides to tackle during the event.
+            This might be a parent communication guide, an app for tracking anecdotal student notes, a system for
+            ensuring mixed groups, or a set of rational policies for using AI in a specific subject area. What you
+            build depends on what your team decides to tackle during the event.
           </p>
         </div>
 
@@ -656,7 +689,7 @@
               </svg>
             </div>
             <h3>Specialists and generalists</h3>
-            <p>How does AI change the case for depth vs. breadth in professional knowledge?</p>
+            <p>How do we balance deep content expertise with transferable teaching skills when AI can surface domain knowledge on demand?</p>
           </div>
           <div class="card">
             <div class="icon-chip">
@@ -689,7 +722,7 @@
               </div>
               <div>
                 <h3>Friday</h3>
-                <p>Ideation &amp; Prototyping</p>
+                <p>Ideation &amp; Prototyping • 8:00 - 4:00</p>
               </div>
             </div>
             <div class="timeline">
@@ -697,7 +730,7 @@
                 <div class="timeline-time">08:00</div>
                 <div class="timeline-content">
                   <h4>Welcome &amp; Keynote</h4>
-                  <p></p>
+                  <p>Sabba Quidwai</p>
                 </div>
               </div>
               <div class="timeline-item">
@@ -753,7 +786,7 @@
               </div>
               <div>
                 <h3>Saturday</h3>
-                <p>Refining &amp; Celebrating</p>
+                <p>Refining &amp; Celebrating • 8:00 - 3:00</p>
               </div>
             </div>
             <div class="timeline">
@@ -793,7 +826,7 @@
     <section id="logistics" class="cta">
       <div class="container">
         <div class="cta-card">
-          <div style="margin-bottom: 12px; font-size: 28px;">📍</div>
+          <img class="cta-logo" src="assets/nido-full-eagle-logo-large.jpg" alt="Nido de Aguilas logo" />
           <h2>Join us at Nido de Aguilas</h2>
           <p>
             We have spaces booked and ready. Food, fun, and travel plans will be shared soon. All we need is you!
@@ -802,6 +835,23 @@
             <a class="btn btn-primary" href="#logistics">Register Now</a>
             <a class="btn btn-secondary" href="#logistics">Travel Info</a>
           </div>
+          <div style="margin-top: 30px; color: rgba(255, 255, 255, 0.9);">
+            <p style="font-family: 'JetBrains Mono', sans-serif; letter-spacing: 0.04em;">
+              For more information about the event, please contact:
+            </p>
+            <p style="margin-top: 12px; color: #fff;">
+              Patricia Podorsek, Deputy Head of School for Teaching and Learning
+            </p>
+            <p style="margin-top: 6px; color: rgba(255, 255, 255, 0.9);">
+              International School Nido de Aguilas
+            </p>
+            <p style="margin-top: 6px; color: rgba(255, 255, 255, 0.9);">
+              +56 (2) 2339 8100
+            </p>
+            <p style="margin-top: 6px; color: rgba(255, 255, 255, 0.9);">
+              ppodorsek@nido.cl
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -809,7 +859,8 @@
     <footer>
       <div class="container footer-content">
         <div>
-          <div class="footer-title">AIdeate 2026</div>
+          <img class="footer-logo" src="assets/nido-full-eagle-logo-large.jpg" alt="Nido de Aguilas logo" />
+          <div class="footer-title">A.IdeatED 2026</div>
           <div style="color: var(--secondary); font-size: 12px; letter-spacing: 0.2em;">
             NIDO DE AGUILAS
           </div>
