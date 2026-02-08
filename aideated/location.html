@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A.IdeatED — Location</title>
+    <meta name="description" content="How to get to Nido de Aguilas for A.IdeatED: directions, parking, and arrival details." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0f1724;
+        --bg-2: #162033;
+        --card: #182338;
+        --card-2: #1f2d45;
+        --text: #e7eefb;
+        --muted: #9fb0c9;
+        --primary: #3aa0ff;
+        --secondary: #6fb7ff;
+        --border: #2d3f5c;
+        --shadow: 0 18px 40px rgba(6, 12, 24, 0.35);
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top, #1a2740 0%, var(--bg) 45%, #0b1220 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "JetBrains Mono", "Inter", sans-serif;
+        letter-spacing: 0.02em;
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .top-bar {
+        height: 6px;
+        background: linear-gradient(90deg, #3aa0ff 0%, #5cc1ff 50%, #7fd8ff 100%);
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        backdrop-filter: blur(12px);
+        background: rgba(14, 20, 34, 0.85);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .container {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 76px;
+      }
+
+      .logo {
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 24px;
+        letter-spacing: 0.08em;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 15px;
+        color: var(--muted);
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        height: 44px;
+        padding: 0 18px;
+        border-radius: 10px;
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 15px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 0 10px 20px rgba(58, 160, 255, 0.25);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .grid-bg {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .grid-bg::before,
+      .grid-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .grid-bg::before {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 32px 32px;
+        opacity: 0.6;
+      }
+
+      .grid-bg::after {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+        background-size: 160px 160px;
+        opacity: 0.3;
+      }
+
+      .hero {
+        padding: 90px 0 70px;
+      }
+
+      .hero-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 32px;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .pill {
+        display: inline-flex;
+        gap: 12px;
+        align-items: center;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(20, 28, 44, 0.8);
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .pill .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--primary);
+        box-shadow: 0 0 10px rgba(58, 160, 255, 0.6);
+      }
+
+      .hero-title {
+        font-size: clamp(36px, 4vw, 56px);
+        line-height: 1.05;
+        margin: 22px 0 14px;
+      }
+
+      .hero-title span {
+        color: var(--primary);
+      }
+
+      .hero-copy {
+        font-size: 17px;
+        max-width: 600px;
+      }
+
+      .hero-meta {
+        margin-top: 18px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .meta-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        font-family: "JetBrains Mono", sans-serif;
+        color: #fff;
+      }
+
+      .meta-item .label {
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 12px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .card {
+        position: relative;
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 24px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .card h3 {
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+
+      .card p {
+        color: var(--muted);
+      }
+
+      .map-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        gap: 24px;
+        margin-top: 32px;
+      }
+
+      .map-frame {
+        overflow: hidden;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        background: var(--card-2);
+        min-height: 360px;
+      }
+
+      .map-frame iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      .list {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .section-title h2 {
+        margin: 0;
+      }
+
+      .section-title p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        background: #0c141f;
+        padding: 34px 0;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .footer-title {
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 18px;
+        margin-bottom: 6px;
+      }
+
+      .footer-logo {
+        height: 30px;
+        width: auto;
+        display: block;
+        margin-bottom: 8px;
+        opacity: 0.9;
+      }
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+        .hero {
+          padding-top: 64px;
+        }
+        .map-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar"></div>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="logo" href="index.html">A.IdeatED</a>
+        <nav class="nav-links">
+          <a href="index.html#about">About</a>
+          <a href="index.html#strands">Strands</a>
+          <a href="index.html#schedule">Schedule</a>
+          <a href="index.html#logistics">Register</a>
+        </nav>
+        <a class="btn btn-primary" href="index.html#logistics">Back to main</a>
+      </div>
+    </header>
+
+    <section class="grid-bg hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="pill">
+            <span class="dot"></span>
+            <span>Getting here</span>
+          </div>
+          <h1 class="hero-title">
+            Getting to <span>Nido de Aguilas</span>
+          </h1>
+          <p class="hero-copy">
+            We are located in the foothills of the Andes in Lo Barnechea, Santiago. The campus has space for visitors,
+            straightforward check-in at the main gate, and easy access to our event home base in rooms M103/104.
+          </p>
+          <div class="hero-meta">
+            <div class="meta-item">
+              <span class="label">Arrive</span>
+              <span>Plan to pass the guardhouse before 7:45 to avoid school traffic.</span>
+            </div>
+            <div class="meta-item">
+              <span class="label">Parking</span>
+              <span>Visitor parking inside the campus in any area marked for parents or teachers.</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#map">View the map</a>
+            <a class="btn btn-secondary" href="https://maps.google.com/?q=-33.350653,-70.503231" target="_blank" rel="noreferrer">Open in Google Maps</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Arrival checklist</h3>
+          <ul class="list">
+            <li>Tell the guard you are attending A.IdeatED.</li>
+            <li>Park inside the campus in any parent/teacher lot.</li>
+            <li>Follow signs or our team to rooms M103/104.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="map" class="section grid-bg">
+      <div class="container">
+        <div class="section-title" style="text-align: left; margin-bottom: 24px;">
+          <h2 style="font-size: clamp(30px, 3vw, 40px);">Map &amp; directions</h2>
+          <p style="margin-top: 10px;">Use the interactive map below or launch Google Maps for turn-by-turn guidance.</p>
+        </div>
+        <div class="map-grid">
+          <div class="map-frame">
+            <iframe
+              src="https://maps.google.com/maps?q=-33.350653,-70.503231&z=16&output=embed"
+              loading="lazy"
+              allowfullscreen
+              title="Nido de Aguilas map"
+            ></iframe>
+          </div>
+          <div class="card">
+            <h3>Campus details</h3>
+            <p>
+              International School Nido de Aguilas<br />
+              Lo Barnechea, Santiago Metropolitan Region, Chile
+            </p>
+            <p style="margin-top: 12px;">What to expect on arrival:</p>
+            <ul class="list">
+              <li>The guardhouse is aware of A.IdeatED visitors—just mention the event.</li>
+              <li>After parking, head to the main gate; our team will direct you to M103/104.</li>
+              <li>Need help day-of? Look for our welcome signs or flag any staff member.</li>
+            </ul>
+            <div style="margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap;">
+              <a class="btn btn-primary" href="index.html#logistics">Back to registration</a>
+              <a class="btn btn-secondary" href="mailto:ppodorsek@nido.cl">Contact the team</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container footer-content">
+        <div>
+          <img class="footer-logo" src="assets/nido-full-eagle-logo-large.jpg" alt="Nido de Aguilas logo" />
+          <div class="footer-title">A.IdeatED 2026</div>
+          <div style="color: var(--secondary); font-size: 12px; letter-spacing: 0.2em;">
+            NIDO DE AGUILAS
+          </div>
+        </div>
+        <p>Designing the future of learning, together.<br /><span style="opacity: 0.6;">© 2026 Nido de Aguilas</span></p>
+      </div>
+    </footer>
+  </body>
+</html>
