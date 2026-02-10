@@ -314,6 +314,32 @@
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       }
 
+      #strands .card-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      #strands .card {
+        display: grid;
+        grid-template-rows: auto minmax(130px, auto) 1fr;
+      }
+
+      #strands .icon-chip {
+        margin-bottom: 20px;
+      }
+
+      #strands .card h3 {
+        font-size: 20px;
+        line-height: 1.22;
+        margin-bottom: 0;
+        text-wrap: balance;
+      }
+
+      #strands .card p {
+        margin-top: 10px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(122, 167, 217, 0.28);
+      }
+
       .card {
         position: relative;
         background: rgba(20, 28, 44, 0.7);
@@ -338,6 +364,55 @@
       .card h3 {
         font-size: 22px;
         margin-bottom: 12px;
+      }
+
+      .coach-photo-wrap {
+        width: min(100%, 250px);
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        margin: 0 auto 18px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(132, 172, 218, 0.45);
+        box-shadow: 0 20px 36px rgba(7, 12, 24, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        overflow: hidden;
+        background: transparent;
+      }
+
+      .coach-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center bottom;
+        display: block;
+        border-radius: 50%;
+        clip-path: circle(50% at 50% 50%);
+        filter: drop-shadow(0 10px 16px rgba(8, 16, 30, 0.45));
+      }
+
+      .card h3 a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .card h3 a:hover,
+      .card h3 a:focus-visible {
+        text-decoration: underline;
+      }
+
+      .coach-card {
+        text-align: center;
+        padding: 34px 30px;
+      }
+
+      .coach-card h3 {
+        margin-bottom: 10px;
+      }
+
+      .coach-role {
+        max-width: 34ch;
+        margin: 0 auto;
+        color: var(--muted);
       }
 
       .icon-chip {
@@ -365,6 +440,71 @@
       .concept-list li {
         margin-bottom: 10px;
         color: var(--muted);
+      }
+
+      #about .section-title {
+        text-align: left;
+        max-width: 100%;
+        margin: 0 0 30px;
+      }
+
+      #about .concept-pill {
+        margin: 0 0 16px;
+        width: max-content;
+      }
+
+      #about .section-title h2 {
+        font-size: clamp(40px, 4.4vw, 64px);
+        line-height: 1.04;
+        max-width: 16ch;
+      }
+
+      #about .section-title p {
+        max-width: 56ch;
+        margin-top: 16px;
+        font-size: clamp(19px, 2vw, 23px);
+        line-height: 1.45;
+      }
+
+      #about .concept-copy {
+        max-width: 100%;
+        margin: 0 0 34px;
+        font-size: 18px;
+      }
+
+      #about .concept-label {
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 22px;
+        letter-spacing: 0.01em;
+        color: #c7d8ef;
+        margin-bottom: 8px;
+      }
+
+      #about .concept-list li {
+        margin-bottom: 12px;
+      }
+
+      .about-layout {
+        display: grid;
+        gap: 36px;
+        grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.75fr);
+        align-items: start;
+      }
+
+      .concept-pillars {
+        width: min(100%, 360px);
+        margin: 0 0 0 auto;
+        grid-template-columns: 1fr;
+      }
+
+      .concept-pillars .card {
+        min-height: 0;
+      }
+
+      .concept-pillars .card:nth-child(2) {
+        transform: none;
+        border-color: rgba(122, 183, 255, 0.55);
+        background: rgba(22, 34, 54, 0.82);
       }
 
       .schedule-grid {
@@ -539,6 +679,9 @@
         .hero {
           padding-top: 60px;
         }
+        #strands .card-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
         .timeline-item {
           grid-template-columns: 1fr;
         }
@@ -551,6 +694,51 @@
         }
         .timeline-content::before {
           display: none;
+        }
+
+        .about-layout {
+          grid-template-columns: 1fr;
+        }
+
+        #about .section-title {
+          text-align: center;
+          margin: 0 auto 30px;
+        }
+
+        #about .concept-pill {
+          margin: 0 auto 16px;
+        }
+
+        #about .concept-copy {
+          margin: 0 auto 32px;
+        }
+
+        .concept-pillars {
+          width: min(100%, 640px);
+          margin: 0 auto;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 1280px) {
+        #strands .card-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        #strands .card {
+          grid-template-rows: auto auto 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        #strands .card-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .concept-pillars {
+          width: 100%;
+          margin: 0;
+          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -600,8 +788,8 @@
           </div>
           <p class="hero-copy hero-info" style="margin-top: 16px;">
             <span class="info-line">Educators of all levels, positions and subject areas welcome.</span>
-            <span class="info-line">Cost per participant: 200.000 CLP / 225 USD.</span>
-            <span class="info-line">Lunch and snacks will be provided.</span>
+            <span class="info-line">Cost per participant: 250 CLP / 300 USD.</span>
+            <span class="info-line">This includes lunch, coffee, snacks, and supplies. </span>
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#strands">Start Building</a>
@@ -616,71 +804,74 @@
 
     <section id="about" class="grid-bg section">
       <div class="container">
-        <div class="section-title">
-          <div class="pill" style="margin: 0 auto 16px; width: max-content;">
-            <span class="dot"></span>
-            <span>The Concept</span>
-          </div>
-          <h2>Less Presentation, More Creation</h2>
-          <p>
-            Most AI conferences give you ideas. AIdeatED gives you time to act on them. You'll choose a dilemma, join or
-            create a team, and spend two days building something you can take back to your school. Keynotes set the
-            context, but the work happens in the room with other educators like you, with expert support nearby when you
-            need it.
-          </p>
-        </div>
-        <div class="concept-copy">
-          <p>What you'll leave with:</p>
-          <ul class="concept-list">
-            <li>A working prototype, resource, or framework you helped create</li>
-            <li>Connections with educators who share your questions</li>
-            <li>Practical experience and time using AI tools to build</li>
-          </ul>
-          <p style="margin-top: 18px;">
-            This might be a parent communication guide, an app for tracking anecdotal student notes, a system for
-            ensuring mixed groups, or a set of rational policies for using AI in a specific subject area. What you
-            build depends on what your team decides to tackle during the event.
-          </p>
-        </div>
-
-        <div class="card-grid">
-          <div class="card">
-            <div class="icon-chip">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 11a4 4 0 1 0-8 0" />
-                <path d="M12 15c-2.5 0-4.5 1.5-4.5 3.5" />
-                <path d="M12 15c2.5 0 4.5 1.5 4.5 3.5" />
-                <circle cx="12" cy="7" r="3" />
-              </svg>
+        <div class="about-layout">
+          <div>
+            <div class="section-title">
+              <div class="pill concept-pill">
+                <span class="dot"></span>
+                <span>The Concept</span>
+              </div>
+              <h2>Less Presentation, More Creation</h2>
+              <p>
+                Most AI conferences give you ideas. AIdeatED gives you time to act on them. You'll choose a dilemma, join or
+                create a team, and spend two days building something you can take back to your school. Inspiration sessions set the
+                tone, but the work happens in the room with other educators like you, with expert support nearby when you
+                need it.
+              </p>
             </div>
-            <h3>Community</h3>
-            <p>Connect with people, not just screens.</p>
-          </div>
-          <div class="card">
-            <div class="icon-chip">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a8 8 0 0 1 8 8" />
-                <path d="M12 2a8 8 0 0 0-8 8" />
-                <path d="M4 10h16" />
-                <path d="M8 22a4 4 0 0 1 8 0" />
-              </svg>
+            <div class="concept-copy">
+              <p class="concept-label">Examples of what you might leave with:</p>
+              <ul class="concept-list">
+                <li>A working prototype, resource, or framework you helped create</li>
+                <li>Connections with educators who share your questions</li>
+                <li>Practical experience and time using AI tools to build</li>
+              </ul>
+              <p style="margin-top: 18px;">
+                This might be a parent communication guide, an app for tracking anecdotal student notes, a system for
+                ensuring mixed groups, or a set of rational policies for using AI in a specific subject area. What you
+                build depends on what your team decides to tackle during the event.
+              </p>
             </div>
-            <h3>Ideation</h3>
-            <p>Dream big with AI as your partner.</p>
           </div>
-          <div class="card">
-            <div class="icon-chip">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 3h7" />
-                <path d="M17.5 3v7" />
-                <path d="M4 7h7" />
-                <path d="M7.5 7v7" />
-                <path d="M9 14h7" />
-                <path d="M12.5 14v7" />
-              </svg>
+          <div class="card-grid concept-pillars">
+            <div class="card">
+              <div class="icon-chip">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 11a4 4 0 1 0-8 0" />
+                  <path d="M12 15c-2.5 0-4.5 1.5-4.5 3.5" />
+                  <path d="M12 15c2.5 0 4.5 1.5 4.5 3.5" />
+                  <circle cx="12" cy="7" r="3" />
+                </svg>
+              </div>
+              <h3>Community</h3>
+              <p>Connect in person with curious minds and problem solvers.</p>
             </div>
-            <h3>Creation</h3>
-            <p>Leave with something you built.</p>
+            <div class="card">
+              <div class="icon-chip">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2a8 8 0 0 1 8 8" />
+                  <path d="M12 2a8 8 0 0 0-8 8" />
+                  <path d="M4 10h16" />
+                  <path d="M8 22a4 4 0 0 1 8 0" />
+                </svg>
+              </div>
+              <h3>Ideation</h3>
+              <p>Dream big with AI as your partner.</p>
+            </div>
+            <div class="card">
+              <div class="icon-chip">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7cc6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 3h7" />
+                  <path d="M17.5 3v7" />
+                  <path d="M4 7h7" />
+                  <path d="M7.5 7v7" />
+                  <path d="M9 14h7" />
+                  <path d="M12.5 14v7" />
+                </svg>
+              </div>
+              <h3>Creation</h3>
+              <p>Leave with new perspectives, new friends, and something you built.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -714,7 +905,7 @@
                 <path d="M8 7l8 10" />
               </svg>
             </div>
-            <h3>Teaching Creative Expression in an AI World</h3>
+            <h3>Teaching Creative Expression</h3>
             <p>How do we develop artistic voice when AI lets anyone generate professional output?</p>
           </div>
           <div class="card">
@@ -725,7 +916,7 @@
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
               </svg>
             </div>
-            <h3>Beyond the teacher: rethinking traditional roles</h3>
+            <h3>Rethinking traditional roles</h3>
             <p>How does the role of the teacher shift when AI can instruct, assess, and give feedback?</p>
           </div>
           <div class="card">
@@ -736,8 +927,8 @@
                 <path d="M8 10a4 4 0 0 1 8 0" />
               </svg>
             </div>
-            <h3>Partnerships and Expertise</h3>
-            <p>How does partnership with AI help educators and students alike build, learn, and create in meaningful ways? How does this change the role of expertise?</p>
+            <h3>Partnering with AI</h3>
+            <p>How do we maximize the potential of both human resources and AI resources to solve a problem or meet a need?</p>
           </div>
           <div class="card">
             <div class="icon-chip">
@@ -749,6 +940,40 @@
             </div>
             <h3>Information, truth and media</h3>
             <p>How do we develop and teach information literacy skills in a world full of AI slop?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="design-coaches" class="grid-bg section">
+      <div class="container">
+        <div class="section-title">
+          <div class="pill" style="margin: 0 auto 16px; width: max-content;">
+            <span class="dot"></span>
+            <span>Design Coaches</span>
+          </div>
+          <h2>Meet the Design Coaches</h2>
+          <p>Evan and Dr. Sabba will facilitate the design process as teams shape and test ideas throughout the event.</p>
+        </div>
+
+        <div class="card-grid">
+          <div class="card coach-card">
+            <div class="coach-photo-wrap">
+              <img class="coach-photo" src="assets/DrSabbaQuidwai Background Removed.png" alt="Dr. Sabba Quidwai" />
+            </div>
+            <h3>
+              <a href="https://designingschools.org/" target="_blank" rel="noopener noreferrer">Dr. Sabba Quidwai</a>
+            </h3>
+            <p class="coach-role">CEO of Designing Schools</p>
+          </div>
+          <div class="card coach-card">
+            <div class="coach-photo-wrap">
+              <img class="coach-photo" src="assets/EvanWeinberg Background Removed.png" alt="Evan Weinberg" />
+            </div>
+            <h3>
+              <a href="https://www.linkedin.com/in/evan-weinberg-b89a858/" target="_blank" rel="noopener noreferrer">Evan Weinberg</a>
+            </h3>
+            <p class="coach-role">Design Coach, Design Technology Teacher at International School Nido de Aguilas</p>
           </div>
         </div>
       </div>
@@ -777,8 +1002,8 @@
               <div class="timeline-item">
                 <div class="timeline-time">08:00</div>
                 <div class="timeline-content">
-                  <h4>Welcome &amp; Keynote</h4>
-                  <p>Sabba Quidwai</p>
+                  <h4>Welcome &amp; Inspiration</h4>
+                  <p>Sabba Quidwai and Evan Weinberg</p>
                 </div>
               </div>
               <div class="timeline-item">
