@@ -207,13 +207,117 @@
       }
 
       .hero-title {
-        font-size: clamp(40px, 4vw, 62px);
+        font-size: clamp(44px, 4.6vw, 64px);
         line-height: 1.05;
         margin-top: 24px;
       }
 
-      .hero-title span {
+      .hero-title span,
+      .hero-title .highlight {
         color: var(--primary);
+      }
+
+      .hero-subtitle {
+        display: none;
+      }
+
+      .intro-header-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .title-block {
+        padding: 26px;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: linear-gradient(135deg, rgba(58, 160, 255, 0.14), rgba(27, 38, 59, 0.92));
+        box-shadow: var(--shadow);
+      }
+
+      .date-line {
+        margin-top: 16px;
+        margin-bottom: 0;
+      }
+
+      .date-subline {
+        margin-top: 6px;
+        color: var(--muted);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-family: "JetBrains Mono", "Inter", sans-serif;
+      }
+
+      .hosted-block {
+        padding: 24px;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: rgba(24, 35, 56, 0.92);
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 12px;
+        align-items: stretch;
+        box-shadow: var(--shadow);
+        min-height: 420px;
+      }
+
+      .label-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        font-family: "JetBrains Mono", sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .hosted-card {
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: linear-gradient(145deg, rgba(15, 23, 36, 0.9), rgba(31, 45, 69, 0.9));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        min-height: 340px;
+        height: 100%;
+      }
+
+      .hosted-card img {
+        max-height: 320px;
+        width: 100%;
+        max-width: 600px;
+        object-fit: contain;
+        display: block;
+        filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.35));
+      }
+
+      .intro-secondary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 26px;
+        margin-top: 30px;
+        align-items: stretch;
+      }
+
+      .intro-image {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        background: var(--card-2);
+      }
+
+      .intro-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
       }
 
       .hero-copy {
@@ -658,8 +762,30 @@
         display: flex;
         flex-wrap: wrap;
         gap: 16px;
-        align-items: center;
+        align-items: stretch;
         justify-content: space-between;
+      }
+
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .footer-brand-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .footer-logo-wrap {
+        width: 180px;
+        height: 112px;
+        overflow: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
       }
 
       .footer-title {
@@ -669,11 +795,12 @@
       }
 
       .footer-logo {
-        height: 34px;
-        width: auto;
+        width: 100%;
+        height: 100%;
         display: block;
-        margin-bottom: 10px;
+        margin-bottom: 0;
         opacity: 0.9;
+        object-fit: contain;
       }
 
       @media (max-width: 900px) {
@@ -682,6 +809,22 @@
         }
         .hero {
           padding-top: 60px;
+        }
+        .intro-header-grid,
+        .intro-secondary-grid {
+          grid-template-columns: 1fr;
+        }
+        .title-block,
+        .date-block,
+        .hosted-block {
+          text-align: left;
+        }
+        .hosted-card {
+          min-height: 120px;
+        }
+        .footer-logo-wrap {
+          width: 132px;
+          height: 82px;
         }
         #strands .card-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -764,44 +907,61 @@
     </header>
 
     <section class="grid-bg hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="pill">
-            <span class="dot"></span>
-            <span>May 8-9, 2026 • Nido de Aguilas</span>
+      <div class="container">
+        <div class="intro-header-grid">
+          <div class="title-block">
+            <h1 class="hero-title" style="margin-bottom: 12px;"><span class="highlight">Building the Future</span> of AI in Schools</h1>
+            <h2 class="hero-title date-line">May 8–9 2026</h2>
           </div>
-          <h1 class="hero-title">
-            A.IdeatED<br />
-            <span>Building the Future of AI in Schools</span>
-          </h1>
-         <p class="hero-copy">
-           AI is transforming education; in this conference we will focus on how we can actualize that transformation through building effective and meaningful AI designed tools for our classrooms.  <br></br>Rather than attending traditional workshops or listening to polished keynotes, educators select a strand and work alongside peers examining shared questions, constraints, and possibilities. <br></br>Over two days, participants will engage in focused, collaborative design.
-          </p>
-          <div class="hero-meta">
-            <div class="date-chip">
-              <span class="dot"></span>
-              <span class="day">Friday, May 8: </span>
-  
-              <span class="time">8:00 - 4:00</span>
+          <div class="hosted-block">
+            <div>
+              <span class="label-pill">Hosted by</span>
+              
             </div>
-            <div class="date-chip">
-              <span class="dot"></span>
-              <span class="day">Saturday, May 9: </span>
-              <span class="time">8:00 - 3:00</span>
+            <div class="hosted-card">
+              <img src="assets/nido-logo-white-01.png" alt="Nido de Aguilas logo" />
+              
             </div>
-          </div>
-          <p class="hero-copy hero-info" style="margin-top: 16px;">
-            <span class="info-line">Educators of all levels, positions and subject areas welcome.</span>
-            <span class="info-line">Cost per participant: 250 CLP / 300 USD.</span>
-            <span class="info-line">This includes lunch, coffee, snacks, and supplies. </span>
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#strands">Start Building</a>
-            <a class="btn btn-secondary" href="#about">Learn More</a>
+     <div class="date-subline" style="margin-top: 6px;">Santiago, Chile</div>
           </div>
         </div>
-        <div class="hero-image">
-          <img src="assets/AIdeate-blueprint.png" alt="AIdeate collaborative blueprint illustration" />
+
+        <div class="intro-secondary-grid">
+          <div class="card">
+            <p class="hero-copy" style="margin-top: 0;">
+              AI is transforming education. In this conference, we will focus on how we can actualize that transformation through building effective and meaningful AI designed tools for our classrooms.
+            </p>
+            <p class="hero-copy" style="margin-top: 14px;">
+              Rather than attending traditional workshops or listening to polished keynotes, educators select a strand and work alongside peers examining shared questions, constraints, and possibilities.
+            </p>
+            <p class="hero-copy" style="margin-top: 14px;">
+              Over two days, participants will engage in focused, collaborative design.
+            </p>
+            <div class="hero-meta" style="margin-top: 18px;">
+              <div class="date-chip">
+                <span class="dot"></span>
+                <span class="day">Friday, May 8:</span>
+                <span class="time">8:00 - 4:00</span>
+              </div>
+              <div class="date-chip">
+                <span class="dot"></span>
+                <span class="day">Saturday, May 9:</span>
+                <span class="time">8:00 - 3:00</span>
+              </div>
+            </div>
+            <p class="hero-copy hero-info" style="margin-top: 14px;">
+              <span class="info-line">Educators of all levels, positions and subject areas welcome.</span>
+              <span class="info-line">Cost per participant: 250 CLP / 300 USD.</span>
+              <span class="info-line">This includes lunch, coffee, snacks, and supplies.</span>
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#strands">Start Building</a>
+              <a class="btn btn-secondary" href="#about">Learn More</a>
+            </div>
+          </div>
+          <div class="intro-image">
+            <img src="assets/AIdeate-blueprint.png" alt="AIdeate collaborative blueprint illustration" />
+          </div>
         </div>
       </div>
     </section>
@@ -816,8 +976,8 @@
                 <span>The Concept</span>
               </div>
               <h2>Less Presentation, <span>More Creation</span></h2>
-              <p>
-                Most AI conferences give you ideas. AIdeatED gives you time to act on them. You'll choose a dilemma, join or
+              <p class = "hero-copy">
+                Many AI conferences focus on ideas. AIdeatED is about dedicated time to act on them. You'll choose a dilemma, join or
                 create a team, and spend two days building something you can take back to your school. Inspiration sessions set the
                 tone, but the work happens in the room with other educators like you, with expert support nearby when you
                 need it.
@@ -848,7 +1008,7 @@
                 </svg>
               </div>
               <h3>Community</h3>
-              <p>Connect in person with curious minds and problem solvers.</p>
+              <p>Connect in person with other curious minds and problem solvers.</p>
             </div>
             <div class="card">
               <div class="icon-chip">
@@ -1135,14 +1295,18 @@
 
     <footer>
       <div class="container footer-content">
-        <div>
-          <img class="footer-logo" src="assets/nido-full-eagle-logo-large.jpg" alt="Nido de Aguilas logo" />
-          <div class="footer-title">A.IdeatED 2026</div>
-          <div style="color: var(--secondary); font-size: 12px; letter-spacing: 0.2em;">
-            NIDO DE AGUILAS
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <img class="footer-logo" src="assets/nido-logo-white-01.png" alt="Nido de Aguilas logo" />
+          </div>
+          <div class="footer-brand-copy">
+            <div class="footer-title">A.IdeatED 2026</div>
+            <div style="color: var(--secondary); font-size: 12px; letter-spacing: 0.2em;">
+              NIDO DE AGUILAS
+            </div>
           </div>
         </div>
-        <p>Designing the future of learning, together.<br /><span style="opacity: 0.6;">© 2026 Nido de Aguilas</span></p>
+        <p>Designing the future of learning, together.<br /><span style="opacity: 0.6;">© 2026 IdeatED Conference</span></p>
       </div>
     </footer>
   </body>
