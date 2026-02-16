@@ -409,16 +409,83 @@
             <p>
               Comandante Malbec 12851, Lo Barnechea, Santiago, 7690286, Chile
             </p>
-            <p style="margin-top: 14px;">
-              Please use the hotel booking page below to reserve your room in our event block.
-            </p>
+            <p style="margin-top: 14px;">To book inside the event block, send one email with the details below:</p>
+            <ol class="list" style="margin-top: 10px;">
+              <li>
+                Email <strong>reservas@wyndhampettra.com</strong><br />
+                CC: <strong>alejandra.paredes@wyndhampettra.com</strong> and <strong>sandy.miranda@wyndhamsantiago.com</strong>
+              </li>
+              <li>Specify Block ID: <strong>463879</strong></li>
+              <li>Include:
+                <ul class="list" style="margin-top: 6px;">
+                  <li>Hotel name: <strong>Wyndham Petra La Dehesa</strong></li>
+                  <li>Full name</li>
+                  <li>Number of passengers per room</li>
+                  <li>Room type</li>
+                  <li>Check-in and check-out dates</li>
+                  <li>Credit card number + expiration (as guarantee for no-show)</li>
+                </ul>
+              </li>
+            </ol>
             <div style="margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap;">
-              <a class="btn btn-primary" href="https://www.guestreservations.com/es/wyndham-santiago-pettra/booking" target="_blank" rel="noopener noreferrer">Reserve at Pettra</a>
+              <button class="btn btn-primary" id="copy-email">Copy Registration Info to Clipboard</button>
+              
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <script>
+      (function () {
+        const copyBtn = document.getElementById("copy-email");
+        const openBtn = document.getElementById("open-email");
+        if (!copyBtn) return;
+
+        const bodyLines = [
+          "Block ID: 463879",
+          "Hotel name: Wyndham Petra La Dehesa",
+          "Full name: ",
+          "Number of passengers per room: ",
+          "Room type: ",
+          "Check-in date (IN): ",
+          "Check-out date (OUT): ",
+          "Credit card number (for guarantee): ",
+          "Expiration date: ",
+        ];
+
+        const template = [
+          "To: reservas@wyndhampettra.com",
+          "CC: alejandra.paredes@wyndhampettra.com; sandy.miranda@wyndhamsantiago.com",
+          "Subject: A.IdeatED Block ID 463879 Booking",
+          "",
+          ...bodyLines,
+        ].join("\n");
+
+        if (navigator.clipboard) {
+          copyBtn.addEventListener("click", async () => {
+            try {
+              await navigator.clipboard.writeText(template);
+              copyBtn.textContent = "Template copied";
+              setTimeout(() => (copyBtn.textContent = "Copy email template"), 2400);
+            } catch (err) {
+              alert("Copy failed. Please copy manually:\n\n" + template);
+            }
+          });
+        }
+
+        if (openBtn) {
+          openBtn.addEventListener("click", () => {
+            const to = "reservas@wyndhampettra.com";
+            const cc = "alejandra.paredes@wyndhampettra.com,sandy.miranda@wyndhamsantiago.com";
+            const subject = "A.IdeatED Block ID 463879 Booking";
+            const body = bodyLines.join("\n");
+            const mailto = `mailto:${to}?cc=${encodeURIComponent(cc)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailto;
+          });
+        }
+      })();
+    </script>
 
     <section id="map" class="section grid-bg">
       <div class="container">
