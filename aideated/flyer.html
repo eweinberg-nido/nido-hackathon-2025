@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A.IdeatED — One-Page Flyer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #111c2d;
+      --text: #e6edf8;
+      --muted: #b1c0d8;
+      --primary: #3aa0ff;
+      --border: rgba(255, 255, 255, 0.12);
+      --radius: 14px;
+      --grid-line: rgba(255, 255, 255, 0.05);
+      --grid-line-strong: rgba(255, 255, 255, 0.1);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, #162440 0%, var(--bg) 48%, #0a121f 100%);
+      color: var(--text);
+      line-height: 1.6;
+      max-width: 900px;
+      margin-inline: auto;
+    }
+
+    header { margin-bottom: 16px; }
+
+    h1 {
+      font-family: "JetBrains Mono", "Inter", sans-serif;
+      font-size: clamp(30px, 3.3vw, 40px);
+      letter-spacing: 0.04em;
+      margin: 0 0 8px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.05);
+      font-family: "JetBrains Mono", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-top: 12px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+    }
+
+    .list {
+      margin: 6px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .cta {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: var(--primary);
+      color: #0b1422;
+      text-decoration: none;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--text);
+    }
+
+    .meta-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin-top: 12px;
+    }
+
+    .meta-item {
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+    }
+
+    /* Speakers */
+    .speaker {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .speaker-feature {
+      grid-template-columns: 92px 1fr;
+    }
+
+    .speaker-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .speaker-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
+    }
+
+    /* Strands */
+    .strands {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .strand-card {
+      position: relative;
+      background: rgba(17, 25, 40, 0.82);
+      border: 1px solid #2d3f5c;
+      box-shadow: 0 18px 30px rgba(8, 16, 30, 0.35);
+      overflow: hidden;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .strand-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .strand-card h3 {
+      font-family: "JetBrains Mono", "Inter", sans-serif;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .strand-card p {
+      position: relative;
+      margin-top: 14px;
+      color: var(--muted);
+      padding-top: 12px;
+    }
+
+    .strand-card p::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .section-grid {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(15, 23, 36, 0.9);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 22px;
+      margin-top: 14px;
+    }
+
+    .section-grid::before,
+    .section-grid::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .section-grid::before {
+      background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.6;
+    }
+
+    .section-grid::after {
+      background-image: linear-gradient(var(--grid-line-strong) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line-strong) 1px, transparent 1px);
+      background-size: 160px 160px;
+      opacity: 0.35;
+    }
+
+    .premise-hero {
+      position: relative;
+      z-index: 1;
+    }
+
+    .premise-hero h2 {
+      font-size: clamp(32px, 4.5vw, 48px);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .premise-hero h2 .highlight {
+      color: var(--primary);
+    }
+
+    .premise-hero p {
+      font-size: 18px;
+      color: var(--muted);
+      margin-top: 10px;
+      max-width: 72ch;
+    }
+
+    footer {
+      margin-top: 24px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      margin: -8px 0 10px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(15, 23, 36, 0.92);
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.7;
+    }
+
+    .hero::after {
+      background-image: linear-gradient(var(--grid-line-strong) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line-strong) 1px, transparent 1px);
+      background-size: 150px 150px;
+      opacity: 0.4;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.05fr);
+      align-items: stretch;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(58, 160, 255, 0.12), rgba(23, 35, 56, 0.9));
+      padding: 22px 20px;
+      box-shadow: 0 18px 40px rgba(6, 12, 24, 0.35);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 30px 30px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .hero-card h1 {
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.08;
+    }
+
+    .hero-card h1 .highlight { color: var(--primary); }
+
+    .hero-card .date {
+      margin-top: 18px;
+      font-size: clamp(22px, 3vw, 30px);
+      letter-spacing: 0.02em;
+      color: #f4f7ff;
+    }
+
+    .hero-hosted {
+      background: linear-gradient(145deg, rgba(15, 23, 36, 0.95), rgba(31, 45, 69, 0.9));
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      align-items: center;
+      justify-items: center;
+      padding: 18px;
+    }
+
+    .hosted-pill {
+      justify-self: start;
+      margin-bottom: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-family: "JetBrains Mono", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .hero-hosted img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.35));
+      padding: 6px;
+    }
+
+    .hero-hosted .city {
+      align-self: end;
+      font-family: "JetBrains Mono", monospace;
+      letter-spacing: 0.14em;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* Print / PDF */
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+        padding: 18mm;
+        font-size: 12pt;
+      }
+      .card, .meta-item, .hero-card, .hero-hosted { background: #f7f9fc; border-color: #d4dceb; color: #111; box-shadow: none; }
+      .btn { background: #0a66c2; color: #fff; border-color: #0a66c2; }
+      a { color: #0a66c2; }
+      .tag { border-color: #d4dceb; background: #eef2f8; color: #0a2d57; }
+      .hero::before, .hero::after { display: none; }
+      .hero-card::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-grid">
+      <div class="hero-card">
+        <h1>AIDeatED<br /><span class="highlight">Building the Future</span><br />of AI in Schools</h1>
+        <div class="date"> May 8–9 2026<br>Friday - Saturday </div>
+      </div>
+      <div class="hero-card hero-hosted">
+        <div class="hosted-pill">Hosted By</div>
+        <img src="assets/nido-logo-white-01.png" alt="Nido de Aguilas logo" />
+        <div class="city">Lo Barnechea, Santiago, Chile</div>
+      </div>
+    </div>
+  </header>
+
+ <section class="section-grid">
+    <div class="premise-hero">
+      <h2>Less Presentation,<br /><span class="highlight">More Creation</span></h2>
+      <p>Many AI conferences focus on ideas. AIdeatED is about dedicated time to act on them. You'll choose a dilemma, join or create a team, and spend two days building something you can take back to your school. </p>
+    </div>
+  </section>
+  <section class="section-grid">
+    <h2>Design Coaches</h2>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); z-index:1; position:relative;">
+      <div class="card speaker speaker-feature">
+        <div class="speaker-photo">
+          <img src="assets/DrSabbaQuidwai Background Removed.png" alt="Dr. Sabba Quidwai" />
+        </div>
+        <div>
+          <h3>Dr. Sabba Quidwai</h3>
+          <p>CEO, Designing Schools — leading facilitation, storytelling, and human-centered design for the summit.</p>
+        </div>
+      </div>
+      <div class="card speaker">
+        <div class="speaker-photo">
+          <img src="assets/EvanWeinberg Background Removed.png" alt="Evan Weinberg" />
+        </div>
+        <div>
+          <h3>Evan Weinberg</h3>
+          <p>Design Technology Teacher, Nido de Aguilas — prototyping, systems thinking, and classroom pilots.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <section class="section-grid">
+    <div class="premise-hero" style="margin-bottom: 14px;">
+      <h2>Choose your path</h2>
+      <p>Choose a dilemma to explore, ideate, and build upon during the event.</p>
+    </div>
+    <div class="grid strands">
+      <div class="strand-card">
+        <h3>Student Autonomy and Executive Functioning</h3>
+        <p>How do we shift students from using AI as a shortcut to using it as a learning partner and teammate?</p>
+      </div>
+      <div class="strand-card">
+        <h3>Teaching Creative Expression</h3>
+        <p>How do we develop artistic voice when AI lets anyone generate professional output?</p>
+      </div>
+      <div class="strand-card">
+        <h3>Rethinking traditional roles</h3>
+        <p>How does the role of the teacher shift when AI can instruct, assess, and give feedback?</p>
+      </div>
+      <div class="strand-card">
+        <h3>Partnering with AI</h3>
+        <p>How do we maximize the potential of both human resources and AI resources to solve a problem or meet a need?</p>
+      </div>
+      <div class="strand-card">
+        <h3>Information, truth and media</h3>
+        <p>How do we develop and teach information literacy skills in a world full of AI slop?</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-grid">
+    <h2>How to Take Part</h2>
+    <ul class="list">
+      
+      <li>Choose your dilemma and register.</li>
+       <li>Cost: 250 CLP / 300 USD (includes meals & supplies)</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="https://forms.gle/TJwYEsK7yw6kxCJA8">Register for A.IdeatED</a>
+      <a class="btn secondary" href="mailto:ppodorsek@nido.cl">Contact: ppodorsek@nido.cl</a>
+    </div>
+  </section>
+
+  <section class="section-grid">
+    <h2>Location & Travel</h2>
+    <div class="meta-grid" style="margin-top: 4px;">
+      <div class="meta-item">Venue: Nido de Aguilas<br />Lo Barnechea, Santiago</div>
+      <div class="meta-item">Hotel: Wyndham Santiago Pettra block available (see location page).</div>
+    </div>
+  </section>
+
+  
+</body>
+</html>
