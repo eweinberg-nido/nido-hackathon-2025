@@ -3,15 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A.IdeatED — AIdeated Summit</title>
+    <title>AIdeatED 2026 | AI in Education Conference at Nido de Aguilas</title>
     <meta
       name="description"
-      content="AIdeatED is two days of hands-on creation with educators. Less presentation, more creation."
+      content="AIdeatED 2026 is a two-day AI in education conference in Santiago, Chile where educators collaborate to design practical AI solutions for schools."
     />
+    <meta
+      name="keywords"
+      content="AI education conference, AI in schools, educator conference, education technology, Santiago Chile conference, Nido de Aguilas, AIdeatED, school innovation, teacher professional learning"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#111a27" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AIdeatED 2026 | Building the Future of AI in Schools" />
+    <meta
+      property="og:description"
+      content="Join educators at Nido de Aguilas in Santiago, Chile on May 8-9, 2026 for a hands-on AI in education design summit."
+    />
+    <meta property="og:image" content="assets/AIdeate-blueprint.png" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AIdeatED 2026 | Building the Future of AI in Schools" />
+    <meta
+      name="twitter:description"
+      content="A two-day, hands-on AI in education conference for educators ready to build practical solutions for schools."
+    />
+    <meta name="twitter:image" content="assets/AIdeate-blueprint.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationEvent",
+        "name": "AIdeatED 2026",
+        "description": "A two-day, hands-on AI in education conference where educators collaborate to build practical AI solutions for schools.",
+        "startDate": "2026-05-08T08:00:00-04:00",
+        "endDate": "2026-05-09T15:00:00-04:00",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": ["assets/AIdeate-blueprint.png"],
+        "location": {
+          "@type": "Place",
+          "name": "Nido de Aguilas",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Santiago",
+            "addressCountry": "CL"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "International School Nido de Aguilas"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "300",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://nidoaguilas.trytoku.com/forms/aideated"
+        }
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap"
       rel="stylesheet"
     />
     <style>
@@ -379,6 +433,15 @@
         flex-wrap: wrap;
         gap: 16px;
         margin-top: 32px;
+      }
+
+      .inline-note {
+        margin-top: 14px;
+        padding: 14px 16px;
+        border-radius: 12px;
+        border: 1px solid rgba(111, 183, 255, 0.35);
+        background: rgba(22, 34, 54, 0.78);
+        font-size: 15px;
       }
 
       .hero-image {
@@ -752,6 +815,45 @@
         height: 52px;
       }
 
+      .registration-grid {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        margin-top: 34px;
+      }
+
+      .registration-step {
+        position: relative;
+        padding: 28px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(17, 26, 39, 0.24);
+        text-align: left;
+      }
+
+      .registration-step h3 {
+        margin: 18px 0 12px;
+        font-size: 22px;
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        font-family: "JetBrains Mono", sans-serif;
+      }
+
+      .step-note {
+        margin-top: 16px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.74);
+      }
+
       footer {
         border-top: 1px solid var(--border);
         background: #0c141f;
@@ -899,18 +1001,23 @@
           <a href="#about">About</a>
           <a href="#strands">Strands</a>
           <a href="#schedule">Schedule</a>
+          <a href="#register">Register</a>
           <a href="location.html">Location</a>
           <a href="#logistics">Logistics</a>
         </nav>
-        <a class="btn btn-primary" href="https://forms.gle/TJwYEsK7yw6kxCJA8">Register Now</a>
+        <a class="btn btn-primary" href="#register">Register Now</a>
       </div>
     </header>
 
+    <main>
     <section class="grid-bg hero">
       <div class="container">
         <div class="intro-header-grid">
           <div class="title-block">
-            <h1 class = hero-title>AIDeatED</h1>
+            <p class="pill" style="margin-bottom: 24px; width: max-content;">
+              <span class="dot"></span>
+              <span>AIdeatED 2026</span>
+            </p>
             <h1 class="hero-title" style="margin-bottom: 12px;"><span class="highlight">Building the Future</span> of AI in Schools</h1>
             <h2 class="hero-title date-line">May 8–9 2026</h2>
           </div>
@@ -955,8 +1062,11 @@
               <span class="info-line">Cost per participant: 250 CLP / 300 USD.</span>
               <span class="info-line">This includes lunch, coffee, snacks, and supplies.</span>
             </p>
+            <p class="inline-note">
+              Registration is now a two-step process: complete payment and registration on the main event site, then submit the Google Form so we can place you in the right strand and plan the experience.
+            </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#strands">Start Building</a>
+              <a class="btn btn-primary" href="#register">Register</a>
               <a class="btn btn-secondary" href="#about">Learn More</a>
             </div>
           </div>
@@ -1261,18 +1371,57 @@
       </div>
     </section>
 
+    <section id="register" class="cta">
+      <div class="container">
+        <div class="cta-card">
+          <img class="cta-logo" src="assets/nido-full-eagle-logo-large.jpg" alt="Nido de Aguilas logo" />
+          <h2>Register for AIdeatED 2026</h2>
+          <p>
+            To complete registration, every participant must finish both steps below. The main registration site handles payment and enrollment, and the Google Form helps us prepare strands, logistics, and communication.
+          </p>
+          <div class="registration-grid">
+            <div class="registration-step">
+              <div class="step-number">01</div>
+              <h3>Complete your main registration and payment</h3>
+              <p>
+                Reserve your place through the official registration page. This is the primary sign-up site and includes payment options.
+              </p>
+              <div class="cta-actions" style="justify-content: flex-start; margin-top: 20px;">
+                <a class="btn btn-primary" href="https://nidoaguilas.trytoku.com/forms/aideated">Main Registration Site</a>
+              </div>
+            </div>
+            <div class="registration-step">
+              <div class="step-number">02</div>
+              <h3>Submit the Google Form after payment</h3>
+              <p>
+                After registering on the main site, complete the Google Form so we can collect strand preferences and event details.
+              </p>
+              <div class="cta-actions" style="justify-content: flex-start; margin-top: 20px;">
+                <a class="btn btn-secondary" href="https://forms.gle/TJwYEsK7yw6kxCJA8">Complete Google Form</a>
+              </div>
+              <p class="step-note">Your registration is only considered complete once both steps are submitted.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="logistics" class="cta">
       <div class="container">
         <div class="cta-card">
           <img class="cta-logo" src="assets/nido-full-eagle-logo-large.jpg" alt="Nido de Aguilas logo" />
           <h2>Join us at Nido de Aguilas</h2>
           <p>
-            We have spaces booked and ready. Food, fun, and travel plans will be shared soon. All we need is you!
+            We have spaces booked and ready. Start with the main registration and payment page, then complete the Google Form so we can finalize your participation.
           </p>
           <div class="cta-actions">
-            <a class="btn btn-primary" href="https://forms.gle/TJwYEsK7yw6kxCJA8">Register Now</a>
+            <a class="btn btn-primary" href="https://nidoaguilas.trytoku.com/forms/aideated">Main Registration</a>
+            <a class="btn btn-secondary" href="https://forms.gle/TJwYEsK7yw6kxCJA8">Google Form</a>
             <a class="btn btn-secondary" href="location.html">Travel Info</a>
           </div>
+          <p style="margin-top: 18px; color: rgba(255, 255, 255, 0.86);">
+            Please complete both forms. The registration site secures your spot and payment, while the Google Form gives us the information we need for strands and event planning.
+          </p>
           <div style="margin-top: 30px; color: rgba(255, 255, 255, 0.9);">
             <p style="font-family: 'JetBrains Mono', sans-serif; letter-spacing: 0.04em;">
               For more information about the event, please contact:
@@ -1293,6 +1442,8 @@
         </div>
       </div>
     </section>
+
+    </main>
 
     <footer>
       <div class="container footer-content">
