@@ -251,3 +251,39 @@ If you need to change the Google Apps Script endpoint URL:
    ```
 2. Replace `YOUR_ENDPOINT_URL` with your new Google Apps Script web app URL
 3. Make sure to include the full URL including `/exec` at the end
+
+## Image Assets (Linked)
+
+<!-- IMAGES:START -->
+<details>
+<summary>All images in <code>images/</code> (26)</summary>
+
+- [images/Event photos/IMG_0095.JPG](<images/Event photos/IMG_0095.JPG>)
+- [images/Event photos/IMG_0096.JPG](<images/Event photos/IMG_0096.JPG>)
+- [images/Event photos/IMG_0103.JPG](<images/Event photos/IMG_0103.JPG>)
+- [images/Event photos/IMG_0109.JPG](<images/Event photos/IMG_0109.JPG>)
+- [images/Event photos/IMG_0125.JPG](<images/Event photos/IMG_0125.JPG>)
+- [images/Event photos/IMG_0149.JPG](<images/Event photos/IMG_0149.JPG>)
+- [images/Event photos/IMG_0166.JPG](<images/Event photos/IMG_0166.JPG>)
+- [images/Event photos/IMG_0181.JPG](<images/Event photos/IMG_0181.JPG>)
+- [images/Event photos/IMG_0184.JPG](<images/Event photos/IMG_0184.JPG>)
+- [images/Event photos/IMG_0194.JPG](<images/Event photos/IMG_0194.JPG>)
+- [images/Event photos/IMG_0195.JPG](<images/Event photos/IMG_0195.JPG>)
+- [images/Event photos/IMG_0205.JPG](<images/Event photos/IMG_0205.JPG>)
+- [images/Event photos/IMG_0246.JPG](<images/Event photos/IMG_0246.JPG>)
+- [images/Event photos/IMG_0254.JPG](<images/Event photos/IMG_0254.JPG>)
+- [images/Event photos/IMG_0296.JPG](<images/Event photos/IMG_0296.JPG>)
+- [images/Event photos/IMG_0352.JPG](<images/Event photos/IMG_0352.JPG>)
+- [images/Event photos/IMG_0376.JPG](<images/Event photos/IMG_0376.JPG>)
+- [images/Event photos/IMG_0418.JPG](<images/Event photos/IMG_0418.JPG>)
+- [images/Event photos/IMG_0427.JPG](<images/Event photos/IMG_0427.JPG>)
+- [images/Nido Logo.png](<images/Nido Logo.png>)
+- [images/Sponsors/danubio.png](<images/Sponsors/danubio.png>)
+- [images/Sponsors/logo-icbfs.png](<images/Sponsors/logo-icbfs.png>)
+- [images/Sponsors/mattre.webp](<images/Sponsors/mattre.webp>)
+- [images/Sponsors/nido.jpg](<images/Sponsors/nido.jpg>)
+- [images/Sponsors/pwc.png](<images/Sponsors/pwc.png>)
+- [images/Sponsors/score.webp.svg](<images/Sponsors/score.webp.svg>)
+
+</details>
+<!-- IMAGES:END -->

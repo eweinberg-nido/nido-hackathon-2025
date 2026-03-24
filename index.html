@@ -3,732 +3,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nido Hackathon</title>
+    <title>Nido Hackathon [26] | Innovate the Future</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Open+Sans:wght@400;600;700;800&family=Architects+Daughter&display=swap');
+        
+        :root {
+            --brand-maroon: #8A1621;
+            --brand-navy: #002365;
+            --grid-color: #e2e8f0;
+        }
+
         body {
             font-family: 'Open Sans', sans-serif;
-            background: #F3F4F6; /* Light gray background */
-            color: #1F2937; /* Dark gray text */
+            background-color: #f8fafc;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #0f172a;
             scroll-behavior: smooth;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
+
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .font-hand { font-family: 'Architects Daughter', cursive; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(138, 22, 33, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 35, 101, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .section {
-            padding: 6rem 0;
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--brand-maroon);
+            box-shadow: 0 12px 30px rgba(138, 22, 33, 0.1);
         }
+
         .gradient-text {
-            background: linear-gradient(to right, #002365, #8A1621);
-            background-clip: text;
+            background: linear-gradient(135deg, var(--brand-navy), var(--brand-maroon));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--brand-navy), var(--brand-maroon));
+            transition: all 0.3s ease;
         }
-        /* Style for the hamburger menu icon */
-        .hamburger-icon {
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
+
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(138, 22, 33, 0.08) 0%, transparent 70%);
+            z-index: -1;
         }
-        .hamburger-icon span {
-            width: 25px;
-            height: 3px;
-            background-color: #1F2937;
-            transition: all 0.3s;
+
+	        .countdown-card {
+	            min-width: 110px;
+	        }
+
+	        .sticky-note {
+	            position: relative;
+	            background: #fff7b0;
+	            border: 1px solid rgba(15, 23, 42, 0.08);
+	            box-shadow: 0 12px 25px rgba(15, 23, 42, 0.14);
+	            transform: rotate(-1deg);
+	            transition: transform 0.25s ease, box-shadow 0.25s ease;
+	        }
+	        .sticky-note::after {
+	            content: "";
+	            position: absolute;
+	            top: 0;
+	            right: 0;
+	            width: 0;
+	            height: 0;
+	            border-top: 22px solid rgba(255, 255, 255, 0.65);
+	            border-left: 22px solid transparent;
+	        }
+	        .sticky-note.note-2 { transform: rotate(1.25deg); }
+	        .sticky-note.note-3 { transform: rotate(-2deg); }
+	        .sticky-note.note-4 { transform: rotate(0.75deg); }
+	        .sticky-note:hover {
+	            transform: rotate(0deg) translateY(-3px);
+	            box-shadow: 0 18px 35px rgba(15, 23, 42, 0.18);
+	        }
+
+        .tech-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            color: var(--brand-maroon);
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(138, 22, 33, 0.05);
+            border-radius: 4px;
         }
-        .hamburger-icon.open span {
-            background-color: #E5E7EB;
-        }
-        /* Mobile menu styles */
-        #mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 40;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-        #mobile-menu.open {
-            display: flex;
-        }
-        #mobile-menu a {
-            color: white;
-            text-decoration: none;
-            margin: 0.5rem 0;
-        }
-        /* Header - logo always visible */
-        header {
-            transform: translateY(0);
-        }
-        /* Hero section full height */
-        .hero-full {
-            min-height: auto;
-            padding: 6rem 0 4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(to bottom, #9CA3AF 0%, #E5E7EB 50%, #FFFFFF 100%);
-            animation: fadeIn 2s ease-in-out;
-        }
-        /* Modal styles */
-        .modal-backdrop {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.65);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 50;
-            padding: 1rem;
-        }
-        .modal-backdrop.open {
-            display: flex;
-        }
-        .modal-card {
+
+        .polaroid-frame {
             background: white;
-            border-radius: 1rem;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 12px 12px 40px 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: rotate(2deg);
+            border: 1px solid #e2e8f0;
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                background: linear-gradient(to bottom, #6B7280 0%, #9CA3AF 100%);
-            }
-            to {
-                opacity: 1;
-                background: linear-gradient(to bottom, #9CA3AF 0%, #E5E7EB 50%, #FFFFFF 100%);
-            }
+
+        /* Modal Styles */
+	        .modal-backdrop {
+	            position: fixed;
+	            inset: 0;
+	            background: rgba(0, 35, 101, 0.65);
+	            backdrop-filter: blur(10px);
+	            display: none;
+	            align-items: center;
+	            justify-content: center;
+	            z-index: 100;
+	            padding: 1.5rem;
+	        }
+        .modal-backdrop.open { display: flex; }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 180px;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Navigation -->
-    <header class="py-6 fixed top-0 w-full z-50 bg-transparent">
-        <div class="container flex justify-end items-center">
-            <img src="images/Sponsors/nido.jpg" alt="Nido de Aguilas Logo" class="h-12 w-auto">
+    <header class="py-4 fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="images/Sponsors/nido.jpg" alt="Nido Logo" class="h-10">
+                <div class="h-6 w-px bg-gray-300"></div>
+                <span class="font-bold tracking-tighter text-lg text-slate-900 font-mono">HACKATHON<span class="text-[#8A1621]">[26]</span></span>
+            </div>
+            
+            <nav class="hidden md:flex gap-10 items-center font-bold text-xs uppercase tracking-widest text-slate-600">
+                <a href="index.html#about" class="hover:text-[#8A1621] transition-colors">About</a>
+                <a href="index.html#sponsor" class="hover:text-[#8A1621] transition-colors">Sponsor</a>
+                <a href="index.html#faq" class="hover:text-[#8A1621] transition-colors">FAQ</a>
+                <a href="hacker-hub.html" class="bg-[#8A1621] text-white px-5 py-2 rounded-full hover:bg-[#6e111a] transition-all">Hacker Hub</a>
+                <a href="previous-hackathon.html" class="text-[#002365] hover:opacity-80">Archive →</a>
+            </nav>
+
+            <button class="md:hidden flex flex-col gap-1.5" onclick="toggleMenu()">
+                <div class="w-6 h-0.5 bg-slate-900"></div>
+                <div class="w-6 h-0.5 bg-slate-900"></div>
+            </button>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <nav id="mobile-menu">
-        <a href="previous-hackathon.html" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Previous</a>
-        <a href="#about" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">About</a>
-        <a href="#sponsor" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">Sponsor</a>
-        <a href="#faq" class="text-3xl font-bold py-4 hover:text-cyan-400 transition-colors" onclick="toggleMenu()">FAQ</a>
-            </nav>
+    <section class="relative min-h-screen pt-40 pb-20 flex items-center overflow-hidden">
+        <div class="hero-glow"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+	            <span class="tech-label mb-6">INITIATING PHASE :: APRIL 2026</span>
+	            <h1 class="text-6xl md:text-9xl font-extrabold mb-8 tracking-tighter text-slate-900 leading-none">
+	                <span id="frontpage-message" class="gradient-text">Innovate the Future.</span>
+	            </h1>
+	            <p class="text-lg md:text-xl text-slate-600 mb-12 max-w-2xl mx-auto font-medium">
+	                April 10 - 11, 2026 <span class="mx-2 text-gray-300">|</span> International School Nido de Aguilas
+	            </p>
 
-    <!-- Hero Section -->
-    <section class="hero-full text-center">
-        <div class="container w-full">
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-4 gradient-text">
-                Nido Hackathon [26]
-            </h1>
-            <div id="countdown" class="flex justify-center space-x-4 mb-8">
-                <div class="glass-card p-4 rounded-xl text-center min-w-[80px]">
-                    <span id="days" class="block text-4xl font-bold">00</span>
-                    <span class="block text-sm text-gray-500">Days</span>
+	            <div class="flex flex-wrap justify-center gap-6 mb-16">
+	                <div class="sticky-note countdown-card note-1 px-8 py-6 rounded-lg">
+	                    <span id="days" class="block text-5xl font-mono font-bold text-slate-900">00</span>
+	                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Days</span>
+	                </div>
+	                <div class="sticky-note countdown-card note-2 px-8 py-6 rounded-lg">
+	                    <span id="hours" class="block text-5xl font-mono font-bold text-slate-900">00</span>
+	                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Hours</span>
+	                </div>
+	                <div class="sticky-note countdown-card note-3 px-8 py-6 rounded-lg">
+	                    <span id="minutes" class="block text-5xl font-mono font-bold text-slate-900">00</span>
+	                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Mins</span>
+	                </div>
+	                <div class="sticky-note countdown-card note-4 px-8 py-6 rounded-lg">
+	                    <span id="seconds" class="block text-5xl font-mono font-bold text-slate-900">00</span>
+	                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Secs</span>
+	                </div>
+	            </div>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <button onclick="openModal('participant-modal')" class="btn-primary text-white px-12 py-5 rounded-full font-bold text-lg shadow-2xl hover:scale-105 transition-all w-full sm:w-auto">
+                    Register to Participate
+                </button>
+                <button onclick="openModal('sponsor-modal')" class="bg-white border-2 border-slate-200 text-slate-700 px-12 py-5 rounded-full font-bold text-lg hover:bg-slate-50 transition-all w-full sm:w-auto">
+                    Become a Sponsor
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 bg-white/50 border-y border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2">
+                    <span class="tech-label mb-4">The Mission</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8 text-slate-900">What is a Hackathon?</h2>
+                    <p class="text-xl text-slate-600 leading-relaxed mb-6">
+                        A hackathon is an event where people collaborate to develop creative solutions to real-world problems in a limited time. At Nido, we push the boundaries of student-led innovation.
+                    </p>
+                    <div class="bg-[#8A1621]/5 border-l-4 border-[#8A1621] p-6 mb-8">
+                        <p class="font-bold text-[#8A1621] text-lg">For Students By Students: Leveraging AI Innovation</p>
+                    </div>
                 </div>
-                <div class="glass-card p-4 rounded-xl text-center min-w-[80px]">
-                    <span id="hours" class="block text-4xl font-bold">00</span>
-                    <span class="block text-sm text-gray-500">Hours</span>
-                </div>
-                <div class="glass-card p-4 rounded-xl text-center min-w-[80px]">
-                    <span id="minutes" class="block text-4xl font-bold">00</span>
-                    <span class="block text-sm text-gray-500">Minutes</span>
-                </div>
-                <div class="glass-card p-4 rounded-xl text-center min-w-[80px]">
-                    <span id="seconds" class="block text-4xl font-bold">00</span>
-                    <span class="block text-sm text-gray-500">Seconds</span>
+                <div class="md:w-1/2 relative">
+                    <div class="polaroid-frame max-w-sm mx-auto">
+                        <div class="bg-slate-200 aspect-square rounded mb-2 overflow-hidden">
+                            <img
+                                src="images/Event%20photos/IMG_0205.JPG"
+                                alt="Nido Hackathon event photo"
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section bg-white">
-        <div class="container">
-            <h2 class="text-4xl font-bold mb-4 gradient-text">ABOUT</h2>
-            <h3 class="text-2xl font-bold mb-2">What is a Hackathon?</h3>
-            <p class="text-gray-700 text-lg leading-relaxed mb-4">
-                A hackathon is an event where people collaborate to develop creative solutions to real-world problems in a limited time. Teams work on projects related to STEM, AI, Coding, Entrepreneurship, and Design, using cutting-edge technology, innovation, and teamwork to bring ideas to life.
-            </p>
-            <p class="text-gray-700 text-lg leading-relaxed mb-4">
-                At Nido Hackathon 2025, participants will brainstorm, prototype, and present their projects while getting mentorship and access to industry tools.
-            </p>
-            <p class="text-gray-700 text-lg leading-relaxed mb-4">
-                <strong>Theme: For Students By Students: Leveraging AI Innovation for Health</strong>
-            </p>
-            <p class="text-gray-700 text-lg leading-relaxed mb-4">
-                This hackathon is open to all high school students at Nido, regardless of experience. Whether you're a beginner or an experienced coder/designer, this is your chance to learn, create, and connect.
-            </p>
-            <p class="text-gray-700 text-lg leading-relaxed mb-4">
-                No coding experience? No problem! We’ll have AI and coding tool training to help you get started.
-            </p>
-            <h3 class="text-2xl font-bold mb-2">Why Join?</h3>
-            <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed">
-                <li>Innovate & Solve – Work on exciting challenges in STEM, AI, business, and problem-solving.</li>
-                <li>Learn & Collaborate – Gain hands-on experience, meet mentors, and work in teams.</li>
-                <li>Use AI & Tech Tools – Experiment with AI, coding platforms, and prototyping software.</li>
-                <li>Win Exciting Prizes – Compete for prizes that recognize creativity and innovation.</li>
-                <li>Free Food & Snacks – Stay energized with sponsored meals and refreshments!</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Clear Participation Paths -->
-    <section class="section bg-gray-100">
-        <div class="container">
-            <div class="glass-card p-8 flex flex-col items-center justify-center gap-4 text-center">
-                <h3 class="text-2xl font-bold gradient-text">Choose your path</h3>
-                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto justify-center">
-                    <button onclick="openModal('participant-modal')" class="flex-1 text-center bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-all duration-300">
-                        I want to participate
-                    </button>
-                    <button onclick="openModal('sponsor-modal')" class="flex-1 text-center bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-black transition-all duration-300">
-                        I want to sponsor
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Previous Hackathon Preview Section -->
-    <section class="section bg-gray-100">
-        <div class="container">
-            <h2 class="text-4xl font-bold mb-8 gradient-text text-center">Previous Hackathon</h2>
+    <section class="py-32">
+        <div class="container mx-auto px-6">
+            <span class="tech-label mb-12 block text-center">Impact_Report_v2.0</span>
             
-            <!-- Stats Preview -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <div class="glass-card p-6 text-center">
-                    <h3 class="text-3xl font-bold text-cyan-600 mb-2">40</h3>
-                    <p class="text-gray-600 text-lg">Attendees</p>
+            <div class="bento-grid">
+                <div class="glass-card col-span-2 row-span-2 p-10 flex flex-col justify-end border-b-8 border-b-[#002365]">
+                    <h3 class="text-8xl font-black text-[#002365] mb-4">40</h3>
+                    <p class="text-2xl font-bold text-slate-800 uppercase tracking-tight">Attendees</p>
+                    <p class="text-slate-500 mt-2">Connecting Chile's brightest student innovators with global industry experts.</p>
                 </div>
-                <div class="glass-card p-6 text-center">
-                    <h3 class="text-3xl font-bold text-cyan-600 mb-2">11</h3>
-                    <p class="text-gray-600 text-lg">Projects Submitted</p>
+                <div class="glass-card col-span-2 p-8 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-5xl font-black text-[#8A1621]">11</h3>
+                        <p class="font-bold text-slate-800 uppercase text-sm tracking-widest">Projects Shipped</p>
+                    </div>
+                    <div class="text-4xl">🚀</div>
                 </div>
-                <div class="glass-card p-6 text-center">
-                    <h3 class="text-3xl font-bold text-cyan-600 mb-2">4 Internships</h3>
-                    <p class="text-gray-600 text-lg">Prizes Given</p>
+                <div class="glass-card col-span-1 p-8 border-t-4 border-t-[#8A1621]">
+                    <h3 class="text-5xl font-black text-[#8A1621]">4</h3>
+                    <p class="font-bold text-slate-800 text-sm uppercase">Internships</p>
                 </div>
-            </div>
-
-            <!-- Preview Content -->
-            <div class="glass-card p-8 text-center">
-                <h3 class="text-2xl font-bold mb-4 gradient-text">Nido Hackathon 2025</h3>
-                <p class="text-gray-700 text-lg mb-6 max-w-3xl mx-auto">
-                   Students came together to create innovative AI-powered health solutions, 
-                    collaborate with industry mentors, and build lasting connections. See the full story, photos, and highlights from this amazing event.
-                </p>
-                <a href="previous-hackathon.html" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
-                    View Full Showcase →
+                <a href="previous-hackathon.html" aria-label="Open the hackathon archive" class="glass-card col-span-1 p-8 bg-[#002365] text-white cursor-pointer block">
+                    <h3 class="text-2xl font-bold mb-2 italic"> ->Prev. Hackathon<- </h3>
+                    <p class="text-xs opacity-70 font-mono">- Photos and testimonials from the previous hackathon</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Speakers Section -->
-    <section id="speakers" class="section bg-gray-100 hidden">
-        <div class="container">
-            <h2 class="text-4xl font-bold mb-8 gradient-text">Our Speakers</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="glass-card p-6">
-                    <h3 class="text-2xl font-bold mb-2">Friday, September 26</h3>
-                    <p class="text-gray-600 mb-4">Keynote Speaker:</p>
-                    <p class="text-gray-700 mb-4">
-                        Ian Lee <br/>founder of <a href = "https://examedi.cl">Examedi </a> <br/>Nido de Aguilas Class of 2019
-                    </p>
-                  
-                </div>
-                <div class="glass-card p-6">
-                    <h3 class="text-2xl font-bold mb-2">Saturday, September 27</h3>
-                    <p class="text-gray-600 mb-4"> Live Demo</p>
-                    <p class="text-gray-700 mb-4">
-                        Experienced coders will be available to hep you and your team bring your ideas to life.
-                    </p>
-                </div>
+    <footer class="py-20 bg-slate-950 text-slate-500 text-center border-t border-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="index.html#about" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">About</a>
+                <a href="index.html#sponsor" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">Sponsor</a>
+                <a href="previous-hackathon.html" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">Archive</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Schedule Section -->
-    <section id="schedule" class="section bg-white hidden">
-        <div class="container">
-            <h2 class="text-4xl font-bold mb-8 gradient-text">Schedule</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="glass-card p-6">
-                    <h3 class="text-2xl font-bold mb-2">Friday, September 26 15:30 - 17:30</h3>
-                    <p class="text-gray-600 mb-4">Stevenson Hall</p>
-                    <ul class="space-y-4 text-gray-700">
-                        <li><strong>15:30:</strong> Welcome + Introduction</li>
-                        <li><strong>15:40:</strong> Keynote Speaker: Ian Lee, Examedi</li>
-                        <li><strong>16:05:</strong> Discussion Time</li>
-                        <li><strong>16:20:</strong> Session 1: Launching a Business with a Click</li>
-                        <li><strong>16:50:</strong> Session 2: AI Training</li>
-                        <li><strong>17:20 - 17:30:</strong> Ending Time</li>
-                    </ul>
-                </div>
-                <div class="glass-card p-6">
-                    <h3 class="text-2xl font-bold mb-2">Saturday, September 27 12:00 - 18:00</h3>
-                    <p class="text-gray-600 mb-4">MPB (Elementary School)</p>
-                    <ul class="space-y-4 text-gray-700">
-                        <li><strong>10:00:</strong> Event Welcome and Reconnection</li>
-                        <li><strong>10:15:</strong> Design & Prototyping (First Iteration)</li>
-                        <li><strong>12:15:</strong> Lunch</li>
-                        <li><strong>13:00:</strong> Dedicated Mentoring</li>
-                        <li><strong>13:30:</strong> Design Phase 2</li>
-                        <li><strong>15:00:</strong> Pizza Time!</li>
-                        <li><strong>15:30:</strong> Work + Final Iterations</li>
-                        <li><strong>16:00:</strong> Final Pitches/Presentations</li>
-                        <li><strong>17:00:</strong> Judging, Prizes, Feedback</li>
-                        <li><strong>18:00:</strong> Ending Time</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Prizes & Judging Section -->
-    <section id="prizes" class="section bg-white hidden">
-        <div class="container">
-            <h2 class="text-4xl font-bold mb-8 gradient-text">Prizes & Judging</h2>
-            <h3 class="text-2xl font-bold mb-2">What can participants win?</h3>
-            <p class="text-gray-700 text-lg leading-relaxed mb-4">
-                Participants will be competing for gift cards, food, mentorship opportunities, and other prizes.
-            </p>
-            <h3 class="text-2xl font-bold mb-2">How will projects be judged?</h3>
-            <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed">
-                <li>Creativity & Innovation</li>
-                <li>Feasibility & Impact</li>
-                <li>Technical Implementation</li>
-                <li>Presentation & Communication</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Sponsors Section -->
-    <section id="sponsors" class="section bg-gray-100 hidden">
-        <div class="container">
-            <h2 class="text-4xl font-bold mb-8 gradient-text text-center">Sponsors</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
-                <div class="glass-card p-6 flex flex-col items-center justify-center">
-                    <img src="images/Sponsors/pwc.png" alt="PWC Logo" class="h-16 mb-4">
-                    <h3 class="text-xl font-bold">PWC</h3>
-                </div>
-                <div class="glass-card p-6 flex flex-col items-center justify-center">
-                    <img src="images/Sponsors/nido.jpg" alt="Nido de Aguilas Logo" class="h-16 mb-4">
-                    <h3 class="text-xl font-bold">International School Nido de Aguilas</h3>
-                </div>
-                <div class="glass-card p-6 flex flex-col items-center justify-center">
-                    <img src="images/Sponsors/logo-icbfs.png" alt="ICB Food Service Logo" class="h-16 mb-4">
-                    <h3 class="text-xl font-bold">ICB Food Service</h3>
-                </div>
-                <div class="glass-card p-6 flex flex-col items-center justify-center">
-                    <img src="images/Sponsors/danubio.png" alt="Palacio Danubio Azul Logo" class="h-16 mb-4">
-                    <h3 class="text-xl font-bold">Palacio Danubio Azul</h3>
-                </div>
-                <div class="glass-card p-6 flex flex-col items-center justify-center">
-                    <img src="images/Sponsors/mattre.webp" alt="Mattre Pizza Logo" class="h-16 mb-4">
-                    <h3 class="text-xl font-bold">Mattre Pizza</h3>
-                </div>
-                <div class="glass-card p-6 flex flex-col items-center justify-center">
-                    <img src="images/Sponsors/score.webp.svg" alt="Score Logo" class="h-16 mb-4">
-                    <h3 class="text-xl font-bold">Score</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sponsor Interest Section -->
-    <section id="sponsor" class="section bg-white">
-        <div class="container">
-            <h2 class="text-4xl font-bold mb-6 gradient-text text-center">Sponsor the Hackathon</h2>
-            <p class="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto text-center mb-10">
-                If you want to fund the event, cover food, provide swag, or mentor students, let us know here.
-                Participant sign-ups happen above—this is only for potential sponsors.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="glass-card p-6">
-                    <h3 class="text-2xl font-bold mb-4">Why partner with us?</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>Showcase your brand to student innovators and families.</li>
-                        <li>Offer mentors, judges, or tech credits to shape the experience.</li>
-                        <li>Support STEM education and future talent in our community.</li>
-                        <li>We’ll feature sponsors on-site, on our site, and during the event.</li>
-                    </ul>
-                </div>
-                <div class="glass-card p-6">
-                    <h3 class="text-2xl font-bold mb-4">Ready to sponsor?</h3>
-                    <p class="text-gray-700 mb-4">Open the sponsor form to share your details and we'll get in touch.</p>
-                    <button onclick="openModal('sponsor-modal')" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300">
-                        Open sponsor form
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="section bg-gray-100">
-        <div class="container">
-            <h2 class="text-4xl font-bold mb-8 gradient-text">FAQ (Common Questions)</h2>
-            <div id="faq-accordion" class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-semibold">Who can participate?</h3>
-                        <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
-                    </div>
-                    <div class="mt-4 hidden text-gray-600">
-                        Any student that wants to participate is permitted.
-                    </div>
-                </div>
-                <!-- FAQ Item 2 -->
-                <div class="glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-semibold">Do I need coding experience?</h3>
-                        <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
-                    </div>
-                    <div class="mt-4 hidden text-gray-600">
-                        Nope! We’ll have AI and coding tool training.
-                    </div>
-                </div>
-                <!-- FAQ Item 3 -->
-                <div class="glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-semibold">What should I bring?</h3>
-                        <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
-                    </div>
-                    <div class="mt-4 hidden text-gray-600">
-                        Laptop, charger, and enthusiasm!
-                    </div>
-                </div>
-                <!-- FAQ Item 4 -->
-                <div class="glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-semibold">Will there be food?</h3>
-                        <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
-                    </div>
-                    <div class="mt-4 hidden text-gray-600">
-                        Yes! We’re working with sponsors to provide meals/snacks.
-                    </div>
-                </div>
-                <!-- FAQ Item 5 -->
-                <div class="glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-semibold">How do I sign up?</h3>
-                        <span class="text-2xl font-bold transform transition-transform duration-300 rotate-0">+</span>
-                    </div>
-                    <div class="mt-4 hidden text-gray-600">
-                        Students sign up with the email form at the top. Companies should use the Sponsor form above.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-200 py-12">
-        <div class="container text-center text-gray-600">
-            <p>&copy; 2025 Nido Hackathon. All rights reserved.</p>
-            <p class="mt-2">
-                Supported by: International School Nido de Aguilas
-            </p>
-            
+            <p class="text-sm">&copy; 2026 Nido Hackathon. Engineered for the future.</p>
+            <p class="mt-4 text-[10px] uppercase tracking-[0.3em] font-bold text-[#8A1621]">Supported by International School Nido de Aguilas</p>
         </div>
     </footer>
 
-    <!-- Participant Modal -->
-    <div id="participant-modal" class="modal-backdrop" role="dialog" aria-modal="true">
-        <div class="modal-card glass-card p-6 relative">
-            <button aria-label="Close participant form" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700" onclick="closeModal('participant-modal')">✕</button>
-            <h2 class="text-3xl font-bold mb-3 gradient-text text-center">Student Participant Sign-Up</h2>
-            <p class="text-gray-700 text-lg text-center mb-6">Use your school email so we can confirm your spot and send event details.</p>
-            <form id="signupForm" class="flex flex-col gap-3">
-                <label for="student-name" class="text-sm font-semibold text-gray-700">Full name</label>
-                <input 
-                    type="text" 
-                    id="student-name" 
-                    name="name" 
-                    placeholder="Your name" 
-                    required
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-700"
-                >
-                <label for="student-school" class="text-sm font-semibold text-gray-700">School</label>
-                <input 
-                    type="text" 
-                    id="student-school" 
-                    name="school" 
-                    placeholder="Your school" 
-                    required
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-700"
-                >
-                <label for="email" class="text-sm font-semibold text-gray-700">School email</label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    placeholder="you@school.edu" 
-                    required
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-700"
-                >
-                <button
-                    type="submit"
-                    class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
-                >
-                    Join as participant
+    <div id="participant-modal" class="modal-backdrop">
+        <div class="bg-white p-10 rounded-3xl max-w-md w-full relative shadow-2xl">
+            <button class="absolute top-6 right-6 text-slate-400 hover:text-black transition-colors" onclick="closeModal('participant-modal')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-3xl font-bold mb-2 text-slate-900">Join the Sprint</h2>
+            <p class="text-slate-500 mb-8">Ready to build something real?</p>
+            <form id="signupForm" class="flex flex-col gap-4">
+                <input type="text" name="name" placeholder="Full Name" required class="p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#8A1621] outline-none">
+                <input type="email" name="email" placeholder="School Email" required class="p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#8A1621] outline-none">
+                <button type="submit" class="bg-[#8A1621] text-white p-5 rounded-xl font-bold hover:bg-[#6e111a] transition-all flex items-center justify-center">
+                    <span class="btn-text">Secure My Spot</span>
                 </button>
             </form>
-            <div id="formMessage" class="hidden mt-4 p-3 rounded-lg text-center"></div>
+            <div id="formMessage" class="mt-6 hidden text-center p-3 bg-green-50 text-green-700 rounded-xl font-bold"></div>
         </div>
     </div>
 
-    <!-- Sponsor Modal -->
-    <div id="sponsor-modal" class="modal-backdrop" role="dialog" aria-modal="true">
-        <div class="modal-card glass-card p-6 relative">
-            <button aria-label="Close sponsor form" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700" onclick="closeModal('sponsor-modal')">✕</button>
-            <h3 class="text-2xl font-bold mb-4 gradient-text text-center">Sponsor Inquiry</h3>
-            <p class="text-gray-700 text-center mb-4">Tell us how you'd like to support the event.</p>
-            <form id="sponsorForm" class="space-y-4">
-                <input 
-                    type="text" 
-                    id="sponsor-name" 
-                    name="name" 
-                    placeholder="Your name" 
-                    required
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-700"
-                >
-                <input 
-                    type="text" 
-                    id="company" 
-                    name="company" 
-                    placeholder="Company/organization" 
-                    required
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-700"
-                >
-                <input 
-                    type="email" 
-                    id="sponsor-email" 
-                    name="email" 
-                    placeholder="Work email" 
-                    required
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-700"
-                >
-                <select 
-                    id="sponsor-focus" 
-                    name="focus" 
-                    required
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-700"
-                >
-                    <option value="" disabled selected>What kind of support?</option>
-                    <option value="Financial">Financial support</option>
-                    <option value="Food and drinks">Food and drinks</option>
-                    <option value="Swag or prizes">Swag or prizes</option>
-                    <option value="Mentors or judges">Mentors or judges</option>
-                    <option value="Other">Other</option>
-                </select>
-                <textarea 
-                    id="sponsor-notes" 
-                    name="notes" 
-                    rows="3" 
-                    placeholder="Anything else we should know?" 
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-700"
-                ></textarea>
-                <button 
-                    type="submit" 
-                    class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
-                >
-                    Send Sponsor Inquiry
+    <div id="sponsor-modal" class="modal-backdrop">
+        <div class="bg-white p-10 rounded-3xl max-w-md w-full relative shadow-2xl">
+            <button class="absolute top-6 right-6 text-slate-400 hover:text-black transition-colors" onclick="closeModal('sponsor-modal')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-3xl font-bold mb-2 text-slate-900">Partner With Us</h2>
+            <p class="text-slate-500 mb-8">Support the next generation of innovators.</p>
+            <form id="sponsorForm" class="flex flex-col gap-4">
+                <input type="text" name="company" placeholder="Company Name" required class="p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none">
+                <input type="text" name="name" placeholder="Contact Name" required class="p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none">
+                <input type="email" name="email" placeholder="Work Email" required class="p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none">
+                <textarea name="message" placeholder="How would you like to contribute?" rows="3" class="p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none"></textarea>
+                <button type="submit" class="bg-[#002365] text-white p-5 rounded-xl font-bold hover:bg-[#001a4d] transition-all flex items-center justify-center">
+                    <span class="btn-text">Send Inquiry</span>
                 </button>
             </form>
-            <div id="sponsorMessage" class="hidden mt-4 p-3 rounded-lg text-center"></div>
+            <div id="sponsorMessage" class="mt-6 hidden text-center p-3 bg-blue-50 text-[#002365] rounded-xl font-bold"></div>
         </div>
     </div>
 
+    <script src="frontpage-messages.js"></script>
     <script>
-        // Google Apps Script endpoint for form submission
         const endpoint = "https://script.google.com/macros/s/AKfycbxw2QtzEYEG1YkYrMXLP1DgBHkF5W3oyO2QweWuLZSWpanc1UVvAe6SRgrzi9uQUKY/exec";
 
-        function handleFormSubmission({ formId, messageId, loadingText, successText, buildPayload }) {
+	        // Rotating front-page message
+	        (function setFrontpageMessage() {
+	            const el = document.getElementById('frontpage-message');
+	            const messages = window.FRONTPAGE_MESSAGES;
+	            if (!el || !Array.isArray(messages) || messages.length === 0) return;
+	            const storageKey = 'frontpage_message_index';
+	            let lastIndex = null;
+	            try {
+	                const stored = localStorage.getItem(storageKey);
+	                if (stored !== null) lastIndex = Number(stored);
+	            } catch { /* ignore */ }
+
+	            let index = Math.floor(Math.random() * messages.length);
+	            if (messages.length > 1 && Number.isFinite(lastIndex)) {
+	                let attempts = 0;
+	                while (index === lastIndex && attempts < 10) {
+	                    index = Math.floor(Math.random() * messages.length);
+	                    attempts++;
+	                }
+	            }
+
+	            el.textContent = messages[index];
+	            try { localStorage.setItem(storageKey, String(index)); } catch { /* ignore */ }
+	        })();
+
+        async function handleSubmission(formId, messageId, intent) {
             const form = document.getElementById(formId);
-            const messageEl = document.getElementById(messageId);
-            if (!form || !messageEl) return;
-
-            form.addEventListener("submit", async (e) => {
+            const msg = document.getElementById(messageId);
+            
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
+                const btn = form.querySelector('button');
+                const btnText = btn.querySelector('.btn-text');
                 
-                const submitButton = form.querySelector('button[type="submit"]');
-                const defaultText = submitButton.textContent;
-
-                submitButton.disabled = true;
-                submitButton.textContent = loadingText;
-                messageEl.classList.add("hidden");
-
-                const data = buildPayload(new FormData(form));
+                // Loading state
+                btn.disabled = true;
+                const originalText = btnText.innerText;
+                btnText.innerHTML = `<span class="spinner"></span> Sending...`;
+                
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                data.intent = intent;
+                data.timestamp = new Date().toISOString();
 
                 try {
-                    await fetch(endpoint, {
-                        method: "POST",
-                        mode: "no-cors",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(data)
+                    // Using no-cors as per original setup for Google Apps Script
+                    await fetch(endpoint, { 
+                        method: "POST", 
+                        mode: "no-cors", 
+                        body: JSON.stringify(data) 
                     });
-
-                    messageEl.classList.remove("hidden");
-                    messageEl.className = "mt-4 p-3 rounded-lg text-center bg-green-100 text-green-700 border border-green-300";
-                    messageEl.textContent = successText;
+                    
+                    msg.innerText = "Success! We'll be in touch shortly.";
+                    msg.classList.remove('hidden');
                     form.reset();
-                } catch (error) {
-                    messageEl.classList.remove("hidden");
-                    messageEl.className = "mt-4 p-3 rounded-lg text-center bg-red-100 text-red-700 border border-red-300";
-                    messageEl.textContent = "There was an error. Please try again later.";
-                    console.error("Error:", error);
+                } catch (e) { 
+                    console.error(e);
+                    msg.innerText = "Error. Please try again later.";
+                    msg.classList.remove('hidden', 'bg-green-50', 'text-green-700');
+                    msg.classList.add('bg-red-50', 'text-red-700');
                 } finally {
-                    submitButton.disabled = false;
-                    submitButton.textContent = defaultText;
+                    btn.disabled = false;
+                    btnText.innerText = originalText;
                 }
             });
         }
 
-        handleFormSubmission({
-            formId: "signupForm",
-            messageId: "formMessage",
-            loadingText: "Signing Up...",
-            successText: "Thank you! You've been successfully signed up.",
-            buildPayload: (formData) => ({
-                intent: "participant_signup",
-                name: formData.get("name"),
-                school: formData.get("school"),
-                email: formData.get("email"),
-                timestamp: new Date().toISOString()
-            })
-        });
+        // Initialize form handlers
+        handleSubmission('signupForm', 'formMessage', 'participant_signup');
+        handleSubmission('sponsorForm', 'sponsorMessage', 'sponsor_interest');
 
-        handleFormSubmission({
-            formId: "sponsorForm",
-            messageId: "sponsorMessage",
-            loadingText: "Sending...",
-            successText: "Thanks! We'll reach out about sponsorship details shortly.",
-            buildPayload: (formData) => ({
-                intent: "sponsor_interest",
-                name: formData.get("name"),
-                company: formData.get("company"),
-                email: formData.get("email"),
-                focus: formData.get("focus"),
-                notes: formData.get("notes"),
-                timestamp: new Date().toISOString()
-            })
-        });
-
-        function openModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.classList.add('open');
-            }
-        }
-
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.classList.remove('open');
-            }
-        }
-
-        document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-            backdrop.addEventListener('click', (e) => {
-                if (e.target === backdrop) {
-                    backdrop.classList.remove('open');
-                }
-            });
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-backdrop.open').forEach(modal => modal.classList.remove('open'));
-            }
-        });
-
-        // Set the date for the countdown timer
-        // Format: 'Month Day, Year Hour:Minute:Second'
+        // Countdown Logic
         const hackathonDate = new Date("April 10, 2026 15:30:00").getTime();
+	        setInterval(() => {
+	            const now = new Date().getTime();
+	            const distance = hackathonDate - now;
+	            
+	            if (distance < 0) return;
 
-        const x = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = hackathonDate - now;
+	            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+	            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+	            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+	            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+	        }, 1000);
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerHTML = String(days).padStart(2, '0');
-            document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
-            document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
-
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "HACKATHON IS LIVE!";
-            }
-        }, 1000);
-
-        function toggleFaq(element) {
-            const answer = element.querySelector('div.mt-4');
-            const icon = element.querySelector('span.text-2xl');
-            if (answer.classList.contains('hidden')) {
-                answer.classList.remove('hidden');
-                icon.style.transform = 'rotate(45deg)';
-            } else {
-                answer.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-            }
+        function openModal(id) { 
+            document.getElementById(id).classList.add('open'); 
+            document.body.style.overflow = 'hidden'; 
         }
-
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const hamburgerIcon = document.querySelector('.hamburger-icon');
-            mobileMenu.classList.toggle('open');
-            hamburgerIcon.classList.toggle('open');
+        function closeModal(id) { 
+            document.getElementById(id).classList.remove('open'); 
+            document.body.style.overflow = 'auto'; 
         }
-
-        // Add event listeners for smooth scrolling and menu toggle
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close mobile menu after clicking a link
-                const mobileMenu = document.getElementById('mobile-menu');
-                const hamburgerIcon = document.querySelector('.hamburger-icon');
-                if (mobileMenu.classList.contains('open')) {
-                    mobileMenu.classList.remove('open');
-                    hamburgerIcon.classList.remove('open');
-                }
-            });
-        });
+        function toggleMenu() { /* Logic for mobile menu would go here */ }
     </script>
 </body>
 </html>
