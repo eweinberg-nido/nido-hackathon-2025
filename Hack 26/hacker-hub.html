@@ -83,21 +83,23 @@
 
     <header class="py-4 fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <img src="images/Sponsors/nido.jpg" alt="Nido Logo" class="h-10">
-                <div class="h-6 w-px bg-gray-300"></div>
-                <span class="font-bold tracking-tighter text-lg text-slate-900 font-mono">HACKATHON<span class="text-[#8A1621]">[26]</span></span>
-            </div>
+            <a href="../index.html">
+                <div class="flex items-center gap-4">
+                    <img src="../images/Sponsors/nido.jpg" alt="Nido Logo" class="h-10">
+                    <div class="h-6 w-px bg-gray-300"></div>
+                    <span class="font-bold tracking-tighter text-lg text-slate-900 font-mono">HACKATHON<span class="text-[#8A1621]">[26]</span></span>
+                </div>
+            </a>
             
             <nav class="hidden md:flex gap-10 items-center font-bold text-xs uppercase tracking-widest text-slate-600">
-                <a href="index.html#about" class="hover:text-[#8A1621] transition-colors">About</a>
-                <a href="index.html#sponsor" class="hover:text-[#8A1621] transition-colors">Sponsor</a>
-                <a href="index.html#faq" class="hover:text-[#8A1621] transition-colors">FAQ</a>
-                <a href="hacker-hub.html" class="bg-[#8A1621] text-white px-5 py-2 rounded-full hover:bg-[#6e111a] transition-all">Hacker Hub</a>
-                <a href="previous-hackathon.html" class="text-[#002365] hover:opacity-80">Archive →</a>
+                <a href="../index.html#about" class="hover:text-[#8A1621] transition-colors">About</a>
+                <a href="../index.html#sponsor" class="hover:text-[#8A1621] transition-colors">Sponsor</a>
+                <a href="../index.html#faq" class="hover:text-[#8A1621] transition-colors">FAQ</a>
+                <a href="hacker-hub.html" class="hidden bg-[#8A1621] text-white px-5 py-2 rounded-full hover:bg-[#6e111a] transition-all">Hacker Hub</a>
+                <a href="../OLD/previous-hackathon.html" class="text-[#002365] hover:opacity-80">Archive →</a>
             </nav>
 
-            <a href="index.html" class="md:hidden bg-white border-2 border-slate-200 text-slate-700 px-4 py-2 rounded-full font-bold text-xs hover:bg-slate-50 transition-all">
+            <a href="../index.html" class="md:hidden bg-white border-2 border-slate-200 text-slate-700 px-4 py-2 rounded-full font-bold text-xs hover:bg-slate-50 transition-all">
                 Back
             </a>
         </div>
@@ -180,7 +182,7 @@
                     </p>
 
                     <div class="grid gap-6">
-                        <a href="how-to-develop.html" class="glass-card p-8 rounded-3xl block border-l-8 border-l-[#8A1621]">
+                        <a href="Teach/how-to-develop.html" class="glass-card p-8 rounded-3xl block border-l-8 border-l-[#8A1621]">
                             <div class="flex items-start justify-between gap-6">
                                 <div>
                                     <p class="font-mono text-xs font-bold text-slate-400">GUIDE_01</p>
@@ -191,7 +193,7 @@
                             </div>
                         </a>
 
-                        <a href="how-to-demo.html" class="glass-card p-8 rounded-3xl block border-l-8 border-l-[#002365]">
+                        <a href="Teach/how-to-demo.html" class="glass-card p-8 rounded-3xl block border-l-8 border-l-[#002365]">
                             <div class="flex items-start justify-between gap-6">
                                 <div>
                                     <p class="font-mono text-xs font-bold text-slate-400">GUIDE_02</p>
@@ -206,7 +208,7 @@
                     <div class="mt-10 bg-white/60 border border-slate-200 rounded-2xl p-6">
                         <p class="font-bold text-slate-900 mb-2">Tip</p>
                         <p class="text-slate-600">
-                            If you’re stuck, pick a tiny problem you understand personally, then build a clear “before → after” story.
+                            If you’re stuck, ask for help. We are here to help you.
                         </p>
                     </div>
                 </div>
@@ -217,24 +219,22 @@
     <footer class="py-20 bg-slate-950 text-slate-500 text-center border-t border-slate-900">
         <div class="container mx-auto px-6">
             <div class="flex justify-center gap-8 mb-8">
-                <a href="index.html#about" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">About</a>
-                <a href="index.html#sponsor" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">Sponsor</a>
-                <a href="previous-hackathon.html" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">Archive</a>
+                <a href="../index.html#about" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">About</a>
+                <a href="../index.html#sponsor" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">Sponsor</a>
+                <a href="../OLD/previous-hackathon.html" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">Archive</a>
             </div>
             <p class="text-sm">&copy; 2026 Nido Hackathon. Engineered for the future.</p>
             <p class="mt-4 text-[10px] uppercase tracking-[0.3em] font-bold text-[#8A1621]">Supported by International School Nido de Aguilas</p>
         </div>
     </footer>
 
+    <script src="js/mentors.js"></script>
     <script>
         const endpoint = "https://script.google.com/macros/s/AKfycbxw2QtzEYEG1YkYrMXLP1DgBHkF5W3oyO2QweWuLZSWpanc1UVvAe6SRgrzi9uQUKY/exec";
 
-        const MENTORS = [
-            "A. Mentor",
-            "B. Mentor",
-            "C. Mentor",
-            "D. Mentor"
-        ];
+        const MENTORS = Array.isArray(window.HACKER_HUB_MENTORS) && window.HACKER_HUB_MENTORS.length
+            ? window.HACKER_HUB_MENTORS
+            : ["A. Mentor", "B. Mentor", "C. Mentor", "D. Mentor"];
 
         const memberFieldsEl = document.getElementById('memberFields');
         const addMemberBtn = document.getElementById('addMemberBtn');
@@ -338,14 +338,15 @@
         document.getElementById('teamForm').addEventListener('submit', async (e) => {
             e.preventDefault();
 
+            const formEl = e.currentTarget;
             const msg = document.getElementById('teamMessage');
-            const btn = e.currentTarget.querySelector('button[type="submit"]');
+            const btn = formEl.querySelector('button[type="submit"]');
             const btnText = btn.querySelector('.btn-text');
 
             msg.classList.add('hidden');
             if (!updateMentorWarnings()) return;
 
-            const formData = new FormData(e.currentTarget);
+            const formData = new FormData(formEl);
             const teamName = (formData.get('teamName') || '').toString().trim();
 
             const members = [];
@@ -397,7 +398,7 @@
                 }
 
                 setMessage(msg, 'Team registered! You’re all set.', 'success');
-                e.currentTarget.reset();
+                if (formEl && typeof formEl.reset === 'function') formEl.reset();
                 memberFieldsEl.innerHTML = '';
                 memberFieldsEl.appendChild(createMemberRow(1));
                 memberFieldsEl.appendChild(createMemberRow(2));

@@ -3,15 +3,47 @@ function doPost(e) {
     return respond({ success: false, error: 'No data received' }, 400);
   }
 
-  const data = JSON.parse(e.postData.contents || '{}');
+  let data = {};
+  try {
+    data = JSON.parse(e.postData.contents || '{}');
+  } catch (err) {
+    return respond({ success: false, error: 'Invalid JSON body' }, 400);
+  }
+
   const intent = data.intent || 'participant_signup';
   const timestamp = data.timestamp ? new Date(data.timestamp) : new Date();
 
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const participantSheet = getOrCreateSheet_(ss, 'Participants', ['Timestamp', 'Name', 'School', 'Email']);
   const sponsorSheet = getOrCreateSheet_(ss, 'Sponsors', ['Timestamp', 'Name', 'Company', 'Email', 'Focus', 'Notes']);
+  const teamsSheet = getOrCreateSheet_(ss, 'Teams', [
+    'Timestamp',
+    'Team Name',
+    'Member 1',
+    'Member 2',
+    'Member 3',
+    'Member 4',
+    'Mentor Preference 1',
+    'Mentor Preference 2',
+    'Mentor Preference 3'
+  ]);
 
-  if (intent === 'sponsor_interest' && sponsorSheet) {
+  if (intent === 'team_registration' && teamsSheet) {
+    teamsSheet.appendRow([
+      timestamp,
+      data.teamName || '',
+      data.member1 || '',
+      data.member2 || '',
+      data.member3 || '',
+      data.member4 || '',
+      data.mentor1 || '',
+      data.mentor2 || '',
+      data.mentor3 || ''
+    ]);
+    return respond({ success: true, type: 'team' });
+  }
+
+  if ((intent === 'sponsor_interest' || intent === 'sponsor_inquiry') && sponsorSheet) {
     sponsorSheet.appendRow([
       timestamp,
       data.name || '',
@@ -74,6 +106,11 @@ function sendEmail(subject, data) {
 function respond(payload, statusCode) {
   const output = ContentService.createTextOutput(JSON.stringify(payload));
   output.setMimeType(ContentService.MimeType.JSON);
-  if (statusCode) output.setResponseCode(statusCode);
+  if (output.setHeader) {
+    output.setHeader('Access-Control-Allow-Origin', '*');
+    output.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    output.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  }
+  if (statusCode && output.setResponseCode) output.setResponseCode(statusCode);
   return output;
 }

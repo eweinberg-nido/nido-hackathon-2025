@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Develop: 101 | Hacker Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Open+Sans:wght@400;600;700;800&family=Architects+Daughter&display=swap');
+        
+        :root {
+            --brand-maroon: #8A1621;
+            --brand-navy: #002365;
+            --grid-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #0f172a;
+            scroll-behavior: smooth;
+        }
+
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .font-hand { font-family: 'Architects Daughter', cursive; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(138, 22, 33, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 35, 101, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--brand-maroon);
+            box-shadow: 0 12px 30px rgba(138, 22, 33, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--brand-navy), var(--brand-maroon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tech-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            color: var(--brand-maroon);
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(138, 22, 33, 0.05);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="py-4 fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="../../index.html">
+                <div class="flex items-center gap-4">
+                    <img src="../../images/Sponsors/nido.jpg" alt="Nido Logo" class="h-10">
+                    <div class="h-6 w-px bg-gray-300"></div>
+                    <span class="font-bold tracking-tighter text-lg text-slate-900 font-mono">HACKATHON<span class="text-[#8A1621]">[26]</span></span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex gap-10 items-center font-bold text-xs uppercase tracking-widest text-slate-600">
+                <a href="../../index.html#about" class="hover:text-[#8A1621] transition-colors">About</a>
+                <a href="../../index.html#sponsor" class="hover:text-[#8A1621] transition-colors">Sponsor</a>
+                <a href="../../index.html#faq" class="hover:text-[#8A1621] transition-colors">FAQ</a>
+                <a href="../hacker-hub.html" class="hidden bg-[#8A1621] text-white px-5 py-2 rounded-full hover:bg-[#6e111a] transition-all">Hacker Hub</a>
+                <a href="../../OLD/previous-hackathon.html" class="text-[#002365] hover:opacity-80">Archive →</a>
+            </nav>
+
+            <a href="../hacker-hub.html" class="md:hidden bg-white border-2 border-slate-200 text-slate-700 px-4 py-2 rounded-full font-bold text-xs hover:bg-slate-50 transition-all">
+                Back
+            </a>
+        </div>
+    </header>
+
+    <section class="relative pt-40 pb-16 overflow-hidden">
+        <div class="container mx-auto px-6 text-center">
+            <span class="tech-label mb-6">How To :: Build</span>
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter text-slate-900 leading-none">
+                How to <span class="gradient-text">Develop</span>: 101
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">
+                A simple, reliable process for choosing an idea, shipping a prototype, and staying sane while you do it.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-6 grid lg:grid-cols-3 gap-8 items-start">
+            <div class="glass-card p-8 rounded-3xl lg:col-span-2 border-b-8 border-b-[#8A1621]">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">1) Pick a project idea</h2>
+                <div class="text-slate-600 leading-relaxed space-y-4">
+                    <p><span class="font-bold text-slate-900">Start with a real pain.</span> The best hackathon ideas are small problems you understand personally: school logistics, clubs, sports teams, studying, transportation, food, schedules.</p>
+                    <p><span class="font-bold text-slate-900">Make it a story:</span> “Before” (frustration) → “After” (your app makes it easy). Judges remember stories.</p>
+                    <p><span class="font-bold text-slate-900">Aim for a demoable change.</span> If you can’t show the problem being solved in 30 seconds, the idea is probably too abstract.</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl border-b-8 border-b-[#002365]">
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Quick filters</h3>
+                <ul class="text-slate-600 space-y-3">
+                    <li><span class="font-bold text-slate-900">Demo:</span> Can we show it working live?</li>
+                    <li><span class="font-bold text-slate-900">Scope:</span> Can 2–4 people build a prototype?</li>
+                    <li><span class="font-bold text-slate-900">Data:</span> Do we have sample data?</li>
+                    <li><span class="font-bold text-slate-900">Impact:</span> Who benefits, and how?</li>
+                </ul>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl lg:col-span-3">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">2) Scope for a hackathon timeline</h2>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    Don’t plan the “final app”. Plan the smallest prototype that proves the core value.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-mono text-xs font-bold text-slate-400 mb-2">MVP</p>
+                        <p class="font-bold text-slate-900 mb-2">Must have</p>
+                        <p class="text-slate-600">The one feature your demo depends on.</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-mono text-xs font-bold text-slate-400 mb-2">NICE</p>
+                        <p class="font-bold text-slate-900 mb-2">Nice to have</p>
+                        <p class="text-slate-600">Polish if time remains (UI, extras).</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-mono text-xs font-bold text-slate-400 mb-2">NOPE</p>
+                        <p class="font-bold text-slate-900 mb-2">Not now</p>
+                        <p class="text-slate-600">Anything that risks the MVP.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl lg:col-span-2 border-l-8 border-l-[#8A1621]">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">3) Basic Git workflow (safe + simple)</h2>
+                <div class="text-slate-600 leading-relaxed space-y-4">
+                    <p><span class="font-bold text-slate-900">One person sets up the repo</span> (GitHub/GitLab) and invites everyone.</p>
+                    <p><span class="font-bold text-slate-900">Work in small pieces.</span> Don’t make a 3-hour change without pushing. Push often.</p>
+                    <p><span class="font-bold text-slate-900">Pull before you start.</span> It avoids messy conflicts.</p>
+                </div>
+                <div class="mt-6 bg-slate-900 text-slate-100 rounded-2xl p-5 font-mono text-sm overflow-x-auto">
+                    <div>git checkout -b feature/my-change</div>
+                    <div>git add .</div>
+                    <div>git commit -m "Add team form"</div>
+                    <div>git push -u origin feature/my-change</div>
+                </div>
+                <p class="text-xs text-slate-500 mt-4">
+                    If you’re not using PRs, agree on one rule: only one person edits the same file at the same time.
+                </p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl border-l-8 border-l-[#002365]">
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Team split ideas</h3>
+                <ul class="text-slate-600 space-y-3">
+                    <li><span class="font-bold text-slate-900">Builder 1:</span> UI + pages</li>
+                    <li><span class="font-bold text-slate-900">Builder 2:</span> Data + APIs</li>
+                    <li><span class="font-bold text-slate-900">Builder 3:</span> Demo flow + pitch</li>
+                    <li><span class="font-bold text-slate-900">Builder 4:</span> Testing + polish</li>
+                </ul>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl lg:col-span-3 border-t-8 border-t-[#002365]">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">4) Split work across the team</h2>
+                <p class="text-slate-600 leading-relaxed mb-8">
+                    The fastest teams agree on a plan, then work in parallel without stepping on each other.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-bold text-slate-900 mb-2">Write the demo script early</p>
+                        <p class="text-slate-600">If you can narrate the demo, you know what you need to build. Let the pitch guide the product.</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-bold text-slate-900 mb-2">Define “done” in one sentence</p>
+                        <p class="text-slate-600">Example: “User can create a team, choose mentors, and see a confirmation.”</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-bold text-slate-900 mb-2">Keep a tiny task board</p>
+                        <p class="text-slate-600">To Do → Doing → Done. The board is the truth, not memory.</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-bold text-slate-900 mb-2">Avoid “merge hell”</p>
+                        <p class="text-slate-600">Split by files/pages, push frequently, and pull before starting new work.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 bg-slate-950 text-slate-500 text-center border-t border-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="../../index.html#about" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">About</a>
+                <a href="../../index.html#sponsor" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">Sponsor</a>
+                <a href="../../OLD/previous-hackathon.html" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">Archive</a>
+            </div>
+            <p class="text-sm">&copy; 2026 Nido Hackathon. Engineered for the future.</p>
+            <p class="mt-4 text-[10px] uppercase tracking-[0.3em] font-bold text-[#8A1621]">Supported by International School Nido de Aguilas</p>
+        </div>
+    </footer>
+
+</body>
+</html>
