@@ -1,13 +1,13 @@
 window.FRONTPAGE_MESSAGES = [
-  "Build fast. Learn faster.",
+  "Learn fast, build faster.",
   "Your next idea starts here.",
-  "One weekend. Infinite possibilities.",
-  "Turn curiosity into code.",
-  "Make something.",
-  "Prototype today. Pitch tomorrow.",
+  "The best ideas don't wait.",
+  "From thought into code.",
+  "It all starts now.",
+  "From nothing to something.",
   "Create, test, iterate, repeat.",
   "From zero to demo in hours.",
-  "Innovate the Future.",
-  "Team up. Ship it. Celebrate."
+  "Don't count the hours, make the hours count.",
+  "From scratch. From zero. From you.",
+  "It seems impossible until it's done."
 ];
-
