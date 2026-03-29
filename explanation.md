@@ -1,144 +1,38 @@
-# Nido Hackathon Website - Simple Guide
+# Nido Hackathon Website – Build Notes
 
 ## Overview
-This is a single-page website for the Nido Hackathon event. Built with HTML, CSS, and JavaScript using Tailwind CSS for styling. Features a modern design with glassmorphism effects.
+- Static single-page layout powered by Tailwind CSS (via the CDN import at the top of `index.html`) plus bespoke gradients, glass cards, and sticky notes defined with inline `<style>` rules.
+- Countdown, modals, and form handling all live inside the `<script>` block at the bottom of `index.html`, while the rotating hero headline comes from `Hack 26/js/frontpage-messages.js`.
+- Forms post to a Google Apps Script endpoint (`endpoint` constant near the top of the script) using `fetch` with `mode: "no-cors"` to avoid CORS failures in the lightweight front-end.
 
-## File Structure
-- `index.html` - Main website file
-- `images/` - Directory for sponsor logos and gallery images
-- `explanation.md` - This guide
+## File layout
+- `index.html` – entire page markup (navigation, hero, mission, stats grid, sponsors, footer, modals). 
+- `images/` – logos, hero photos, event gallery assets, etc.
+- `Hack 26/js/frontpage-messages.js` – array of rotating hero splash lines pulled in with a `<script>` tag.
+- `explanation.md` – this guide.
 
-## Main Sections
+## Page sections (top to bottom)
+1. **Navigation** – fixed header with Nido logo, uppercase nav links, a Hacker Hub pill, and an archive link; the mobile menu button currently logs nothing (`toggleMenu()` placeholder).
+2. **Hero** – gradient “Innovate the Future.” headline, mission label, animated countdown (days/hours/minutes/seconds wrapped in sticky‑note cards), and CTA buttons that open the two modals via `openModal('participant-modal')` and `openModal('sponsor-modal')`.
+3. **Mission / About** – split layout explaining what a hackathon is, the theme (“For Students By Students: Leveraging AI Innovation”), and the polaroid-style image block pulled from `images/Event photos/IMG_0205.JPG`.
+4. **Impact stats** – a custom “bento” grid of glass cards showing attendees/projects/internships along with a CTA card linking to the previous hackathon archive (`OLD/previous-hackathon.html`). The stat values are hard-coded into the markup (40, 11, 4) but can be edited directly.
+5. **Sponsors** – cards with sponsor logos (currently UDD plus a “More Soon” placeholder) inside glass panels.
+6. **Footer** – navigation links plus copyright text and partner acknowledgement.
 
-### 1. Navigation
-- Fixed header with logo and menu links
-- Mobile hamburger menu
-- Smooth scrolling between sections
+## Interaction & behavior
+- **Rotating hero message** – `Hack 26/js/frontpage-messages.js` exports `window.FRONTPAGE_MESSAGES`. When the page loads it picks a random entry and stores the last exposed index in `localStorage` to avoid repeats.
+- **Countdown timer** – `hackathonDate` is set to `new Date("April 10, 2026 15:30:00")`. Every second the script recalculates the remaining time and updates the DOM elements with IDs `days`, `hours`, `minutes`, and `seconds`.
+- **Forms & modals** – two modal backdrops (`participant-modal` and `sponsor-modal`) contain forms that call `handleSubmission(...)`. That helper disables the button, swaps its text with the spinner, posts the form data plus metadata to the Apps Script endpoint, then restores the button and surfaces success/error banners.
 
-### 2. Hero Section
-- Main title with gradient text
-- Countdown timer (currently set to March 3, 2026)
-- "Countdown to March 3rd" heading
-
-### 3. Previous Hackathon Section (NEW)
-- **Stats Cards**: Shows 40 attendees, 11 projects, 4 internships
-- **Gallery Carousel**: For photos and videos from previous hackathon
-
-### 4. About Section
-- Explains what a hackathon is
-- Theme and benefits
-
-### 5. Speakers Section
-- Friday and Saturday speaker information
-
-### 6. Schedule Section
-- Two-day event timeline
-
-### 7. Sponsors Section
-- Sponsor logos and information
-
-### 8. Prizes & Judging Section
-- Prize information and judging criteria
-
-### 9. FAQ Section
-- Interactive accordion with common questions
-
-## How to Add Images and Videos to the Gallery
-
-### Step 1: Add Images to the Images Folder
-1. Save your hackathon photos/videos in the `images/` folder
-2. Use descriptive names like `hackathon-1.jpg`, `team-working.jpg`, etc.
-
-### Step 2: Update the Carousel HTML
-Find this section in the HTML (around line 136):
-```html
-<div class="carousel-container flex transition-transform duration-500 ease-in-out" id="carousel-container">
-    <!-- Carousel items will be added here -->
-    <div class="carousel-item w-full flex-shrink-0 text-center py-12">
-        <div class="text-gray-500 text-lg">
-            <p class="mb-4">📸 Add your hackathon photos here</p>
-            <p class="text-sm">Replace this placeholder with actual images</p>
-        </div>
-    </div>
-</div>
-```
-
-Replace the placeholder with your images:
-```html
-<div class="carousel-container flex transition-transform duration-500 ease-in-out" id="carousel-container">
-    <!-- Image 1 -->
-    <div class="carousel-item w-full flex-shrink-0">
-        <img src="images/hackathon-1.jpg" alt="Hackathon participants working" class="w-full h-64 object-cover rounded-lg">
-    </div>
-    
-    <!-- Image 2 -->
-    <div class="carousel-item w-full flex-shrink-0">
-        <img src="images/team-working.jpg" alt="Team collaboration" class="w-full h-64 object-cover rounded-lg">
-    </div>
-    
-    <!-- Video -->
-    <div class="carousel-item w-full flex-shrink-0">
-        <video class="w-full h-64 object-cover rounded-lg" controls>
-            <source src="images/hackathon-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-</div>
-```
-
-### Step 3: Update the Dots Navigation
-Find this section (around line 159):
-```html
-<div class="flex justify-center mt-4 space-x-2" id="carousel-dots">
-    <button class="w-3 h-3 rounded-full bg-cyan-500" onclick="currentSlide(1)"></button>
-</div>
-```
-
-Add a dot for each image/video:
-```html
-<div class="flex justify-center mt-4 space-x-2" id="carousel-dots">
-    <button class="w-3 h-3 rounded-full bg-cyan-500" onclick="currentSlide(1)"></button>
-    <button class="w-3 h-3 rounded-full bg-gray-300" onclick="currentSlide(2)"></button>
-    <button class="w-3 h-3 rounded-full bg-gray-300" onclick="currentSlide(3)"></button>
-</div>
-```
-
-### Step 4: Update JavaScript
-Find this line in the JavaScript (around line 439):
-```javascript
-const totalSlides = 1; // Update this when you add more slides
-```
-
-Change the number to match your total images/videos:
-```javascript
-const totalSlides = 3; // Update this when you add more slides
-```
-
-## Quick Updates for Next Hackathon
-
-### Change the Countdown Date
-Find this line in the JavaScript:
-```javascript
-const hackathonDate = new Date("March 3, 2026 00:00:00").getTime();
-```
-Change the date to your new hackathon date.
-
-### Update Stats
-Find these lines in the Previous Hackathon section:
-```html
-<h3 class="text-3xl font-bold text-cyan-600 mb-2" id="attendees-count">40</h3>
-<h3 class="text-3xl font-bold text-cyan-600 mb-2" id="projects-count">11</h3>
-<h3 class="text-3xl font-bold text-cyan-600 mb-2" id="prizes-given">4 Internships</h3>
-```
-Update the numbers and text as needed.
-
-### Update Content
-- Change speakers, schedule, sponsors, and theme in their respective sections
-- Update the title from "Nido Hackathon 2025" to your new year
-- Modify the FAQ section with relevant questions
+## Customization checklist
+1. **Update hero copy/date** – edit the `<h1>` for new messaging and change `hackathonDate` inside the `<script>` block near the bottom of `index.html` whenever your event date/time changes.
+2. **Rotate slogans** – add or swap entries in `Hack 26/js/frontpage-messages.js` to keep the hero tagline fresh; the script automatically reads that array.
+3. **Stats grid** – adjust the numbers/text inside the glass cards in the “Impact_Report_v2.0” section (search for `text-8xl`/`text-5xl` spans) if you want new attendee/project/internship counts.
+4. **Sponsor logos** – drop PNG/JPG/SVG files into `images/Sponsors/` and add new `<div class="glass-card">` blocks inside the sponsors section to surface them; match the height/spacing classes already used.
+5. **Forms** – expand either form in the modal bodies (`participant-modal` uses `signupForm`, `sponsor-modal` uses `sponsorForm`). You can rename fields, add inputs, or change placeholder text. If your backend changes, update the `endpoint` constant right above the helper functions.
+6. **Copy updates** – sections such as the mission description, sponsor blurb, and footer copy are all editable inline in `index.html`; follow the tailwind utility classes to keep spacing consistent.
 
 ## Tips
-- Keep images under 2MB for faster loading
-- Use JPG for photos, PNG for logos with transparency
-- Videos should be MP4 format
-- Test the carousel navigation after adding new content
+- Keep new images under 2MB and use `loading="lazy"` where possible (already applied in the polaroid image).
+- When adding sponsor cards, reuse the `.glass-card` class so the hover/gradient effect stays uniform.
+- Test both modals after any change; the success/error messages rely on the `hidden` class being toggled for `formMessage` and `sponsorMessage`.
