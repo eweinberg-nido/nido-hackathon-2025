@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Demo | Hacker Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Open+Sans:wght@400;600;700;800&family=Architects+Daughter&display=swap');
+
+        :root {
+            --brand-maroon: #8A1621;
+            --brand-navy: #002365;
+            --grid-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            background-image:
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #0f172a;
+            scroll-behavior: smooth;
+        }
+
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .font-hand { font-family: 'Architects Daughter', cursive; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(138, 22, 33, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 35, 101, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--brand-maroon);
+            box-shadow: 0 12px 30px rgba(138, 22, 33, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--brand-navy), var(--brand-maroon));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tech-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            color: var(--brand-maroon);
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(138, 22, 33, 0.05);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="py-4 fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="../../index.html">
+                <div class="flex items-center gap-4">
+                    <img src="../../images/Sponsors/nido.jpg" alt="Nido Logo" class="h-10">
+                    <div class="h-6 w-px bg-gray-300"></div>
+                    <span class="font-bold tracking-tighter text-lg text-slate-900 font-mono">HACKATHON<span class="text-[#8A1621]">[26]</span></span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex gap-10 items-center font-bold text-xs uppercase tracking-widest text-slate-600">
+                <a href="../../index.html#about" class="hover:text-[#8A1621] transition-colors">About</a>
+                <a href="../../index.html#sponsor" class="hover:text-[#8A1621] transition-colors">Sponsor</a>
+                <a href="../../index.html#faq" class="hover:text-[#8A1621] transition-colors">FAQ</a>
+                <a href="../hacker-hub.html" class="hidden bg-[#8A1621] text-white px-5 py-2 rounded-full hover:bg-[#6e111a] transition-all">Hacker Hub</a>
+                <a href="../../OLD/previous-hackathon.html" class="text-[#002365] hover:opacity-80">Archive →</a>
+            </nav>
+
+            <a href="../hacker-hub.html" class="md:hidden bg-white border-2 border-slate-200 text-slate-700 px-4 py-2 rounded-full font-bold text-xs hover:bg-slate-50 transition-all">
+                Back
+            </a>
+        </div>
+    </header>
+
+    <section class="relative pt-40 pb-16 overflow-hidden">
+        <div class="container mx-auto px-6 text-center">
+            <span class="tech-label mb-6">Workshop :: Demo</span>
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter text-slate-900 leading-none">
+                How to <span class="gradient-text">Demo</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">
+                A practical structure and checklist to deliver a clean, confident hackathon demo.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-6 grid lg:grid-cols-3 gap-8 items-start">
+            <div class="glass-card p-8 rounded-3xl lg:col-span-2 border-b-8 border-b-[#002365]">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Core demo structure</h2>
+                <div class="space-y-4 text-slate-600 leading-relaxed">
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-bold text-slate-900">Hook</p>
+                        <p>Open with one line that captures attention.</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-bold text-slate-900">Problem + persona</p>
+                        <p>Explain who has the problem and why it matters.</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-bold text-slate-900">Demo wow features</p>
+                        <p>Show your 1-3 strongest features live.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl border-b-8 border-b-[#8A1621]">
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Reminder</h3>
+                <p class="text-slate-600">
+                    Keep it similar to this presentation style: clear, visual, and not too much text.
+                </p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl lg:col-span-3 border-t-8 border-t-[#8A1621]">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Presentation structure</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-mono text-xs font-bold text-slate-400 mb-2">STEP 01</p>
+                        <p class="font-bold text-slate-900 mb-2">Hook</p>
+                        <p class="text-slate-600">Open with one line that captures attention.</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-mono text-xs font-bold text-slate-400 mb-2">STEP 02</p>
+                        <p class="font-bold text-slate-900 mb-2">Problem + persona</p>
+                        <p class="text-slate-600">Explain who has the problem and why it matters.</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-mono text-xs font-bold text-slate-400 mb-2">STEP 03</p>
+                        <p class="font-bold text-slate-900 mb-2">Demo wow features</p>
+                        <p class="text-slate-600">Show your 1-3 strongest features live.</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-mono text-xs font-bold text-slate-400 mb-2">STEP 04</p>
+                        <p class="font-bold text-slate-900 mb-2">How it works</p>
+                        <p class="text-slate-600">Give a brief technical explanation only.</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-mono text-xs font-bold text-slate-400 mb-2">STEP 05</p>
+                        <p class="font-bold text-slate-900 mb-2">Profitability + growth</p>
+                        <p class="text-slate-600">Show potential traction, users, and scaling logic.</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-mono text-xs font-bold text-slate-400 mb-2">STEP 06</p>
+                        <p class="font-bold text-slate-900 mb-2">Next steps</p>
+                        <p class="text-slate-600">Close with what comes next for your market.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl lg:col-span-2 border-l-8 border-l-[#002365]">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Delivery tips</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-bold text-slate-900 mb-2">Rehearse, rehearse, rehearse</p>
+                        <p class="text-slate-600">Practice multiple times with timing and role handoffs.</p>
+                    </div>
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-6">
+                        <p class="font-bold text-slate-900 mb-2">Reduce live typing risk</p>
+                        <p class="text-slate-600">Avoid relying on lots of last-second input during the pitch.</p>
+                    </div>
+                </div>
+                <div class="mt-6 bg-white/60 border border-slate-200 rounded-2xl p-6">
+                    <p class="font-bold text-slate-900 mb-2">Backup strategy</p>
+                    <p class="text-slate-600">Have seeded data, screenshots, and a short backup video ready in case of issues.</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl border-l-8 border-l-[#8A1621]">
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Slide style</h3>
+                <ul class="text-slate-600 space-y-3">
+                    <li><span class="font-bold text-slate-900">Minimal text:</span> one idea per slide</li>
+                    <li><span class="font-bold text-slate-900">Visual proof:</span> product screens over paragraphs</li>
+                    <li><span class="font-bold text-slate-900">Consistent flow:</span> problem → demo → value</li>
+                    <li><span class="font-bold text-slate-900">Strong close:</span> market + next step</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 bg-slate-950 text-slate-500 text-center border-t border-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="../../index.html#about" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">About</a>
+                <a href="../../index.html#sponsor" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">Sponsor</a>
+                <a href="../../OLD/previous-hackathon.html" class="hover:text-white transition-colors uppercase text-xs font-bold tracking-widest">Archive</a>
+            </div>
+            <p class="text-sm">&copy; 2026 Nido Hackathon. Engineered for the future.</p>
+            <p class="mt-4 text-[10px] uppercase tracking-[0.3em] font-bold text-[#8A1621]">Supported by International School Nido de Aguilas</p>
+        </div>
+    </footer>
+
+</body>
+</html>
