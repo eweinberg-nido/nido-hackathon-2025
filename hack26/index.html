@@ -114,7 +114,7 @@
                 The <span class="gradient-text">Hacker Hub</span>
             </h1>
             <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">
-                Register your team, pick mentors, and grab resources to help you build and pitch with confidence.
+                Register your team and grab resources to help you build and pitch with confidence.
             </p>
         </div>
     </section>
@@ -151,17 +151,17 @@
 
                         <div class="bg-white/60 border border-slate-200 rounded-2xl p-5 ">
                             <div class="mb-4">
-                                <p class="font-bold text-slate-900">Mentor preference (ranked)</p>
-                                <p class="text-xs text-slate-500">Pick your 1st, 2nd, and 3rd choice</p>
+                                <p class="font-bold text-slate-900">Mentor preference (optional)</p>
+                                <p class="text-xs text-slate-500">You can leave these blank</p>
                             </div>
                             <div class="grid md:grid-cols-3 gap-3">
-                                <select id="mentor1" name="mentor1" required class="p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none">
+                                <select id="mentor1" name="mentor1" class="p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none">
                                     <option value="" selected disabled>1st choice</option>
                                 </select>
-                                <select id="mentor2" name="mentor2" required class="p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none">
+                                <select id="mentor2" name="mentor2" class="p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none">
                                     <option value="" selected disabled>2nd choice</option>
                                 </select>
-                                <select id="mentor3" name="mentor3" required class="p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none">
+                                <select id="mentor3" name="mentor3" class="p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none">
                                     <option value="" selected disabled>3rd choice</option>
                                 </select>
                             </div>
@@ -286,6 +286,7 @@
         }
 
         function populateMentorSelect(selectEl) {
+            if (!selectEl) return;
             for (const name of MENTORS) {
                 const opt = document.createElement('option');
                 opt.value = name;
@@ -303,6 +304,7 @@
 
         function updateMentorWarnings() {
             const warn = document.getElementById('mentorWarn');
+            if (!mentor1 || !mentor2 || !mentor3 || !warn) return true;
             const picks = [mentor1.value, mentor2.value, mentor3.value].filter(Boolean);
             const hasDupes = new Set(picks).size !== picks.length;
             if (!hasDupes) {
@@ -314,9 +316,9 @@
             warn.classList.remove('hidden');
             return false;
         }
-        mentor1.addEventListener('change', updateMentorWarnings);
-        mentor2.addEventListener('change', updateMentorWarnings);
-        mentor3.addEventListener('change', updateMentorWarnings);
+        if (mentor1) mentor1.addEventListener('change', updateMentorWarnings);
+        if (mentor2) mentor2.addEventListener('change', updateMentorWarnings);
+        if (mentor3) mentor3.addEventListener('change', updateMentorWarnings);
 
         addMemberBtn.addEventListener('click', () => {
             const count = memberFieldsEl.children.length;
