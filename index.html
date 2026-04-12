@@ -150,6 +150,41 @@
             gap: 1.5rem;
         }
 
+        .project-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 0.5rem 0.25rem 1.5rem;
+            scrollbar-width: none;
+        }
+
+        .project-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-card {
+            flex: 0 0 min(90vw, 540px);
+            min-height: 520px;
+            scroll-snap-align: start;
+        }
+
+        .project-media {
+            min-height: 180px;
+            border: 1px dashed rgba(0, 35, 101, 0.22);
+        }
+
+        .project-index {
+            border: 1px solid rgba(138, 22, 33, 0.18);
+        }
+
+        .project-dot[aria-current="true"] {
+            background: var(--brand-maroon);
+            color: white;
+            border-color: var(--brand-maroon);
+        }
+
         @media (max-width: 768px) {
             .bento-grid { grid-template-columns: repeat(2, 1fr); }
         }
@@ -170,7 +205,7 @@
                 <a href="index.html#about" class="hover:text-[#8A1621] transition-colors">About</a>
                 <a href="index.html#sponsor" class="hover:text-[#8A1621] transition-colors">Sponsor</a>
                 <a href="index.html#faq" class="hover:text-[#8A1621] transition-colors">FAQ</a>
-                <a href="hack26/index.html" class=" bg-[#8A1621] text-white px-5 py-2 rounded-full hover:bg-[#6e111a] transition-all">Hacker Hub</a>
+                <a href="hack26/index.html" class=" bg-[#8A1621] text-white px-5 py-2 rounded-full hover:bg-[#6e111a] transition-all hidden">Hacker Hub</a>
                 <a href="previous-hackathon.html" class="text-[#002365] hover:opacity-80">Archive →</a>
             </nav>
 
@@ -181,54 +216,23 @@
         </div>
     </header>
 
-    <section class="relative min-h-screen pt-40 pb-20 flex items-center overflow-hidden">
+    <section class="relative pt-32 pb-8 flex items-center overflow-hidden">
         <div class="hero-glow"></div>
         <div class="container mx-auto px-6 text-center relative z-10">
 	            
 	            <h1 class="text-6xl md:text-9xl font-extrabold mb-8 tracking-tighter text-slate-900 leading-none">
 	                <span id="frontpage-message" class="gradient-text">Nido.Fall.Hack[26]</span>
 	            </h1>
-	            <p class="text-lg md:text-xl text-slate-600 mb-12 max-w-2xl mx-auto font-medium">
-	                April 10 - 11, 2026 <span class="mx-2 text-gray-300">|</span>hosted by Universidad de Desarrollo
-	            </p>
+	            <h2 class="mb-12 max-w-3xl mx-auto text-2xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+	                April 10 - 11, 2026
+	                <span class="block mt-3 text-sm md:text-base font-bold uppercase tracking-[0.25em] text-[#8A1621]">Hosted by Universidad de Desarrollo</span>
+	            </h2>
 
-	            <div class="flex flex-wrap justify-center gap-6 mb-16">
-	                <div class="sticky-note countdown-card note-1 px-8 py-6 rounded-lg">
-	                    <span id="days" class="block text-5xl font-mono font-bold text-slate-900">00</span>
-	                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Days</span>
-	                </div>
-	                <div class="sticky-note countdown-card note-2 px-8 py-6 rounded-lg">
-	                    <span id="hours" class="block text-5xl font-mono font-bold text-slate-900">00</span>
-	                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Hours</span>
-	                </div>
-	                <div class="sticky-note countdown-card note-3 px-8 py-6 rounded-lg">
-	                    <span id="minutes" class="block text-5xl font-mono font-bold text-slate-900">00</span>
-	                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Mins</span>
-	                </div>
-	                <div class="sticky-note countdown-card note-4 px-8 py-6 rounded-lg">
-	                    <span id="seconds" class="block text-5xl font-mono font-bold text-slate-900">00</span>
-	                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Secs</span>
-	                </div>
-	            </div>
-
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center hidden">
-                <button onclick="openModal('participant-modal')" class="btn-primary text-white px-12 py-5 rounded-full font-bold text-lg shadow-2xl hover:scale-105 transition-all w-full sm:w-auto">
-                    Register to Participate
-                </button>
-                <button onclick="openModal('sponsor-modal')" class="bg-white border-2 border-slate-200 text-slate-700 px-12 py-5 rounded-full font-bold text-lg hover:bg-slate-50 transition-all w-full sm:w-auto">
-                    Become a Sponsor
-                </button>
-            </div>
-        </div>
-    </section>
-<section id="sponsor" class="py-32 bg-white/60 border-y border-gray-200">
-        <div class="container mx-auto px-6">
+	            <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Sponsors</h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                    We are grateful to our sponsors for helping make this event possible!
-                </p>
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Presented by:</h2>
+               
             </div>
             <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 max-w-6xl mx-auto">
                 <div class="glass-card px-5 py-4 flex items-center justify-center min-w-[180px]">
@@ -247,76 +251,47 @@
                     <img src="images/Sponsors/unlearni.png" alt="Unlearni Logo" class="h-24 w-auto max-w-[220px] object-contain">
                 </div>
                 <div class="glass-card px-5 py-4 flex items-center justify-center min-w-[180px]">
+                    <img src="images/Sponsors/raltech.avif" alt="Unlearni Logo" class="h-24 w-auto max-w-[220px] object-contain">
+                </div>
+                <div class="glass-card px-5 py-4 flex items-center justify-center min-w-[180px]">
                     <img src="images/Sponsors/logo-icbfs.png" alt="icbfs Logo" class="h-24 w-auto max-w-[220px] object-contain">
                 </div>
                 <div class="glass-card px-5 py-4 flex items-center justify-center min-w-[180px]">
                     <img src="images/Sponsors/NotCo.png" alt="NotCo Logo" class="h-24 w-auto max-w-[220px] object-contain">
                 </div>
-                <div class="glass-card hidden px-8 py-4 flex items-center justify-center min-h-[112px] min-w-[220px] border border-dashed border-slate-300">
-                    <span class="text-slate-400 text-sm uppercase tracking-widest font-bold">More Soon</span>
-                </div>
+                
             </div>
         </div>
-    </section>
-    <section id="about" class="py-32 bg-white/50 border-y border-gray-200">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-16">
-                <div class="md:w-1/2">
-                    <span class="tech-label mb-4">The Mission</span>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-8 text-slate-900">What is a Hackathon?</h2>
-                    <p class="text-xl text-slate-600 leading-relaxed mb-6">
-                        A hackathon is an event where people collaborate to develop creative solutions to real-world problems in a limited time. At our event, students will be using AI technology to build software solutions to problems they identify in the world.
-                    </p>
-                    <div class="bg-[#8A1621]/5 border-l-4 border-[#8A1621] p-6 mb-8">
-                        <p class="font-bold text-[#8A1621] text-lg">For Students By Students: Leveraging AI Innovation</p>
-                    </div>
-                </div>
-                <div class="md:w-1/2 relative">
-                    <div class="polaroid-frame max-w-sm mx-auto">
-                        <div class="bg-slate-200 aspect-square rounded mb-2 overflow-hidden">
-                            <img
-                                src="images/Event%20photos/IMG_0205.JPG"
-                                alt="Nido Hackathon event photo"
-                                class="w-full h-full object-cover"
-                                loading="lazy"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="py-32">
-        <div class="container mx-auto px-6">
-            <span class="tech-label mb-12 block text-center">Impact_Report_v2.0</span>
             
-            <div class="bento-grid">
-                <div class="glass-card col-span-2 row-span-2 p-10 flex flex-col justify-end border-b-8 border-b-[#002365]">
-                    <h3 class="text-8xl font-black text-[#002365] mb-4">40</h3>
-                    <p class="text-2xl font-bold text-slate-800 uppercase tracking-tight">Attendees</p>
-                    <p class="text-slate-500 mt-2">Connecting Chile's brightest student innovators with global industry experts.</p>
-                </div>
-                <div class="glass-card col-span-2 p-8 flex items-center justify-between">
-                    <div>
-                        <h3 class="text-5xl font-black text-[#8A1621]">11</h3>
-                        <p class="font-bold text-slate-800 uppercase text-sm tracking-widest">Projects Shipped</p>
-                    </div>
-                    <div class="text-4xl">🚀</div>
-                </div>
-                <div class="glass-card col-span-1 p-8 border-t-4 border-t-[#8A1621]">
-                    <h3 class="text-5xl font-black text-[#8A1621]">4</h3>
-                    <p class="font-bold text-slate-800 text-sm uppercase">Internships</p>
-                </div>
-                <a href="previous-hackathon.html" aria-label="Open the hackathon archive" class="glass-card col-span-1 p-8 bg-[#002365] text-white cursor-pointer block">
-                    <h3 class="text-2xl font-bold mb-2 italic"> ->Prev. Hackathon<- </h3>
-                    <p class="text-xs opacity-70 font-mono">- Photos and testimonials from the previous hackathon</p>
-                </a>
-            </div>
         </div>
     </section>
 
-    
+
+    <section id="projects" class="pt-12 pb-24 bg-white/70 border-y border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
+                <div>
+                    <span class="tech-label mb-4">Project_Showcase</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Apps built this weekend</h2>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="project-prev" type="button" class="bg-white border-2 border-slate-200 text-slate-700 px-5 py-3 rounded-lg font-bold hover:border-[#8A1621] hover:text-[#8A1621] transition-all">
+                        Prev
+                    </button>
+                    <button id="project-next" type="button" class="bg-[#002365] text-white px-5 py-3 rounded-lg font-bold hover:bg-[#001a4d] transition-all">
+                        Next
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div id="project-track" class="project-track" tabindex="0" aria-label="Top three hackathon project carousel"></div>
+            </div>
+
+            <div id="project-dots" class="flex flex-wrap justify-center gap-2 mt-6" aria-label="Project carousel pages"></div>
+        </div>
+    </section>
 
     <footer class="py-20 bg-slate-950 text-slate-500 text-center border-t border-slate-900">
         <div class="container mx-auto px-6">
@@ -368,94 +343,144 @@
         </div>
     </div>
 
-    <script src="Hack%2026/js/frontpage-messages.js"></script>
-    <script>
-        const endpoint = "https://script.google.com/macros/s/AKfycbxw2QtzEYEG1YkYrMXLP1DgBHkF5W3oyO2QweWuLZSWpanc1UVvAe6SRgrzi9uQUKY/exec";
+<script>
+        const featuredProjects = [
+            {
+                "appName": "DG Terra",
+                "teamName": "Team 09",
+                "badge": "Top three",
+                "category": "Renewable energy",
+                "tagline": "Game simulation for developing renewable energy based on statistical data",
+                "description": "DG Terra lets players explore how renewable energy projects can be developed using real statistical data. The simulation helps users scout sites, plan installations, and understand the tradeoffs behind solar and wind decisions.",
+                "screenshotPath": "/hack26/project_images/dgterra.png",
+                "screenshotAlt": "DG Terra app screenshot"
+            },
+            {
+                "appName": "MatchUp",
+                "teamName": "Team Tholeani",
+                "badge": "Top three",
+                "category": "Student opportunity matching",
+                "tagline": "AI matching for internships, competitions, and hackathons",
+                "description": "MatchUp connects high school students with opportunities that fit their skills and achievements. Students build a profile, then the platform scores internships, competitions, and hackathons so they can focus on the best matches.",
+                "screenshotPath": "/hack26/project_images/Matchup.png",
+                "screenshotAlt": "MatchUp app screenshot"
+            },
+            {
+                "appName": "PassionPath",
+                "teamName": "Team 08",
+                "badge": "Top three",
+                "category": "Community volunteering",
+                "tagline": "Volunteer matching for people in Santiago",
+                "description": "PassionPath helps people find volunteer work and community projects that match what they care about, where they live, and what they can commit to. It scores nearby NGOs and initiatives so users can act without digging through scattered websites.",
+                "screenshotPath": "/hack26/project_images/Passionpath.png",
+                "screenshotAlt": "PassionPath app screenshot"
+            }
+        ];
 
-	        // Rotating front-page message
-	        (function setFrontpageMessage() {
-	            const el = document.getElementById('frontpage-message');
-	            const messages = window.FRONTPAGE_MESSAGES;
-	            if (!el || !Array.isArray(messages) || messages.length === 0) return;
-	            const storageKey = 'frontpage_message_index';
-	            let lastIndex = null;
-	            try {
-	                const stored = localStorage.getItem(storageKey);
-	                if (stored !== null) lastIndex = Number(stored);
-	            } catch { /* ignore */ }
+        (function initProjectCarousel() {
+            const track = document.getElementById('project-track');
+            const prev = document.getElementById('project-prev');
+            const next = document.getElementById('project-next');
+            const dots = document.getElementById('project-dots');
+            if (!track || !prev || !next || !dots) return;
 
-	            let index = Math.floor(Math.random() * messages.length);
-	            if (messages.length > 1 && Number.isFinite(lastIndex)) {
-	                let attempts = 0;
-	                while (index === lastIndex && attempts < 10) {
-	                    index = Math.floor(Math.random() * messages.length);
-	                    attempts++;
-	                }
-	            }
+            const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[char]));
 
-	            el.textContent = messages[index];
-	            try { localStorage.setItem(storageKey, String(index)); } catch { /* ignore */ }
-	        })();
-
-        async function handleSubmission(formId, messageId, intent) {
-            const form = document.getElementById(formId);
-            const msg = document.getElementById(messageId);
-            
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const btn = form.querySelector('button');
-                const btnText = btn.querySelector('.btn-text');
-                
-                // Loading state
-                btn.disabled = true;
-                const originalText = btnText.innerText;
-                btnText.innerHTML = `<span class="spinner"></span> Sending...`;
-                
-                const formData = new FormData(form);
-                const data = Object.fromEntries(formData);
-                data.intent = intent;
-                data.timestamp = new Date().toISOString();
-
-                try {
-                    // Using no-cors as per original setup for Google Apps Script
-                    await fetch(endpoint, { 
-                        method: "POST", 
-                        mode: "no-cors", 
-                        body: JSON.stringify(data) 
-                    });
-                    
-                    msg.innerText = "Success! We'll be in touch shortly.";
-                    msg.classList.remove('hidden');
-                    form.reset();
-                } catch (e) { 
-                    console.error(e);
-                    msg.innerText = "Error. Please try again later.";
-                    msg.classList.remove('hidden', 'bg-green-50', 'text-green-700');
-                    msg.classList.add('bg-red-50', 'text-red-700');
-                } finally {
-                    btn.disabled = false;
-                    btnText.innerText = originalText;
+            const projectMedia = (project) => {
+                if (project.screenshotPath) {
+                    return `
+                        <img
+                            src="${escapeHtml(project.screenshotPath)}"
+                            alt="${escapeHtml(project.screenshotAlt || `${project.appName} app screenshot`)}"
+                            class="w-full h-full min-h-[180px] object-cover rounded-lg"
+                            loading="lazy"
+                        >
+                    `;
                 }
-            });
-        }
 
-        // Initialize form handlers
-        handleSubmission('signupForm', 'formMessage', 'participant_signup');
-        handleSubmission('sponsorForm', 'sponsorMessage', 'sponsor_interest');
+                return `
+                    <div class="project-media rounded-lg bg-slate-50 flex items-center justify-center px-6 py-10 text-center">
+                        <span class="text-xs uppercase tracking-[0.25em] font-bold text-slate-400">Screenshot coming soon</span>
+                    </div>
+                `;
+            };
+
+            track.innerHTML = featuredProjects.map((project) => `
+                <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-4 mb-6">
+                            <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">${escapeHtml(project.badge)}</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-slate-400">${escapeHtml(project.category)}</span>
+                        </div>
+                        <div class="mb-8">
+                            ${projectMedia(project)}
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">${escapeHtml(project.appName)}</h3>
+                        <p class="font-bold text-[#002365] mb-5">${escapeHtml(project.tagline)}</p>
+                        <p class="text-slate-600 leading-relaxed text-lg">${escapeHtml(project.description)}</p>
+                    </div>
+                    <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">${escapeHtml(project.teamName)}</p>
+                </article>
+            `).join('');
+
+            const cards = Array.from(track.querySelectorAll('.project-card'));
+            const getCardStep = () => {
+                if (cards.length < 2) return cards[0]?.getBoundingClientRect().width || 0;
+                return cards[1].offsetLeft - cards[0].offsetLeft;
+            };
+
+            const updateDots = () => {
+                const step = getCardStep();
+                const activeIndex = step ? Math.round(track.scrollLeft / step) : 0;
+                dots.querySelectorAll('button').forEach((dot, index) => {
+                    dot.setAttribute('aria-current', index === activeIndex ? 'true' : 'false');
+                });
+            };
+
+            cards.forEach((card, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'project-dot w-9 h-9 rounded-lg border border-slate-300 bg-white text-xs font-mono font-bold text-slate-500 transition-colors';
+                dot.textContent = String(index + 1).padStart(2, '0');
+                dot.setAttribute('aria-label', `Show project ${index + 1}: ${card.querySelector('h3').textContent}`);
+                dot.addEventListener('click', () => card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' }));
+                dots.appendChild(dot);
+            });
+
+            prev.addEventListener('click', () => track.scrollBy({ left: -getCardStep(), behavior: 'smooth' }));
+            next.addEventListener('click', () => track.scrollBy({ left: getCardStep(), behavior: 'smooth' }));
+            track.addEventListener('scroll', updateDots, { passive: true });
+            window.addEventListener('resize', updateDots);
+            updateDots();
+        })();
 
         // Countdown Logic
-        const hackathonDate = new Date("April 10, 2026 15:30:00").getTime();
-	        setInterval(() => {
-	            const now = new Date().getTime();
-	            const distance = hackathonDate - now;
-	            
-	            if (distance < 0) return;
+        const countdownEls = {
+            days: document.getElementById("days"),
+            hours: document.getElementById("hours"),
+            minutes: document.getElementById("minutes"),
+            seconds: document.getElementById("seconds")
+        };
+        if (Object.values(countdownEls).every(Boolean)) {
+            const hackathonDate = new Date("April 10, 2026 15:30:00").getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const distance = hackathonDate - now;
+                
+                if (distance < 0) return;
 
-	            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-	            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-	            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-	            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
-	        }, 1000);
+                countdownEls.days.innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                countdownEls.hours.innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                countdownEls.minutes.innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                countdownEls.seconds.innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }, 1000);
+        }
 
         function openModal(id) { 
             document.getElementById(id).classList.add('open'); 

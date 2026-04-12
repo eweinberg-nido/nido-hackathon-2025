@@ -6,7 +6,7 @@
 
 ## Team 01 — Impact
 
-**Team Dafne** (Rodrigo Danus, Ethan Mackay, Joaquin del Pino)
+**Team Dafne** 
 
 [GitHub](https://github.com/okostec-events/nido_hack_26_team-01)
 
