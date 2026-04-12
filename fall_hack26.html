@@ -165,9 +165,14 @@
         }
 
         .project-card {
-            flex: 0 0 min(88vw, 420px);
-            min-height: 400px;
+            flex: 0 0 min(90vw, 540px);
+            min-height: 520px;
             scroll-snap-align: start;
+        }
+
+        .project-media {
+            min-height: 180px;
+            border: 1px dashed rgba(0, 35, 101, 0.22);
         }
 
         .project-index {
@@ -250,9 +255,7 @@
                 <div class="glass-card px-5 py-4 flex items-center justify-center min-w-[180px]">
                     <img src="images/Sponsors/NotCo.png" alt="NotCo Logo" class="h-24 w-auto max-w-[220px] object-contain">
                 </div>
-                <div class="glass-card hidden px-8 py-4 flex items-center justify-center min-h-[112px] min-w-[220px] border border-dashed border-slate-300">
-                    <span class="text-slate-400 text-sm uppercase tracking-widest font-bold">More Soon</span>
-                </div>
+                
             </div>
         </div>
 
@@ -267,9 +270,7 @@
                 <div>
                     <span class="tech-label mb-4">Project_Showcase</span>
                     <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Apps built this weekend</h2>
-                    <p class="text-lg text-slate-600 max-w-3xl">
-                        Student teams shipped working ideas for impact tracking, opportunity matching, habits, onboarding, volunteering, energy planning, and learning.
-                    </p>
+                    <
                 </div>
                 <div class="flex items-center gap-3">
                     <button id="project-prev" type="button" class="bg-white border-2 border-slate-200 text-slate-700 px-5 py-3 rounded-lg font-bold hover:border-[#8A1621] hover:text-[#8A1621] transition-all">
@@ -282,119 +283,7 @@
             </div>
 
             <div class="relative">
-                <div id="project-track" class="project-track" tabindex="0" aria-label="Hackathon project carousel">
-                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between gap-4 mb-8">
-                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 01</span>
-                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Impact</span>
-                            </div>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">Impact</h3>
-                            <p class="text-slate-600 leading-relaxed text-lg">
-                                Impact helps companies and municipalities prove their environmental and social work in real time. Teams can track concrete actions and show public impact through evidence instead of end-of-year claims.
-                            </p>
-                        </div>
-                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Team Dafne</p>
-                    </article>
-
-                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between gap-4 mb-8">
-                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 03</span>
-                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Learning</span>
-                            </div>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">Course Finder + AI Tutor</h3>
-                            <p class="text-slate-600 leading-relaxed text-lg">
-                                A search platform for finding strong online courses or videos on any topic, paired with an AI tutor that answers questions about the material while you watch or read.
-                            </p>
-                        </div>
-                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Curated learning paths</p>
-                    </article>
-
-                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between gap-4 mb-8">
-                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 04</span>
-                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Opportunity</span>
-                            </div>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">MatchUp</h3>
-                            <p class="text-slate-600 leading-relaxed text-lg">
-                                MatchUp connects high school students with internships, competitions, and hackathons that fit their skills and achievements, using AI to score each opportunity before they apply.
-                            </p>
-                        </div>
-                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Team Tholeani</p>
-                    </article>
-
-                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between gap-4 mb-8">
-                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 05</span>
-                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">School Life</span>
-                            </div>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">Student Agenda</h3>
-                            <p class="text-slate-600 leading-relaxed text-lg">
-                                A browser-based planner for students who still need homework, deadlines, and announcements when phones are not available at school. It supports custom schedules and spreadsheet import or export.
-                            </p>
-                        </div>
-                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Team Craighouse Techs</p>
-                    </article>
-
-                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between gap-4 mb-8">
-                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 06</span>
-                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Habits</span>
-                            </div>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">Hobbyist</h3>
-                            <p class="text-slate-600 leading-relaxed text-lg">
-                                Hobbyist helps people replace addictive habits with hobbies that fit their schedule, budget, and physical situation. A short questionnaire leads to concrete activities and progress rewards.
-                            </p>
-                        </div>
-                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Behavior change</p>
-                    </article>
-
-                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between gap-4 mb-8">
-                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 07</span>
-                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Onboarding</span>
-                            </div>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">Brujula</h3>
-                            <p class="text-slate-600 leading-relaxed text-lg">
-                                Brujula guides immigrants and tourists through Chilean legal registration, banking, housing, and health-service steps in the right order so important paperwork does not fall through the cracks.
-                            </p>
-                        </div>
-                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Chile arrival guide</p>
-                    </article>
-
-                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between gap-4 mb-8">
-                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 08</span>
-                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Community</span>
-                            </div>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">PassionPath</h3>
-                            <p class="text-slate-600 leading-relaxed text-lg">
-                                PassionPath helps people in Santiago find volunteer work and community projects that match their causes, location, time, and budget, with fit scores for nearby NGOs and initiatives.
-                            </p>
-                        </div>
-                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Volunteer matching</p>
-                    </article>
-
-                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between gap-4 mb-8">
-                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 09</span>
-                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Energy</span>
-                            </div>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">GridScope</h3>
-                            <p class="text-slate-600 leading-relaxed text-lg">
-                                GridScope is an interactive sandbox for planning renewable energy projects, using a SimCity-like flow to scout sites, design installations, and generate impact reports.
-                            </p>
-                        </div>
-                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Renewable planning</p>
-                    </article>
-                </div>
+                <div id="project-track" class="project-track" tabindex="0" aria-label="Top three hackathon project carousel"></div>
             </div>
 
             <div id="project-dots" class="flex flex-wrap justify-center gap-2 mt-6" aria-label="Project carousel pages"></div>
@@ -451,80 +340,39 @@
         </div>
     </div>
 
-    <script src="hack26/js/frontpage-messages.js"></script>
-    <script>
-        const endpoint = "https://script.google.com/macros/s/AKfycbxw2QtzEYEG1YkYrMXLP1DgBHkF5W3oyO2QweWuLZSWpanc1UVvAe6SRgrzi9uQUKY/exec";
-
-	        // Rotating front-page message
-	        (function setFrontpageMessage() {
-	            const el = document.getElementById('frontpage-message');
-	            const messages = window.FRONTPAGE_MESSAGES;
-	            if (!el || !Array.isArray(messages) || messages.length === 0) return;
-	            const storageKey = 'frontpage_message_index';
-	            let lastIndex = null;
-	            try {
-	                const stored = localStorage.getItem(storageKey);
-	                if (stored !== null) lastIndex = Number(stored);
-	            } catch { /* ignore */ }
-
-	            let index = Math.floor(Math.random() * messages.length);
-	            if (messages.length > 1 && Number.isFinite(lastIndex)) {
-	                let attempts = 0;
-	                while (index === lastIndex && attempts < 10) {
-	                    index = Math.floor(Math.random() * messages.length);
-	                    attempts++;
-	                }
-	            }
-
-	            el.textContent = messages[index];
-	            try { localStorage.setItem(storageKey, String(index)); } catch { /* ignore */ }
-	        })();
-
-        async function handleSubmission(formId, messageId, intent) {
-            const form = document.getElementById(formId);
-            const msg = document.getElementById(messageId);
-            
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const btn = form.querySelector('button');
-                const btnText = btn.querySelector('.btn-text');
-                
-                // Loading state
-                btn.disabled = true;
-                const originalText = btnText.innerText;
-                btnText.innerHTML = `<span class="spinner"></span> Sending...`;
-                
-                const formData = new FormData(form);
-                const data = Object.fromEntries(formData);
-                data.intent = intent;
-                data.timestamp = new Date().toISOString();
-
-                try {
-                    // Using no-cors as per original setup for Google Apps Script
-                    await fetch(endpoint, { 
-                        method: "POST", 
-                        mode: "no-cors", 
-                        body: JSON.stringify(data) 
-                    });
-                    
-                    msg.innerText = "Success! We'll be in touch shortly.";
-                    msg.classList.remove('hidden');
-                    form.reset();
-                } catch (e) { 
-                    console.error(e);
-                    msg.innerText = "Error. Please try again later.";
-                    msg.classList.remove('hidden', 'bg-green-50', 'text-green-700');
-                    msg.classList.add('bg-red-50', 'text-red-700');
-                } finally {
-                    btn.disabled = false;
-                    btnText.innerText = originalText;
-                }
-            });
-        }
-
-        // Initialize form handlers
-        handleSubmission('signupForm', 'formMessage', 'participant_signup');
-        handleSubmission('sponsorForm', 'sponsorMessage', 'sponsor_interest');
+<script>
+        const featuredProjects = [
+            {
+                "appName": "DG Terra",
+                "teamName": "Team 09",
+                "badge": "Top three",
+                "category": "Renewable energy",
+                "tagline": "Game simulation for developing renewable energy based on statistical data",
+                "description": "DG Terra lets players explore how renewable energy projects can be developed using real statistical data. The simulation helps users scout sites, plan installations, and understand the tradeoffs behind solar and wind decisions.",
+                "screenshotPath": "",
+                "screenshotAlt": "DG Terra app screenshot"
+            },
+            {
+                "appName": "MatchUp",
+                "teamName": "Team Tholeani",
+                "badge": "Top three",
+                "category": "Student opportunity matching",
+                "tagline": "AI matching for internships, competitions, and hackathons",
+                "description": "MatchUp connects high school students with opportunities that fit their skills and achievements. Students build a profile, then the platform scores internships, competitions, and hackathons so they can focus on the best matches.",
+                "screenshotPath": "",
+                "screenshotAlt": "MatchUp app screenshot"
+            },
+            {
+                "appName": "PassionPath",
+                "teamName": "Team 08",
+                "badge": "Top three",
+                "category": "Community volunteering",
+                "tagline": "Volunteer matching for people in Santiago",
+                "description": "PassionPath helps people find volunteer work and community projects that match what they care about, where they live, and what they can commit to. It scores nearby NGOs and initiatives so users can act without digging through scattered websites.",
+                "screenshotPath": "",
+                "screenshotAlt": "PassionPath app screenshot"
+            }
+        ];
 
         (function initProjectCarousel() {
             const track = document.getElementById('project-track');
@@ -532,6 +380,51 @@
             const next = document.getElementById('project-next');
             const dots = document.getElementById('project-dots');
             if (!track || !prev || !next || !dots) return;
+
+            const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[char]));
+
+            const projectMedia = (project) => {
+                if (project.screenshotPath) {
+                    return `
+                        <img
+                            src="${escapeHtml(project.screenshotPath)}"
+                            alt="${escapeHtml(project.screenshotAlt || `${project.appName} app screenshot`)}"
+                            class="w-full h-full min-h-[180px] object-cover rounded-lg"
+                            loading="lazy"
+                        >
+                    `;
+                }
+
+                return `
+                    <div class="project-media rounded-lg bg-slate-50 flex items-center justify-center px-6 py-10 text-center">
+                        <span class="text-xs uppercase tracking-[0.25em] font-bold text-slate-400">Screenshot coming soon</span>
+                    </div>
+                `;
+            };
+
+            track.innerHTML = featuredProjects.map((project) => `
+                <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-4 mb-6">
+                            <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">${escapeHtml(project.badge)}</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-slate-400">${escapeHtml(project.category)}</span>
+                        </div>
+                        <div class="mb-8">
+                            ${projectMedia(project)}
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">${escapeHtml(project.appName)}</h3>
+                        <p class="font-bold text-[#002365] mb-5">${escapeHtml(project.tagline)}</p>
+                        <p class="text-slate-600 leading-relaxed text-lg">${escapeHtml(project.description)}</p>
+                    </div>
+                    <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">${escapeHtml(project.teamName)}</p>
+                </article>
+            `).join('');
 
             const cards = Array.from(track.querySelectorAll('.project-card'));
             const getCardStep = () => {
