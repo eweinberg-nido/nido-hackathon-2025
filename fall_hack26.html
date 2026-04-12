@@ -150,6 +150,36 @@
             gap: 1.5rem;
         }
 
+        .project-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 0.5rem 0.25rem 1.5rem;
+            scrollbar-width: none;
+        }
+
+        .project-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-card {
+            flex: 0 0 min(88vw, 420px);
+            min-height: 400px;
+            scroll-snap-align: start;
+        }
+
+        .project-index {
+            border: 1px solid rgba(138, 22, 33, 0.18);
+        }
+
+        .project-dot[aria-current="true"] {
+            background: var(--brand-maroon);
+            color: white;
+            border-color: var(--brand-maroon);
+        }
+
         @media (max-width: 768px) {
             .bento-grid { grid-template-columns: repeat(2, 1fr); }
         }
@@ -192,43 +222,11 @@
 	                April 10 - 11, 2026 <span class="mx-2 text-gray-300">|</span>hosted by Universidad de Desarrollo
 	            </p>
 
-	            <div class="flex flex-wrap justify-center gap-6 mb-16">
-	                <div class="sticky-note countdown-card note-1 px-8 py-6 rounded-lg">
-	                    <span id="days" class="block text-5xl font-mono font-bold text-slate-900">00</span>
-	                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Days</span>
-	                </div>
-	                <div class="sticky-note countdown-card note-2 px-8 py-6 rounded-lg">
-	                    <span id="hours" class="block text-5xl font-mono font-bold text-slate-900">00</span>
-	                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Hours</span>
-	                </div>
-	                <div class="sticky-note countdown-card note-3 px-8 py-6 rounded-lg">
-	                    <span id="minutes" class="block text-5xl font-mono font-bold text-slate-900">00</span>
-	                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Mins</span>
-	                </div>
-	                <div class="sticky-note countdown-card note-4 px-8 py-6 rounded-lg">
-	                    <span id="seconds" class="block text-5xl font-mono font-bold text-slate-900">00</span>
-	                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Secs</span>
-	                </div>
-	            </div>
-
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center hidden">
-                <button onclick="openModal('participant-modal')" class="btn-primary text-white px-12 py-5 rounded-full font-bold text-lg shadow-2xl hover:scale-105 transition-all w-full sm:w-auto">
-                    Register to Participate
-                </button>
-                <button onclick="openModal('sponsor-modal')" class="bg-white border-2 border-slate-200 text-slate-700 px-12 py-5 rounded-full font-bold text-lg hover:bg-slate-50 transition-all w-full sm:w-auto">
-                    Become a Sponsor
-                </button>
-            </div>
-        </div>
-    </section>
-<section id="sponsor" class="py-32 bg-white/60 border-y border-gray-200">
-        <div class="container mx-auto px-6">
+	            <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Sponsors</h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                    We are grateful to our sponsors for helping make this event possible!
-                </p>
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Presented by:</h2>
+               
             </div>
             <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 max-w-6xl mx-auto">
                 <div class="glass-card px-5 py-4 flex items-center justify-center min-w-[180px]">
@@ -257,66 +255,151 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section id="about" class="py-32 bg-white/50 border-y border-gray-200">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-16">
-                <div class="md:w-1/2">
-                    <span class="tech-label mb-4">The Mission</span>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-8 text-slate-900">What is a Hackathon?</h2>
-                    <p class="text-xl text-slate-600 leading-relaxed mb-6">
-                        A hackathon is an event where people collaborate to develop creative solutions to real-world problems in a limited time. At our event, students will be using AI technology to build software solutions to problems they identify in the world.
-                    </p>
-                    <div class="bg-[#8A1621]/5 border-l-4 border-[#8A1621] p-6 mb-8">
-                        <p class="font-bold text-[#8A1621] text-lg">For Students By Students: Leveraging AI Innovation</p>
-                    </div>
-                </div>
-                <div class="md:w-1/2 relative">
-                    <div class="polaroid-frame max-w-sm mx-auto">
-                        <div class="bg-slate-200 aspect-square rounded mb-2 overflow-hidden">
-                            <img
-                                src="images/Event%20photos/IMG_0205.JPG"
-                                alt="Nido Hackathon event photo"
-                                class="w-full h-full object-cover"
-                                loading="lazy"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="py-32">
-        <div class="container mx-auto px-6">
-            <span class="tech-label mb-12 block text-center">Impact_Report_v2.0</span>
             
-            <div class="bento-grid">
-                <div class="glass-card col-span-2 row-span-2 p-10 flex flex-col justify-end border-b-8 border-b-[#002365]">
-                    <h3 class="text-8xl font-black text-[#002365] mb-4">40</h3>
-                    <p class="text-2xl font-bold text-slate-800 uppercase tracking-tight">Attendees</p>
-                    <p class="text-slate-500 mt-2">Connecting Chile's brightest student innovators with global industry experts.</p>
-                </div>
-                <div class="glass-card col-span-2 p-8 flex items-center justify-between">
-                    <div>
-                        <h3 class="text-5xl font-black text-[#8A1621]">11</h3>
-                        <p class="font-bold text-slate-800 uppercase text-sm tracking-widest">Projects Shipped</p>
-                    </div>
-                    <div class="text-4xl">🚀</div>
-                </div>
-                <div class="glass-card col-span-1 p-8 border-t-4 border-t-[#8A1621]">
-                    <h3 class="text-5xl font-black text-[#8A1621]">4</h3>
-                    <p class="font-bold text-slate-800 text-sm uppercase">Internships</p>
-                </div>
-                <a href="previous-hackathon.html" aria-label="Open the hackathon archive" class="glass-card col-span-1 p-8 bg-[#002365] text-white cursor-pointer block">
-                    <h3 class="text-2xl font-bold mb-2 italic"> ->Prev. Hackathon<- </h3>
-                    <p class="text-xs opacity-70 font-mono">- Photos and testimonials from the previous hackathon</p>
-                </a>
-            </div>
         </div>
     </section>
 
-    
+
+    <section id="projects" class="py-24 bg-white/70 border-y border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
+                <div>
+                    <span class="tech-label mb-4">Project_Showcase</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Apps built this weekend</h2>
+                    <p class="text-lg text-slate-600 max-w-3xl">
+                        Student teams shipped working ideas for impact tracking, opportunity matching, habits, onboarding, volunteering, energy planning, and learning.
+                    </p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="project-prev" type="button" class="bg-white border-2 border-slate-200 text-slate-700 px-5 py-3 rounded-lg font-bold hover:border-[#8A1621] hover:text-[#8A1621] transition-all">
+                        Prev
+                    </button>
+                    <button id="project-next" type="button" class="bg-[#002365] text-white px-5 py-3 rounded-lg font-bold hover:bg-[#001a4d] transition-all">
+                        Next
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div id="project-track" class="project-track" tabindex="0" aria-label="Hackathon project carousel">
+                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-8">
+                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 01</span>
+                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Impact</span>
+                            </div>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">Impact</h3>
+                            <p class="text-slate-600 leading-relaxed text-lg">
+                                Impact helps companies and municipalities prove their environmental and social work in real time. Teams can track concrete actions and show public impact through evidence instead of end-of-year claims.
+                            </p>
+                        </div>
+                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Team Dafne</p>
+                    </article>
+
+                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-8">
+                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 03</span>
+                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Learning</span>
+                            </div>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">Course Finder + AI Tutor</h3>
+                            <p class="text-slate-600 leading-relaxed text-lg">
+                                A search platform for finding strong online courses or videos on any topic, paired with an AI tutor that answers questions about the material while you watch or read.
+                            </p>
+                        </div>
+                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Curated learning paths</p>
+                    </article>
+
+                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-8">
+                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 04</span>
+                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Opportunity</span>
+                            </div>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">MatchUp</h3>
+                            <p class="text-slate-600 leading-relaxed text-lg">
+                                MatchUp connects high school students with internships, competitions, and hackathons that fit their skills and achievements, using AI to score each opportunity before they apply.
+                            </p>
+                        </div>
+                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Team Tholeani</p>
+                    </article>
+
+                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-8">
+                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 05</span>
+                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">School Life</span>
+                            </div>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">Student Agenda</h3>
+                            <p class="text-slate-600 leading-relaxed text-lg">
+                                A browser-based planner for students who still need homework, deadlines, and announcements when phones are not available at school. It supports custom schedules and spreadsheet import or export.
+                            </p>
+                        </div>
+                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Team Craighouse Techs</p>
+                    </article>
+
+                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-8">
+                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 06</span>
+                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Habits</span>
+                            </div>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">Hobbyist</h3>
+                            <p class="text-slate-600 leading-relaxed text-lg">
+                                Hobbyist helps people replace addictive habits with hobbies that fit their schedule, budget, and physical situation. A short questionnaire leads to concrete activities and progress rewards.
+                            </p>
+                        </div>
+                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Behavior change</p>
+                    </article>
+
+                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-8">
+                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 07</span>
+                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Onboarding</span>
+                            </div>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">Brujula</h3>
+                            <p class="text-slate-600 leading-relaxed text-lg">
+                                Brujula guides immigrants and tourists through Chilean legal registration, banking, housing, and health-service steps in the right order so important paperwork does not fall through the cracks.
+                            </p>
+                        </div>
+                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Chile arrival guide</p>
+                    </article>
+
+                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-8">
+                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 08</span>
+                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Community</span>
+                            </div>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">PassionPath</h3>
+                            <p class="text-slate-600 leading-relaxed text-lg">
+                                PassionPath helps people in Santiago find volunteer work and community projects that match their causes, location, time, and budget, with fit scores for nearby NGOs and initiatives.
+                            </p>
+                        </div>
+                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Volunteer matching</p>
+                    </article>
+
+                    <article class="project-card glass-card rounded-lg p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-8">
+                                <span class="project-index font-mono text-xs font-bold tracking-widest text-[#8A1621] uppercase px-3 py-2 rounded">Team 09</span>
+                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Energy</span>
+                            </div>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mb-5">GridScope</h3>
+                            <p class="text-slate-600 leading-relaxed text-lg">
+                                GridScope is an interactive sandbox for planning renewable energy projects, using a SimCity-like flow to scout sites, design installations, and generate impact reports.
+                            </p>
+                        </div>
+                        <p class="mt-10 text-xs uppercase tracking-[0.25em] font-bold text-[#002365]">Renewable planning</p>
+                    </article>
+                </div>
+            </div>
+
+            <div id="project-dots" class="flex flex-wrap justify-center gap-2 mt-6" aria-label="Project carousel pages"></div>
+        </div>
+    </section>
 
     <footer class="py-20 bg-slate-950 text-slate-500 text-center border-t border-slate-900">
         <div class="container mx-auto px-6">
@@ -368,7 +451,7 @@
         </div>
     </div>
 
-    <script src="Hack%2026/js/frontpage-messages.js"></script>
+    <script src="hack26/js/frontpage-messages.js"></script>
     <script>
         const endpoint = "https://script.google.com/macros/s/AKfycbxw2QtzEYEG1YkYrMXLP1DgBHkF5W3oyO2QweWuLZSWpanc1UVvAe6SRgrzi9uQUKY/exec";
 
@@ -443,19 +526,65 @@
         handleSubmission('signupForm', 'formMessage', 'participant_signup');
         handleSubmission('sponsorForm', 'sponsorMessage', 'sponsor_interest');
 
-        // Countdown Logic
-        const hackathonDate = new Date("April 10, 2026 15:30:00").getTime();
-	        setInterval(() => {
-	            const now = new Date().getTime();
-	            const distance = hackathonDate - now;
-	            
-	            if (distance < 0) return;
+        (function initProjectCarousel() {
+            const track = document.getElementById('project-track');
+            const prev = document.getElementById('project-prev');
+            const next = document.getElementById('project-next');
+            const dots = document.getElementById('project-dots');
+            if (!track || !prev || !next || !dots) return;
 
-	            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-	            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-	            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-	            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
-	        }, 1000);
+            const cards = Array.from(track.querySelectorAll('.project-card'));
+            const getCardStep = () => {
+                if (cards.length < 2) return cards[0]?.getBoundingClientRect().width || 0;
+                return cards[1].offsetLeft - cards[0].offsetLeft;
+            };
+
+            const updateDots = () => {
+                const step = getCardStep();
+                const activeIndex = step ? Math.round(track.scrollLeft / step) : 0;
+                dots.querySelectorAll('button').forEach((dot, index) => {
+                    dot.setAttribute('aria-current', index === activeIndex ? 'true' : 'false');
+                });
+            };
+
+            cards.forEach((card, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'project-dot w-9 h-9 rounded-lg border border-slate-300 bg-white text-xs font-mono font-bold text-slate-500 transition-colors';
+                dot.textContent = String(index + 1).padStart(2, '0');
+                dot.setAttribute('aria-label', `Show project ${index + 1}: ${card.querySelector('h3').textContent}`);
+                dot.addEventListener('click', () => card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' }));
+                dots.appendChild(dot);
+            });
+
+            prev.addEventListener('click', () => track.scrollBy({ left: -getCardStep(), behavior: 'smooth' }));
+            next.addEventListener('click', () => track.scrollBy({ left: getCardStep(), behavior: 'smooth' }));
+            track.addEventListener('scroll', updateDots, { passive: true });
+            window.addEventListener('resize', updateDots);
+            updateDots();
+        })();
+
+        // Countdown Logic
+        const countdownEls = {
+            days: document.getElementById("days"),
+            hours: document.getElementById("hours"),
+            minutes: document.getElementById("minutes"),
+            seconds: document.getElementById("seconds")
+        };
+        if (Object.values(countdownEls).every(Boolean)) {
+            const hackathonDate = new Date("April 10, 2026 15:30:00").getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const distance = hackathonDate - now;
+                
+                if (distance < 0) return;
+
+                countdownEls.days.innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                countdownEls.hours.innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                countdownEls.minutes.innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                countdownEls.seconds.innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }, 1000);
+        }
 
         function openModal(id) { 
             document.getElementById(id).classList.add('open'); 
