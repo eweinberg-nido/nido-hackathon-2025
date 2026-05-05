@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AIdeatED Attendee Resources | Summit Links</title>
+    <meta
+      name="description"
+      content="Quick links for AIdeatED Summit attendees, including the opening Gemini Gem and AI tools for building resources, apps, images, narration, and prototypes."
+    />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://hackathon.nido.cl/aideated/resources.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AIdeatED Attendee Resources" />
+    <meta property="og:description" content="Conference resources and AI tool links for AIdeatED Summit attendees." />
+    <meta property="og:url" content="https://hackathon.nido.cl/aideated/resources.html" />
+    <meta property="og:image" content="https://hackathon.nido.cl/aideated/assets/AIdeate-blueprint.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AIdeatED Attendee Resources" />
+    <meta name="twitter:description" content="Conference resources and AI tool links for AIdeatED Summit attendees." />
+    <meta name="twitter:image" content="https://hackathon.nido.cl/aideated/assets/AIdeate-blueprint.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0f1724;
+        --bg-2: #162033;
+        --card: #182338;
+        --card-2: #1f2d45;
+        --text: #e7eefb;
+        --muted: #9fb0c9;
+        --primary: #3aa0ff;
+        --secondary: #6fb7ff;
+        --border: #2d3f5c;
+        --grid-line: rgba(255, 255, 255, 0.05);
+        --shadow: 0 18px 40px rgba(6, 12, 24, 0.35);
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top, #1a2740 0%, var(--bg) 45%, #0b1220 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "JetBrains Mono", "Inter", sans-serif;
+        letter-spacing: 0.02em;
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .top-bar {
+        height: 6px;
+        background: linear-gradient(90deg, #3aa0ff 0%, #5cc1ff 50%, #7fd8ff 100%);
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        backdrop-filter: blur(12px);
+        background: rgba(14, 20, 34, 0.85);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 76px;
+        gap: 20px;
+      }
+
+      .logo {
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 24px;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 15px;
+        color: var(--muted);
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--secondary);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 10px 18px;
+        border-radius: 10px;
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 15px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 0 10px 20px rgba(58, 160, 255, 0.25);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .btn:hover,
+      .btn:focus-visible {
+        transform: translateY(-2px);
+      }
+
+      .grid-bg {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .grid-bg::before,
+      .grid-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .grid-bg::before {
+        background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+        background-size: 32px 32px;
+        opacity: 0.65;
+      }
+
+      .grid-bg::after {
+        background: radial-gradient(circle at 78% 18%, rgba(58, 160, 255, 0.18), transparent 34%),
+          linear-gradient(180deg, rgba(15, 23, 36, 0), rgba(15, 23, 36, 0.84));
+      }
+
+      .hero {
+        padding: 92px 0 72px;
+      }
+
+      .hero-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 34px;
+        align-items: center;
+        grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.72fr);
+      }
+
+      .pill {
+        display: inline-flex;
+        gap: 12px;
+        align-items: center;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(20, 28, 44, 0.8);
+        font-family: "JetBrains Mono", sans-serif;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .pill .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--primary);
+        box-shadow: 0 0 10px rgba(58, 160, 255, 0.6);
+      }
+
+      .hero-title {
+        font-size: clamp(42px, 5vw, 72px);
+        line-height: 1.02;
+        margin: 22px 0 18px;
+      }
+
+      .hero-title span {
+        color: var(--primary);
+      }
+
+      .hero-copy {
+        max-width: 62ch;
+        font-size: 19px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .blueprint-card {
+        position: relative;
+        min-height: 360px;
+        border: 1px solid rgba(122, 183, 255, 0.38);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: rgba(15, 23, 36, 0.7);
+        box-shadow: var(--shadow);
+      }
+
+      .blueprint-card img {
+        width: 100%;
+        height: 100%;
+        min-height: 360px;
+        object-fit: cover;
+        display: block;
+        opacity: 0.78;
+      }
+
+      .blueprint-label {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        padding: 14px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        background: rgba(10, 17, 29, 0.78);
+        backdrop-filter: blur(8px);
+        font-family: "JetBrains Mono", sans-serif;
+        color: var(--secondary);
+      }
+
+      .section {
+        padding: 78px 0;
+      }
+
+      .section + .section {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .section-title {
+        display: grid;
+        gap: 12px;
+        max-width: 800px;
+        margin-bottom: 28px;
+      }
+
+      .section-title h2 {
+        font-size: clamp(30px, 3vw, 44px);
+        line-height: 1.08;
+      }
+
+      .section-title p {
+        font-size: 18px;
+      }
+
+      .featured-resource {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        padding: 30px;
+        border: 1px solid rgba(122, 183, 255, 0.48);
+        border-radius: var(--radius);
+        background: linear-gradient(135deg, rgba(31, 45, 69, 0.92), rgba(19, 28, 45, 0.92));
+        box-shadow: var(--shadow);
+      }
+
+      .featured-resource h3 {
+        font-size: clamp(24px, 2.4vw, 34px);
+        margin-bottom: 10px;
+      }
+
+      .resource-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .resource-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        padding: 24px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: rgba(20, 28, 44, 0.76);
+        box-shadow: 0 18px 30px rgba(8, 16, 30, 0.3);
+        overflow: hidden;
+      }
+
+      .resource-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+        background-size: 28px 28px;
+        opacity: 0.35;
+        pointer-events: none;
+      }
+
+      .resource-card > * {
+        position: relative;
+      }
+
+      .resource-card h3 {
+        font-size: 21px;
+        line-height: 1.22;
+        margin-bottom: 10px;
+      }
+
+      .resource-card p {
+        margin-bottom: 18px;
+      }
+
+      .link-list {
+        display: grid;
+        gap: 10px;
+        margin-top: auto;
+      }
+
+      .resource-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        min-height: 46px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.045);
+        color: #d9e8fb;
+        font-weight: 600;
+      }
+
+      .resource-link:hover,
+      .resource-link:focus-visible {
+        border-color: rgba(111, 183, 255, 0.7);
+        color: #fff;
+      }
+
+      .resource-link span:last-child {
+        color: var(--secondary);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 16px;
+      }
+
+      .note-band {
+        margin-top: 28px;
+        padding: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .framework-grid {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.75fr);
+        align-items: start;
+      }
+
+      .spark-panel,
+      .context-panel {
+        position: relative;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: rgba(20, 28, 44, 0.78);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .spark-panel {
+        padding: 28px;
+      }
+
+      .spark-word {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .spark-letter {
+        min-height: 170px;
+        padding: 18px 14px;
+        border: 1px solid rgba(122, 183, 255, 0.28);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .spark-letter strong {
+        display: block;
+        color: var(--secondary);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 34px;
+        line-height: 1;
+        margin-bottom: 12px;
+      }
+
+      .spark-letter h3 {
+        font-size: 15px;
+        margin-bottom: 8px;
+      }
+
+      .spark-letter p {
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .context-panel {
+        padding: 26px;
+      }
+
+      .context-columns {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 20px;
+      }
+
+      .context-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .context-list li {
+        display: flex;
+        gap: 10px;
+        color: var(--text);
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      .context-list li::before {
+        content: "";
+        flex: 0 0 auto;
+        width: 9px;
+        height: 9px;
+        margin-top: 6px;
+        border-radius: 999px;
+        background: var(--primary);
+        box-shadow: 0 0 12px rgba(58, 160, 255, 0.55);
+      }
+
+      .voice-panel {
+        margin-top: 24px;
+        display: grid;
+        gap: 22px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        padding: 24px;
+        border: 1px solid rgba(122, 183, 255, 0.38);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      footer {
+        padding: 38px 0;
+        border-top: 1px solid var(--border);
+        background: #0b1220;
+      }
+
+      .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        color: var(--muted);
+      }
+
+      .footer-title {
+        font-family: "JetBrains Mono", sans-serif;
+        color: var(--text);
+        font-size: 18px;
+        margin-bottom: 4px;
+      }
+
+      @media (max-width: 820px) {
+        .nav {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 16px 0;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          gap: 14px;
+          font-size: 14px;
+        }
+
+        .hero-grid,
+        .featured-resource,
+        .framework-grid,
+        .voice-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .spark-word,
+        .context-columns {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding: 64px 0 52px;
+        }
+
+        .blueprint-card,
+        .blueprint-card img {
+          min-height: 260px;
+        }
+
+        .section {
+          padding: 56px 0;
+        }
+
+        .featured-resource {
+          padding: 24px;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar"></div>
+    <header class="site-header">
+      <div class="container">
+        <div class="nav">
+          <a class="logo" href="index.html">A.IdeatED</a>
+          <nav class="nav-links" aria-label="Resources navigation">
+            <a href="index.html#about">About</a>
+            <a href="index.html#schedule">Schedule</a>
+            <a href="location.html">Location</a>
+            <a href="#opening">Opening Activity</a>
+            <a href="#tools">Tools</a>
+            <a href="#prompting">Prompting</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero grid-bg">
+        <div class="container hero-grid">
+          <div>
+            <div class="pill"><span class="dot"></span> Attendee links</div>
+            <h1 class="hero-title">AIdeatED <span>resources</span></h1>
+            <p class="hero-copy">
+              A working page for the conference links attendees will need during opening activities, tool explorations,
+              prototyping, and reflection.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#opening">Open Gemini Gem</a>
+              <a class="btn btn-secondary" href="#tools">Browse tools</a>
+            </div>
+          </div>
+          <div class="blueprint-card" aria-hidden="true">
+            <img src="assets/AIdeate-blueprint.png" alt="" />
+            <div class="blueprint-label">Build. Test. Share.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="opening" class="section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Opening Activity</h2>
+            <p>Use this Gemini Gem for the first shared activity of the summit.</p>
+          </div>
+          <div class="featured-resource">
+            <div>
+              <h3>Opening AIdeatED Gemini Gem</h3>
+              <p>
+                This shared Gem is the starting point for attendees. It opens in Gemini and may require participants to
+                sign in with a Google account.
+              </p>
+            </div>
+            <a
+              class="btn btn-primary"
+              href="https://gemini.google.com/gem/1tS-n8WB3QiQxvGSrW9ZkWuugWeOIIgHc?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Launch Gem
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="tools" class="section grid-bg">
+        <div class="container">
+          <div class="section-title">
+            <h2>Tools</h2>
+            <p>Links grouped by the kinds of resources and prototypes participants may create during the event.</p>
+          </div>
+
+          <div class="resource-grid">
+            <article class="resource-card">
+              <h3>Custom Chatbots</h3>
+              <p>Create focused assistants that hold instructions, examples, and a specific role for users.</p>
+              <div class="link-list">
+                <a class="resource-link" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer"><span>Gemini Gems</span><span>-&gt;</span></a>
+                <a class="resource-link" href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer"><span>Google AI Studio</span><span>-&gt;</span></a>
+              </div>
+            </article>
+
+            <article class="resource-card">
+              <h3>Interactive Resources</h3>
+              <p>Turn source documents and research collections into searchable, explainable learning materials.</p>
+              <div class="link-list">
+                <a class="resource-link" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer"><span>NotebookLM</span><span>-&gt;</span></a>
+              </div>
+            </article>
+
+            <article class="resource-card">
+              <h3>Single Page HTML Tools</h3>
+              <p>Build small, local tools that can live as one HTML file and run directly on a computer.</p>
+              <div class="link-list">
+                <a class="resource-link" href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer"><span>Google AI Studio</span><span>-&gt;</span></a>
+                <a class="resource-link" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer"><span>Gemini</span><span>-&gt;</span></a>
+                <a class="resource-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer"><span>ChatGPT</span><span>-&gt;</span></a>
+                <a class="resource-link" href="https://claude.ai/" target="_blank" rel="noopener noreferrer"><span>Claude</span><span>-&gt;</span></a>
+                <a class="resource-link" href="https://openai.com/codex" target="_blank" rel="noopener noreferrer"><span>Codex</span><span>-&gt;</span></a>
+                <a class="resource-link" href="https://www.anthropic.com/claude-code" target="_blank" rel="noopener noreferrer"><span>Claude Code</span><span>-&gt;</span></a>
+              </div>
+            </article>
+
+            <article class="resource-card">
+              <h3>Vibe Coding Apps</h3>
+              <p>Move from a description to a fuller website, prototype, or app with hosting and iteration support.</p>
+              <div class="link-list">
+                <a class="resource-link" href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer"><span>Google AI Studio</span><span>-&gt;</span></a>
+                <a class="resource-link" href="https://lovable.dev/" target="_blank" rel="noopener noreferrer"><span>Lovable</span><span>-&gt;</span></a>
+                <a class="resource-link" href="https://base44.com/" target="_blank" rel="noopener noreferrer"><span>Base44</span><span>-&gt;</span></a>
+                <a class="resource-link" href="https://openai.com/codex" target="_blank" rel="noopener noreferrer"><span>Codex</span><span>-&gt;</span></a>
+                <a class="resource-link" href="https://www.anthropic.com/claude-code" target="_blank" rel="noopener noreferrer"><span>Claude Code</span><span>-&gt;</span></a>
+              </div>
+            </article>
+
+            <article class="resource-card">
+              <h3>Image Generation</h3>
+              <p>Create visuals, examples, illustrations, and image edits for learning materials.</p>
+              <div class="link-list">
+                <a class="resource-link" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer"><span>Gemini Image Generation</span><span>-&gt;</span></a>
+                <a class="resource-link" href="https://chatgpt.com/images" target="_blank" rel="noopener noreferrer"><span>ChatGPT Images</span><span>-&gt;</span></a>
+              </div>
+            </article>
+
+            <article class="resource-card">
+              <h3>AI Narration &amp; Podcasts</h3>
+              <p>Create AI-generated voices, narration, audio summaries, and source-based overviews.</p>
+              <div class="link-list">
+                <a class="resource-link" href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer"><span>ElevenLabs</span><span>-&gt;</span></a>
+                <a class="resource-link" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer"><span>NotebookLM</span><span>-&gt;</span></a>
+              </div>
+            </article>
+          </div>
+
+          <div class="note-band">
+            <p>
+              Some tools may require individual accounts, school-managed access, or paid plans. Check privacy and data
+              rules before uploading student work, identifying information, or internal school documents.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="prompting" class="section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Prompting &amp; Context</h2>
+            <p>
+              Strong results come from giving an AI teammate the background, constraints, preferences, and examples it
+              needs to make good decisions.
+            </p>
+          </div>
+
+          <div class="framework-grid">
+            <article class="spark-panel">
+              <div class="pill"><span class="dot"></span> Hiring an AI teammate</div>
+              <h3 style="font-size: clamp(24px, 2.4vw, 34px); margin-top: 18px;">SPARK Framework</h3>
+              <p style="margin-top: 10px;">
+                Use SPARK to move beyond simple input-output prompting and clearly define the work you want an AI
+                teammate to help with.
+              </p>
+              <div class="spark-word" aria-label="SPARK framework">
+                <div class="spark-letter">
+                  <strong>S</strong>
+                  <h3>Situation</h3>
+                  <p>Describe the current state or context in which you are operating.</p>
+                </div>
+                <div class="spark-letter">
+                  <strong>P</strong>
+                  <h3>Problem</h3>
+                  <p>Identify the specific problem or challenge you are facing.</p>
+                </div>
+                <div class="spark-letter">
+                  <strong>A</strong>
+                  <h3>Aspiration</h3>
+                  <p>Articulate your desired outcome or vision for success.</p>
+                </div>
+                <div class="spark-letter">
+                  <strong>R</strong>
+                  <h3>Results</h3>
+                  <p>Define the specific, measurable results you hope to achieve.</p>
+                </div>
+                <div class="spark-letter">
+                  <strong>K</strong>
+                  <h3>Kismet</h3>
+                  <p>Add an element of serendipity, surprise, or creative possibility.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="context-panel">
+              <div class="pill"><span class="dot"></span> Useful context</div>
+              <h3 style="font-size: clamp(24px, 2.4vw, 34px); margin-top: 18px;">What to give the AI</h3>
+              <p style="margin-top: 10px;">
+                Content is only part of the work. The AI also needs the implicit structure behind your decisions.
+              </p>
+              <div class="context-columns">
+                <ul class="context-list">
+                  <li>Knowledge</li>
+                  <li>Information</li>
+                  <li>Data</li>
+                </ul>
+                <ul class="context-list">
+                  <li>Priorities</li>
+                  <li>Style guide</li>
+                  <li>Document formats</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="voice-panel">
+            <div>
+              <h3>Talk it through first</h3>
+              <p style="margin-top: 10px;">
+                For some people, speaking through the SPARK stages is more effective than writing a prompt from scratch.
+                Record your thinking, then paste or upload the transcript into the AI tool you are using.
+              </p>
+            </div>
+            <a
+              class="btn btn-secondary"
+              href="https://support.apple.com/guide/voice-memos/welcome/mac"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Voice Memos for macOS
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <div>
+          <div class="footer-title">A.IdeatED 2026</div>
+          <div style="color: var(--secondary); font-size: 12px; letter-spacing: 0.2em;">NIDO DE AGUILAS</div>
+        </div>
+        <p>Conference resources for attendees.<br /><span style="opacity: 0.6;">&copy; 2026 Nido de Aguilas</span></p>
+      </div>
+    </footer>
+  </body>
+</html>
