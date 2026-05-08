@@ -214,6 +214,19 @@
         color: var(--secondary);
       }
 
+      .nav-links .nav-highlight {
+        color: #111a27;
+        background: var(--text);
+        border-radius: 8px;
+        padding: 8px 12px;
+      }
+
+      .nav-links .nav-highlight:hover,
+      .nav-links .nav-highlight:focus-visible {
+        color: #111a27;
+        background: var(--secondary);
+      }
+
       .btn {
         display: inline-flex;
         align-items: center;
@@ -1055,6 +1068,7 @@
       <div class="container nav">
         <div class="logo">A.IdeatED</div>
         <nav class="nav-links">
+          <a class="nav-highlight" href="resources.html">Resources</a>
           <a href="#about">About</a>
           <a href="#strands">Strands</a>
           <a href="#schedule">Schedule</a>
