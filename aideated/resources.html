@@ -318,6 +318,47 @@
         margin-bottom: 10px;
       }
 
+      .showcase-resource {
+        display: grid;
+        gap: 26px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        padding: 34px;
+        border: 2px solid rgba(255, 255, 255, 0.86);
+        border-radius: var(--radius);
+        background: linear-gradient(135deg, #e7eefb, #b9dcff);
+        box-shadow: 0 22px 44px rgba(58, 160, 255, 0.28);
+        color: #111a27;
+      }
+
+      .showcase-resource h2,
+      .showcase-resource h3,
+      .showcase-resource p {
+        color: #111a27;
+      }
+
+      .showcase-resource h2 {
+        font-size: clamp(32px, 3.6vw, 52px);
+        line-height: 1.05;
+      }
+
+      .showcase-resource p {
+        font-size: 19px;
+        max-width: 62ch;
+      }
+
+      .showcase-resource .pill {
+        color: #111a27;
+        border-color: rgba(17, 26, 39, 0.22);
+        background: rgba(17, 26, 39, 0.06);
+      }
+
+      .showcase-resource .btn-primary {
+        background: #111a27;
+        color: #fff;
+        box-shadow: none;
+      }
+
       .resource-grid {
         display: grid;
         gap: 20px;
@@ -543,6 +584,7 @@
 
         .hero-grid,
         .featured-resource,
+        .showcase-resource,
         .framework-grid,
         .voice-panel {
           grid-template-columns: 1fr;
@@ -570,6 +612,10 @@
           padding: 24px;
         }
 
+        .showcase-resource {
+          padding: 26px;
+        }
+
         .footer-content {
           flex-direction: column;
           align-items: flex-start;
@@ -587,6 +633,7 @@
             <a href="index.html#about">About</a>
             <a href="index.html#schedule">Schedule</a>
             <a href="location.html">Location</a>
+            <a href="#showcase">Showcase</a>
             <a href="#opening">Opening Activity</a>
             <a href="#tools">Tools</a>
             <a href="#prompting">Prompting</a>
@@ -606,13 +653,36 @@
               prototyping, and reflection.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#opening">Open Gemini Gem</a>
+              <a class="btn btn-primary" href="#showcase">Open Showcase Deck</a>
+              <a class="btn btn-secondary" href="#opening">Open Gemini Gem</a>
               <a class="btn btn-secondary" href="#tools">Browse tools</a>
             </div>
           </div>
           <div class="blueprint-card" aria-hidden="true">
             <img src="assets/AIdeate-blueprint.png" alt="" />
             <div class="blueprint-label">Build. Test. Share.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="showcase" class="section">
+        <div class="container">
+          <div class="showcase-resource">
+            <div>
+              <div class="pill"><span class="dot"></span> Showcase now</div>
+              <h2 style="margin-top: 18px;">Showcase Slide Deck</h2>
+              <p style="margin-top: 14px;">
+                Add your group reflections, artifacts, and next-step thoughts here during the showcase portion.
+              </p>
+            </div>
+            <a
+              class="btn btn-primary"
+              href="https://docs.google.com/presentation/d/191C2cgF5L05MXELn-fuxF81sexSpMLQWPrZorDlF57o/edit?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Showcase Deck
+            </a>
           </div>
         </div>
       </section>
