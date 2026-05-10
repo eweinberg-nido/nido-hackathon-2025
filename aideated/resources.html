@@ -359,6 +359,21 @@
         box-shadow: none;
       }
 
+      .primary-resource-grid {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      }
+
+      .primary-resource-grid .showcase-resource {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .primary-resource-grid .btn {
+        width: max-content;
+      }
+
       .resource-grid {
         display: grid;
         gap: 20px;
@@ -634,6 +649,7 @@
             <a href="index.html#schedule">Schedule</a>
             <a href="location.html">Location</a>
             <a href="#showcase">Showcase</a>
+            <a href="#notebook">Notebook</a>
             <a href="#opening">Opening Activity</a>
             <a href="#tools">Tools</a>
             <a href="#prompting">Prompting</a>
@@ -654,6 +670,7 @@
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#showcase">Open Showcase Deck</a>
+              <a class="btn btn-primary" href="#notebook">Open NotebookLM</a>
               <a class="btn btn-secondary" href="#opening">Open Gemini Gem</a>
               <a class="btn btn-secondary" href="#tools">Browse tools</a>
             </div>
@@ -667,22 +684,43 @@
 
       <section id="showcase" class="section">
         <div class="container">
-          <div class="showcase-resource">
-            <div>
-              <div class="pill"><span class="dot"></span> Showcase now</div>
-              <h2 style="margin-top: 18px;">Showcase Slide Deck</h2>
-              <p style="margin-top: 14px;">
-                Add your group reflections, artifacts, and next-step thoughts here during the showcase portion.
-              </p>
+          <div class="primary-resource-grid">
+            <div class="showcase-resource">
+              <div>
+                <div class="pill"><span class="dot"></span> Showcase now</div>
+                <h2 style="margin-top: 18px;">Showcase Slide Deck</h2>
+                <p style="margin-top: 14px;">
+                  Add your group reflections, artifacts, and next-step thoughts here during the showcase portion.
+                </p>
+              </div>
+              <a
+                class="btn btn-primary"
+                href="https://docs.google.com/presentation/d/191C2cgF5L05MXELn-fuxF81sexSpMLQWPrZorDlF57o/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Showcase Deck
+              </a>
             </div>
-            <a
-              class="btn btn-primary"
-              href="https://docs.google.com/presentation/d/191C2cgF5L05MXELn-fuxF81sexSpMLQWPrZorDlF57o/edit?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open Showcase Deck
-            </a>
+
+            <div class="showcase-resource" id="notebook">
+              <div>
+                <div class="pill"><span class="dot"></span> Two-day workshop</div>
+                <h2 style="margin-top: 18px;">Workshop NotebookLM</h2>
+                <p style="margin-top: 14px;">
+                  Use this shared notebook for the full two-day workshop: sources, notes, synthesis, and follow-up
+                  questions.
+                </p>
+              </div>
+              <a
+                class="btn btn-primary"
+                href="https://notebooklm.google.com/notebook/0397b286-1f65-485d-8aa5-de47644d73eb"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open NotebookLM
+              </a>
+            </div>
           </div>
         </div>
       </section>
